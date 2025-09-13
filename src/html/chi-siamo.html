@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi siamo - Fili Di Creatività</title>
+    <meta name="description" content="Scopri la storia e la passione dietro Fili di Creatività.">
+    <meta name="author" content="Pietro">
+    <meta name="keywords" content="Chi siamo, artigianato, Fili di Creatività, handmade, candele, personalizzazioni">
+    <meta name="language" content="IT">
+    <meta name="robots" content="index, follow">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+
+    <!-- collegamento al CSS -->
+    <link rel="stylesheet" href="../css/chi-siamo.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Fili di Creatività</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="prodotti.html">Prodotti</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+                <li><a href="carrello.html">Carrello</a></li>
+                <li><a href="chi-siamo.html" class="active">Chi siamo</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">☰</div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="chi-siamo-hero">
+        <div class="chi-siamo-hero-text">
+            <h1>Chi siamo</h1>
+            <p>Una storia fatta di passione, creatività e artigianato.</p>
+        </div>
+    </section>
+
+    <!-- Contenuto principale -->
+    <section class="chi-siamo-main">
+        <div class="container">
+            <div class="text">
+                <h2>La nostra storia</h2>
+                <p>
+                    Fili di Creatività nasce dall’amore per le cose fatte a mano.  
+                    Ogni oggetto che realizziamo è unico, frutto di passione, dedizione e tanta fantasia.  
+                    Amiamo sperimentare materiali diversi e trasformarli in creazioni che possano emozionare.
+                </p>
+                <p>
+                    Dalle candele profumate alle personalizzazioni su misura, mettiamo cura in ogni dettaglio.  
+                    Ogni creazione è pensata per raccontare una storia, la tua storia.
+                </p>
+            </div>
+            <div class="image">
+                <img src="../../assets/img/chi-siamo-pagina.jpg" alt="Il nostro laboratorio">
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="mission">
+        <h2>La nostra missione</h2>
+        <p>
+            Vogliamo portare un tocco di creatività e calore nelle case delle persone,  
+            creando oggetti che non siano semplici decorazioni, ma ricordi preziosi.  
+            Ogni candela, ogni personalizzazione, ogni piccolo dettaglio è pensato per rendere speciale un momento.
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Fili di Creatività - Tutti i diritti riservati.</p>
+    </footer>
+
+    <!-- Script menu hamburger -->
+    <script>
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("navLinks");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    </script>
+</body>
+</html>

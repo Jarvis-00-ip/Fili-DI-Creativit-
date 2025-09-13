@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti - Fili Di Creatività</title>
+    <meta name="description" content="Entra in contatto con Fili di Creatività: domande, ordini, collaborazioni.">
+    <meta name="author" content="Pietro">
+    <meta name="keywords" content="contatti, contattaci, Fili di Creatività, email, telefono">
+    <meta name="language" content="IT">
+    <meta name="robots" content="index, follow">
+
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../css/contatti.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Fili di Creatività</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="prodotti.html">Prodotti</a></li>
+                <li><a href="contatti.html" class="active">Contatti</a></li>
+                <li><a href="carrello.html">Carrello</a></li>
+                <li><a href="chi-siamo.html">Chi siamo</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">☰</div>
+        </nav>
+    </header>
+
+    <!-- Hero / Intestazione -->
+    <section class="contatti-hero">
+        <div class="contatti-hero-text">
+            <h1>Contattaci</h1>
+            <p>Hai domande o vuoi realizzare qualcosa di speciale? Scrivici qui sotto.</p>
+        </div>
+    </section>
+
+    <!-- Form di contatto + Info -->
+    <section class="contatti-main">
+        <div class="container">
+            <div class="contact-info">
+                <h2>Le nostre info</h2>
+                <p><strong>Telefono:</strong> +39 123 456 789</p>
+                <p><strong>Email:</strong> info@filidicreativita.it</p>
+                <p><strong>Indirizzo:</strong> Via Esempio 12, Milano, Italia</p>
+            </div>
+            <div class="contact-form">
+                <form action="#" method="post">
+                    <label for="name">Nome e Cognome</label>
+                    <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="La tua email" required>
+
+                    <label for="subject">Oggetto</label>
+                    <input type="text" id="subject" name="subject" placeholder="Motivo del contatto">
+
+                    <label for="message">Messaggio</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Scrivici il tuo messaggio" required></textarea>
+
+                    <button type="submit" class="btn">Invia Messaggio</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Fili di Creatività - Tutti i diritti riservati.</p>
+    </footer>
+
+    <!-- Script menu hamburger -->
+    <script>
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("navLinks");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    </script>
+</body>
+</html>

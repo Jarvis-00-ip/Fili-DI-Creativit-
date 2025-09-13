@@ -1,0 +1,33 @@
+/* Stile per tutti i div */
+div {
+    color: red;
+    font-size: 3em; 
+    text-align: center;
+    background-color: rgb(24, 190, 250);
+
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Esempio di altri selettori */
+.selector {
+    propertycss1: value1;
+    propertycss2: value2;   
+    propertycss3: value3;
+}
+
+.selector2 {
+    propertycss1: value1;
+    propertycss2: value2;   
+    propertycss3: value3;
+}
+
+.selector3 {
+    propertycss1: value1;
+    propertycss2: value2;   
+    propertycss3: value3;
+}

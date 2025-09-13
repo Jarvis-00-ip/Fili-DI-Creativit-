@@ -1,0 +1,17 @@
+"Scheletro pagina Html5 non responsive": {
+      "prefix": "html5Udemy",
+      "body": [
+         "<!DOCTYPE html>",
+         "<html lang=\"it\">",
+         "\t<head>",
+         "\t\t<meta charset=\"UTF-8\">",
+         "\t\t<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
+         "\t\t<title></title>",
+         "\t</head>\n",
+         "\t<body>\n",
+         "\t\t",
+         "\t</body>",
+         "</html>"
+      ],
+      "description": "Template della pagina html senza responsivness"
+   }
