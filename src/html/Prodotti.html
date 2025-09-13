@@ -29,53 +29,142 @@
         </nav>
     </header>
 
-    <!-- Hero -->
-    <section class="prodotti-hero">
-        <div class="prodotti-hero-text">
-            <h1>I nostri prodotti</h1>
-            <p>Scopri tutte le nostre creazioni artigianali.</p>
-        </div>
-    </section>
-
-    <!-- Sezioni principali -->
-    <section class="prodotti-lista">
-        <div class="container">
+    <!-- Sezione prodotti principali -->
+    <section class="prodotti-main">
+        <h1>I nostri prodotti</h1>
+        <div class="prodotti-grid">
             <div class="prodotto-card">
-                <img src="../../assets/img/candele.jpg" alt="Candele artigianali">
-                <h2>Candele</h2>
-                <p>Candele profumate e decorative, fatte a mano con cura e amore.</p>
-                <a href="candele.html" class="btn">Scopri di più</a>
+                <a href="candele.html">
+                    <img src="../../assets/img/candele.jpg" alt="Candele artigianali">
+                    <h2>Candele</h2>
+                </a>
             </div>
-
             <div class="prodotto-card">
-                <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Personalizzazioni su tessuti">
-                <h2>Personalizzazioni su Tessuti</h2>
-                <p>Dai nuova vita ai tuoi vestiti o accessori con stampe e ricami personalizzati.</p>
-                <a href="personalizzazioni-tessuti.html" class="btn">Scopri di più</a>
+                <a href="personalizzazioni-tessuti.html">
+                    <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Personalizzazioni su tessuti">
+                    <h2>Tessuti</h2>
+                </a>
             </div>
-
             <div class="prodotto-card">
-                <img src="../../assets/img/personalizzazioni-oggettistica.jpg" alt="Personalizzazioni su oggettistica">
-                <h2>Personalizzazioni su Oggettistica</h2>
-                <p>Oggetti unici e decorazioni personalizzate, perfette per regali speciali.</p>
-                <a href="personalizzazioni-oggettistica.html" class="btn">Scopri di più</a>
+                <a href="personalizzazioni-oggettistica.html">
+                    <img src="../../assets/img/personalizzazioni-oggettistica.jpg" alt="Personalizzazioni su oggettistica">
+                    <h2>Oggettistica</h2>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Fili di Creatività - Tutti i diritti riservati.</p>
-    </footer>
+    <!-- Mini slideshow -->
+    <section class="slideshow" id="slideshow">
+        <div class="slides">
+            <img src="../../assets/img/candele.jpg" alt="Candele">
+            <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Tessuti">
+            <img src="../../assets/img/personalizzazioni-oggettistica.jpg" alt="Oggettistica">
+        </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+    </section>
+
+  <!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <!-- Contatti -->
+        <div class="footer-section">
+            <h3>Contatti</h3>
+            <p>
+                <a href="https://wa.me/39123456789" target="_blank">
+                    <img src="../../assets/img/whatsapp.png" alt="WhatsApp" class="icon"> WhatsApp
+                </a>
+            </p>
+            <p>
+                <a href="mailto:info@filidicreativita.com">
+                    <img src="../../assets/img/email.png" alt="Email" class="icon"> info@filidicreativita.com
+                </a>
+            </p>
+        </div>
+
+        <!-- Social -->
+        <div class="footer-section">
+            <h3>Seguici</h3>
+            <p>
+                <a href="https://instagram.com/filidicreativita" target="_blank">
+                    <img src="../../assets/img/instagram.png" alt="Instagram" class="icon"> Instagram
+                </a>
+            </p>
+            <p>
+                <a href="https://facebook.com/filidicreativita" target="_blank">
+                    <img src="../../assets/img/facebook.png" alt="Facebook" class="icon"> Facebook
+                </a>
+            </p>
+            <p>
+                <a href="https://tiktok.com/@filidicreativita" target="_blank">
+                    <img src="../../assets/img/tiktok.png" alt="TikTok" class="icon"> TikTok
+                </a>
+            </p>
+        </div>
+
+        <!-- Info -->
+        <div class="footer-section">
+            <h3>Info</h3>
+            <p>&copy; 2025 Fili di Creatività</p>
+            <p>Tutti i diritti riservati</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Termini & Condizioni</a></p>
+        </div>
+    </div>
+</footer>
+
+
 
     <!-- Script menu hamburger -->
     <script>
         const hamburger = document.getElementById("hamburger");
         const navLinks = document.getElementById("navLinks");
-
         hamburger.addEventListener("click", () => {
             navLinks.classList.toggle("active");
         });
+    </script>
+
+    <!-- Script slideshow -->
+    <script>
+        const slideshow = document.getElementById("slideshow");
+        const slides = slideshow.querySelector(".slides");
+        const images = slides.querySelectorAll("img");
+        const prevBtn = slideshow.querySelector(".prev");
+        const nextBtn = slideshow.querySelector(".next");
+
+        let index = 0;
+        let interval = setInterval(nextSlide, 4000);
+
+        function showSlide(i) {
+            index = (i + images.length) % images.length;
+            slides.style.transform = `translateX(${-index * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(index + 1);
+        }
+
+        function prevSlide() {
+            showSlide(index - 1);
+        }
+
+        nextBtn.addEventListener("click", () => {
+            nextSlide();
+            resetInterval();
+        });
+
+        prevBtn.addEventListener("click", () => {
+            prevSlide();
+            resetInterval();
+        });
+
+        function resetInterval() {
+            clearInterval(interval);
+            interval = setInterval(nextSlide, 4000);
+        }
+
+        slideshow.addEventListener("mouseenter", () => clearInterval(interval));
+        slideshow.addEventListener("mouseleave", () => resetInterval());
     </script>
 </body>
 </html>

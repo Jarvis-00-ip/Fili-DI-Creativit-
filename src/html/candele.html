@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candele - Fili di Creatività</title>
+  <meta name="description" content="Scopri la nostra collezione di candele artigianali realizzate a mano.">
+  <meta name="author" content="Pietro">
+
+  <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+  <!-- CSS comuni -->
+  <link rel="stylesheet" href="../css/common.css">
+  <!-- CSS specifico per candele -->
+  <link rel="stylesheet" href="../css/candele.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Fili di Creatività</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="prodotti.html">Prodotti</a></li>
+        <li><a href="candele.html" class="active">Candele</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+        <li><a href="carrello.html">Carrello</a></li>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">☰</div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="candele-hero">
+    <div class="hero-text">
+      <h1>Le nostre Candele</h1>
+      <p>Ogni candela è fatta a mano con amore e creatività ✨</p>
+    </div>
+  </section>
+
+  <!-- Prodotti -->
+  <section class="prodotti-candele">
+    <div class="prodotti-grid">
+
+      <!-- Prodotto 1 -->
+      <div class="prodotto-card">
+        <img src="../../assets/img/candele.jpg" alt="Candela Artigianale 2025">
+        <h2>Candela Artigianale 2025</h2>
+        <p class="price">10,00 €</p>
+        <button 
+          class="snipcart-add-item"
+          data-item-id="CND-25-001"
+          data-item-price="10.00"
+          data-item-url="https://filidicreativita.com/src/html/candele.html"
+          data-item-description="Candela profumata artigianale, edizione 2025"
+          data-item-image="../../assets/img/candele.jpg"
+          data-item-name="Candela Artigianale 2025">
+          🕯️ Aggiungi al Carrello
+        </button>
+      </div>
+
+      <!-- Prodotto 2 -->
+      <div class="prodotto-card">
+        <img src="../../assets/img/candele.jpg" alt="Candela Decorata 2025">
+        <h2>Candela Decorata 2025</h2>
+        <p class="price">12,00 €</p>
+        <button 
+          class="snipcart-add-item"
+          data-item-id="CND-25-002"
+          data-item-price="12.00"
+          data-item-url="https://filidicreativita.com/src/html/candele.html"
+          data-item-description="Candela decorata a mano, edizione 2025"
+          data-item-image="../../assets/img/candele.jpg"
+          data-item-name="Candela Decorata 2025">
+          🕯️ Aggiungi al Carrello
+        </button>
+      </div>
+
+      <!-- Prodotto 3 -->
+      <div class="prodotto-card">
+        <img src="../../assets/img/candele.jpg" alt="Candela Profumata Special">
+        <h2>Candela Profumata Special</h2>
+        <p class="price">15,00 €</p>
+        <button 
+          class="snipcart-add-item"
+          data-item-id="CND-25-003"
+          data-item-price="15.00"
+          data-item-url="https://filidicreativita.com/src/html/candele.html"
+          data-item-description="Candela profumata premium con fragranze uniche"
+          data-item-image="../../assets/img/candele.jpg"
+          data-item-name="Candela Profumata Special">
+          🕯️ Aggiungi al Carrello
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Contatti</h3>
+        <p><a href="https://wa.me/39123456789" target="_blank"><img src="../../assets/img/whatsapp.png" alt="WhatsApp" class="icon"> WhatsApp</a></p>
+        <p><a href="mailto:info@filidicreativita.com"><img src="../../assets/img/email.png" alt="Email" class="icon"> info@filidicreativita.com</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Seguici</h3>
+        <p><a href="#"><img src="../../assets/img/instagram.png" alt="Instagram" class="icon"> Instagram</a></p>
+        <p><a href="#"><img src="../../assets/img/facebook.png" alt="Facebook" class="icon"> Facebook</a></p>
+        <p><a href="#"><img src="../../assets/img/tiktok.png" alt="TikTok" class="icon"> TikTok</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Info</h3>
+        <p>&copy; 2025 Fili di Creatività</p>
+        <p>Tutti i diritti riservati</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script hamburger -->
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
+
+  <!-- Snipcart -->
+  <script>
+    window.SnipcartSettings = {
+      publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
+      loadStrategy: "on-user-interaction",
+      currency: "eur",
+      modalStyle: "side"
+    };
+  </script>
+  <script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
+  <div hidden id="snipcart" data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
+</body>
+</html>
