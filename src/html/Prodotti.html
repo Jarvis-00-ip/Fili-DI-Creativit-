@@ -1,21 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <title>Fili Di Creatività</title>
-    <meta name="description" content="Testa il sito">
-    <meta name="author" content="pietro">
-    <meta name="keywords" content="Fili di Creatività, oggetti personalizzati, regali artigianali, candele fatte a mano, creazioni in resina, vestiti personalizzati, accessori infanzia, accessori animali, handmade, artigianato creativo, oggettistica fatta a mano, personalizzazioni artigianali">
-    <meta name="copyright" content="Fili di Creatività">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodotti - Fili Di Creatività</title>
+    <meta name="description" content="Scopri i prodotti artigianali di Fili di Creatività: candele, personalizzazioni su tessuti e oggettistica.">
+    <meta name="author" content="Pietro">
+    <meta name="keywords" content="prodotti, candele, personalizzazioni tessuti, personalizzazioni oggettistica, handmade, Fili di Creatività">
     <meta name="language" content="IT">
     <meta name="robots" content="index, follow">
-    <meta charset="UTF-8">
-    <!-- favicon corretto -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
 
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../css/prodotti.css">
 </head>
 <body>
-    <Div>ciao link 2</Div>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Fili di Creatività</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="prodotti.html" class="active">Prodotti</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+                <li><a href="carrello.html">Carrello</a></li>
+                <li><a href="chi-siamo.html">Chi siamo</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">☰</div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="prodotti-hero">
+        <div class="prodotti-hero-text">
+            <h1>I nostri prodotti</h1>
+            <p>Scopri tutte le nostre creazioni artigianali.</p>
+        </div>
+    </section>
+
+    <!-- Sezioni principali -->
+    <section class="prodotti-lista">
+        <div class="container">
+            <div class="prodotto-card">
+                <img src="../../assets/img/candele.jpg" alt="Candele artigianali">
+                <h2>Candele</h2>
+                <p>Candele profumate e decorative, fatte a mano con cura e amore.</p>
+                <a href="candele.html" class="btn">Scopri di più</a>
+            </div>
+
+            <div class="prodotto-card">
+                <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Personalizzazioni su tessuti">
+                <h2>Personalizzazioni su Tessuti</h2>
+                <p>Dai nuova vita ai tuoi vestiti o accessori con stampe e ricami personalizzati.</p>
+                <a href="personalizzazioni-tessuti.html" class="btn">Scopri di più</a>
+            </div>
+
+            <div class="prodotto-card">
+                <img src="../../assets/img/personalizzazioni-oggettistica.jpg" alt="Personalizzazioni su oggettistica">
+                <h2>Personalizzazioni su Oggettistica</h2>
+                <p>Oggetti unici e decorazioni personalizzate, perfette per regali speciali.</p>
+                <a href="personalizzazioni-oggettistica.html" class="btn">Scopri di più</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Fili di Creatività - Tutti i diritti riservati.</p>
+    </footer>
+
+    <!-- Script menu hamburger -->
+    <script>
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("navLinks");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    </script>
 </body>
 </html>

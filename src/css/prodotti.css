@@ -1,0 +1,180 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #b8860b;
+}
+
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Hero */
+.prodotti-hero {
+    background: url("../../assets/img/prodotti-hero.jpg") no-repeat center center/cover;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.prodotti-hero::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.4);
+}
+
+.prodotti-hero-text {
+    position: relative;
+    z-index: 2;
+}
+
+.prodotti-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.prodotti-hero p {
+    font-size: 1.2rem;
+}
+
+/* Lista prodotti */
+.prodotti-lista {
+    padding: 60px 20px;
+    background: #fff;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.prodotto-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.prodotto-card:hover {
+    transform: translateY(-5px);
+}
+
+.prodotto-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.prodotto-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.prodotto-card p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+/* Bottone */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #b8860b;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #8b6508;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        width: 200px;
+        display: none;
+        padding: 20px;
+        border-left: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .hamburger {
+        display: block;
+    }
+
+    .prodotti-hero h1 {
+        font-size: 2rem;
+    }
+    .prodotti-hero p {
+        font-size: 1rem;
+    }
+}
