@@ -1,0 +1,100 @@
+/* Hero per tessuti */
+.hero-tessuti {
+  height: 50vh;
+  background: url("../../assets/img/personalizzazione_tessuti.jpg") no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.hero-tessuti::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+}
+
+.hero-tessuti .hero-text {
+  position: relative;
+  z-index: 1;
+}
+
+/* Pulsanti acquisto */
+.top-buy-btn,
+.bottom-buy-btn {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.btn-buy {
+  background: #b8860b;
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-buy:hover {
+  background: #333;
+  transform: scale(1.05);
+}
+
+/* Griglia prodotti tessuti */
+.prodotti-dettagli {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.prodotto-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.prodotto-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.prodotto-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.prodotto-card:hover img {
+  transform: scale(1.05);
+}
+
+.prodotto-card h2 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.prodotto-card p {
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}

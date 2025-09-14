@@ -15,6 +15,7 @@
   background-color: #fff;
   border-bottom: 1px solid #ddd;
   position: relative;
+  z-index: 1100;
 }
 
 .navbar .logo {
@@ -44,6 +45,9 @@
   display: none;
   font-size: 2rem;
   cursor: pointer;
+  background: none;
+  border: none;
+  user-select: none;
 }
 
 /* Footer */
@@ -79,38 +83,43 @@ footer {
   transition: color 0.3s;
 }
 
-.footer-section a:hover {
-  color: #fff;
-}
+.footer-section a:hover { color: #fff; }
 
-/* Icone footer */
 .footer-section img.icon {
   width: 18px;
   height: 18px;
   object-fit: contain;
 }
 
-/* Responsive */
+/* --- Mobile Styles --- */
 @media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: #fff;
-    flex-direction: column;
-    width: 200px;
-    display: none;
-    padding: 20px;
-    border-left: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-  }
+  .nav-links { display: none; }
 
   .nav-links.active {
-    display: flex;
+    display: flex !important;
+    position: fixed;
+    inset: 0;
+    background: #fff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    z-index: 1000;
+  }
+
+  .nav-links li { list-style: none; }
+
+  .nav-links a {
+    font-size: 2rem;
+    color: #000;
+    text-align: center;
   }
 
   .hamburger {
     display: block;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1101;
   }
 
   .footer-container {

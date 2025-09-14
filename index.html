@@ -1,137 +1,87 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fili Di Creatività</title>
-    <meta name="description" content="Oggetti personalizzati, candele e accessori fatti a mano.">
-    <meta name="author" content="Pietro">
-    <meta name="keywords" content="Fili di Creatività, candele fatte a mano, oggetti personalizzati, handmade, artigianato creativo">
-    <meta name="copyright" content="Fili di Creatività">
-    <meta name="language" content="IT">
-    <meta name="robots" content="index, follow">
-
-    <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-
-    <!-- collegamento al CSS -->
-    <link rel="stylesheet" href="src/css/index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fili di Creatività</title>
+  <meta name="description" content="Candele e personalizzazioni fatte a mano con amore e creatività.">
+  <meta name="author" content="Fili di Creatività">
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+  <link rel="stylesheet" href="src/css/common.css">
+  <link rel="stylesheet" href="src/css/index.css">
 </head>
 <body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Fili di Creatività</div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="src/html/prodotti.html">Prodotti</a></li>
+      <li><a href="src/html/contatti.html">Contatti</a></li>
+      <li><a href="src/html/carrello.html">Carrello</a></li>
+      <li><a href="src/html/chisiamo.html">Chi siamo</a></li>
+    </ul>
+    <div class="hamburger">☰</div>
+  </nav>
 
-    <!-- Navbar -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">Fili di Creatività</div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="src/html/prodotti.html">Prodotti</a></li>
-                <li><a href="src/html/contatti.html">Contatti</a></li>
-                <li><a href="src/html/carrello.html">Carrello</a></li>
-                <li><a href="src/html/chi-siamo.html">Chi siamo</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">☰</div>
-        </nav>
-    </header>
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-text">
+      <h1>Fili di Creatività</h1>
+      <p>Personalizzazioni, candele e oggettistica fatta a mano</p>
+    </div>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-text">
-            <h3>PERSONALIZZAZIONI, CANDELE E OGGETTISTICA.<br>FATTO A MANO</h3>
-            <h1>Fili di creatività</h1>
-        </div>
-    </section>
+  <!-- Sezione Prodotti -->
+  <section class="prodotti-home">
+    <h2>I nostri prodotti</h2>
+    <div class="prodotti-grid">
 
-    <!-- Anteprima Prodotti -->
-    <section class="prodotti-home">
-        <h2>I nostri prodotti</h2>
-        <div class="prodotti-grid">
-            <div class="prodotto">
-                <img src="assets/img/candele.jpg" alt="Candele artigianali">
-                <h3>Candele</h3>
-            </div>
-            <div class="prodotto">
-                <img src="assets/img/personalizzazioni.jpg" alt="Oggetti personalizzati">
-                <h3>Personalizzazioni</h3>
-            </div>
-        </div>
-    </section>
+      <!-- Candele -->
+      <a href="src/html/candele.html" class="prodotto">
+        <img src="assets/img/candele.jpg" alt="Candele artigianali" />
+        <h3>Candele</h3>
+      </a>
 
-    <!-- Chi siamo -->
-    <section class="chi-siamo">
-        <div class="chi-siamo-content">
-            <div class="chi-siamo-text">
-                <h2>Chi siamo</h2>
-                <p>
-                    Fili di Creatività nasce dalla passione per l’artigianato e la personalizzazione. 
-                    Creiamo candele, oggetti decorativi e accessori unici, fatti interamente a mano. 
-                    Ogni creazione è pensata per raccontare una storia e rendere speciale ogni momento.
-                </p>
-                <a href="src/html/chi-siamo.html" class="btn">Scopri di più</a>
-            </div>
-            <div class="chi-siamo-img">
-                <img src="assets/img/chi-siamo.jpg" alt="Laboratorio creativo">
-            </div>
-        </div>
-    </section>
+      <!-- Personalizzazione Tessuti -->
+      <a href="src/html/tessuti.html" class="prodotto">
+        <img src="assets/img/personalizzazione_tessuti.jpg" alt="Personalizzazione tessuti" />
+        <h3>Personalizzazione Tessuti</h3>
+      </a>
+
+      <!-- Personalizzazione Tazze e Borracce -->
+      <a href="src/html/tazze-borracce.html" class="prodotto">
+        <img src="assets/img/personalizzazione_tazze.jpg" alt="Personalizzazione tazze e borracce" />
+        <h3>Personalizzazione Tazze e Borracce</h3>
+      </a>
+
+      <!-- Personalizzazione Oggetti -->
+      <a href="src/html/oggetti.html" class="prodotto">
+        <img src="assets/img/personalizzazione_oggetti.jpg" alt="Personalizzazione oggetti vari" />
+        <h3>Personalizzazione Oggetti</h3>
+      </a>
+
+    </div>
+  </section>
 
   <!-- Footer -->
-<footer>
+  <footer>
     <div class="footer-container">
-        <!-- Contatti -->
-        <div class="footer-section">
-            <h3>Contatti</h3>
-            <p>
-                <a href="https://wa.me/39123456789" target="_blank">
-                    <img src="../../assets/img/whatsapp.png" alt="WhatsApp" class="icon"> WhatsApp
-                </a>
-            </p>
-            <p>
-                <a href="mailto:info@filidicreativita.com">
-                    <img src="../../assets/img/email.png" alt="Email" class="icon"> info@filidicreativita.com
-                </a>
-            </p>
-        </div>
-
-        <!-- Social -->
-        <div class="footer-section">
-            <h3>Seguici</h3>
-            <p>
-                <a href="https://instagram.com/filidicreativita" target="_blank">
-                    <img src="../../assets/img/instagram.png" alt="Instagram" class="icon"> Instagram
-                </a>
-            </p>
-            <p>
-                <a href="https://facebook.com/filidicreativita" target="_blank">
-                    <img src="../../assets/img/facebook.png" alt="Facebook" class="icon"> Facebook
-                </a>
-            </p>
-            <p>
-                <a href="https://tiktok.com/@filidicreativita" target="_blank">
-                    <img src="../../assets/img/tiktok.png" alt="TikTok" class="icon"> TikTok
-                </a>
-            </p>
-        </div>
-
-        <!-- Info -->
-        <div class="footer-section">
-            <h3>Info</h3>
-            <p>&copy; 2025 Fili di Creatività</p>
-            <p>Tutti i diritti riservati</p>
-            <p><a href="#">Privacy Policy</a> | <a href="#">Termini & Condizioni</a></p>
-        </div>
+      <div class="footer-section">
+        <h3>Contatti</h3>
+        <a href="mailto:info@filidicreativita.com">📧 info@filidicreativita.com</a><br>
+        <a href="https://wa.me/391234567890" target="_blank">📱 WhatsApp</a>
+      </div>
+      <div class="footer-section">
+        <h3>Seguici</h3>
+        <a href="#" target="_blank">📸 Instagram</a><br>
+        <a href="#" target="_blank">📘 Facebook</a><br>
+        <a href="#" target="_blank">🎵 TikTok</a>
+      </div>
     </div>
-</footer>
+    <p style="margin-top:20px;">© 2025 Fili di Creatività - Tutti i diritti riservati.</p>
+  </footer>
 
-
-    <!-- Script menu hamburger -->
-    <script>
-        const hamburger = document.getElementById("hamburger");
-        const navLinks = document.getElementById("navLinks");
-
-        hamburger.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-        });
-    </script>
+  <script src="src/js/common.js"></script>
 </body>
 </html>

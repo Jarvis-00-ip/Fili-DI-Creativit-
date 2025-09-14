@@ -115,14 +115,22 @@
 
 
 
-    <!-- Script menu hamburger -->
-    <script>
-        const hamburger = document.getElementById("hamburger");
-        const navLinks = document.getElementById("navLinks");
-        hamburger.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-        });
-    </script>
+   <script>
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("navLinks");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+
+    // cambia anche l'icona ☰ ↔ ✖
+    if (navLinks.classList.contains("active")) {
+      hamburger.textContent = "✖";
+    } else {
+      hamburger.textContent = "☰";
+    }
+  });
+</script>
+
 
     <!-- Script slideshow -->
     <script>
