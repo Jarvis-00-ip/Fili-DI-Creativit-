@@ -63,12 +63,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Footer dinamico
-  const footerPlaceholder = document.getElementById("footer-placeholder");
-  if (footerPlaceholder) {
-    fetch(links.footer)
-      .then((r) => r.text())
-      .then((html) => (footerPlaceholder.innerHTML = html))
-      .catch((err) => console.error("Errore footer:", err));
-  }
+ // Carica automaticamente il footer
+const footerPlaceholder = document.getElementById("footer-placeholder");
+if (footerPlaceholder) {
+    fetch("./src/html/footer.html")  // ✅ aggiungi ./ così parte sempre dalla cartella corrente
+        .then(response => response.text())
+        .then(data => {
+            footerPlaceholder.innerHTML = data;
+        })
+        .catch(error => console.error("Errore nel caricamento del footer:", error));
+}
 });
