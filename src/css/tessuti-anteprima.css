@@ -1,0 +1,127 @@
+/* 🎨 Palette */
+:root {
+  --bg-main: #e6dfd5;
+  --bg-alt: #f5f1eb;
+  --text-dark: #3c2f2f;
+  --text-medium: #5a4634;
+  --accent: #d4a373;
+  --highlight: #b85c38;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Georgia', serif;
+}
+
+/* Hero */
+.hero {
+  background: url("../../assets/img/personalizzazione_tessuti.jpg") no-repeat center/cover;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+}
+.hero-text {
+  position: relative;
+  z-index: 2;
+}
+.hero h1 {
+  font-size: 3rem;
+}
+.hero p {
+  margin: 15px 0;
+}
+
+/* Pulsanti */
+.btn {
+  padding: 12px 24px;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+.btn:hover {
+  background: var(--highlight);
+}
+.btn-top {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: var(--accent);
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+.btn-top.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.btn-bottom {
+  display: block;
+  margin: 40px auto;
+  text-align: center;
+  width: fit-content;
+}
+
+/* Sezioni scroll */
+.scroll-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 80px 10%;
+  background: var(--bg-main);
+  gap: 40px;
+}
+.scroll-section.alt {
+  background: var(--bg-alt);
+}
+.scroll-section .text {
+  flex: 1;
+  color: var(--text-medium);
+}
+.scroll-section .text h2 {
+  color: var(--text-dark);
+  margin-bottom: 15px;
+}
+.scroll-section .image {
+  flex: 1;
+}
+.scroll-section .image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+/* Animazioni scroll */
+.scroll-section.visible .image img,
+.scroll-section.visible .text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Footer */
+footer {
+  background: var(--text-dark);
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}

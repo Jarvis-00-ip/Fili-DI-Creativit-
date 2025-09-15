@@ -1,178 +1,125 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prodotti - Fili Di Creatività</title>
-    <meta name="description" content="Scopri i prodotti artigianali di Fili di Creatività: candele, personalizzazioni su tessuti e oggettistica.">
-    <meta name="author" content="Pietro">
-    <meta name="keywords" content="prodotti, candele, personalizzazioni tessuti, personalizzazioni oggettistica, handmade, Fili di Creatività">
-    <meta name="language" content="IT">
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prodotti - Fili Di Creatività</title>
+  <meta name="description" content="Scopri i prodotti artigianali di Fili di Creatività: candele, tessuti, tazze e borracce, oggettistica." />
+  <meta name="author" content="Fili di Creatività" />
 
-    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../css/prodotti.css">
+  <!-- Favicon (se il file è in assets/img) -->
+  <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.ico" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/prodotti.css" />
 </head>
 <body>
-    <!-- Navbar -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">Fili di Creatività</div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="../../index.html">Home</a></li>
-                <li><a href="prodotti.html" class="active">Prodotti</a></li>
-                <li><a href="contatti.html">Contatti</a></li>
-                <li><a href="carrello.html">Carrello</a></li>
-                <li><a href="chi-siamo.html">Chi siamo</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">☰</div>
-        </nav>
-    </header>
+  <!-- Snipcart (necessario se usi il login/checkout in ogni pagina) -->
+  <div hidden id="snipcart"
+       data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy">
+  </div>
 
-    <!-- Sezione prodotti principali -->
-    <section class="prodotti-main">
-        <h1>I nostri prodotti</h1>
-        <div class="prodotti-grid">
-            <div class="prodotto-card">
-                <a href="candele.html">
-                    <img src="../../assets/img/candele.jpg" alt="Candele artigianali">
-                    <h2>Candele</h2>
-                </a>
-            </div>
-            <div class="prodotto-card">
-                <a href="personalizzazioni-tessuti.html">
-                    <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Personalizzazioni su tessuti">
-                    <h2>Tessuti</h2>
-                </a>
-            </div>
-            <div class="prodotto-card">
-                <a href="personalizzazioni-oggettistica.html">
-                    <img src="../../assets/img/personalizzazioni-oggettistica.jpg" alt="Personalizzazioni su oggettistica">
-                    <h2>Oggettistica</h2>
-                </a>
-            </div>
-        </div>
-    </section>
+  <!-- Navbar popolata da common.js -->
+  <nav class="navbar"></nav>
 
-    <!-- Mini slideshow -->
-    <section class="slideshow" id="slideshow">
-        <div class="slides">
-            <img src="../../assets/img/candele.jpg" alt="Candele">
-            <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Tessuti">
-            <img src="../../assets/img/personalizzazioni-oggettistica.jpg" alt="Oggettistica">
-        </div>
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
-    </section>
+  <!-- Hero -->
+  <header class="prodotti-hero">
+    <h1>I nostri prodotti</h1>
+    <p>Scopri le nostre creazioni uniche e artigianali</p>
+  </header>
 
-  <!-- Footer -->
-<footer>
-    <div class="footer-container">
-        <!-- Contatti -->
-        <div class="footer-section">
-            <h3>Contatti</h3>
-            <p>
-                <a href="https://wa.me/39123456789" target="_blank">
-                    <img src="../../assets/img/whatsapp.png" alt="WhatsApp" class="icon"> WhatsApp
-                </a>
-            </p>
-            <p>
-                <a href="mailto:info@filidicreativita.com">
-                    <img src="../../assets/img/email.png" alt="Email" class="icon"> info@filidicreativita.com
-                </a>
-            </p>
-        </div>
+  <!-- Intro breve (opzionale) -->
+  <section class="intro">
+    <p>
+      Ogni prodotto nasce da <strong>passione, cura e creatività</strong>.  
+      Che sia una candela profumata, una personalizzazione su tessuto o un accessorio unico,  
+      troverai sempre un tocco di artigianalità autentica.
+    </p>
+  </section>
 
-        <!-- Social -->
-        <div class="footer-section">
-            <h3>Seguici</h3>
-            <p>
-                <a href="https://instagram.com/filidicreativita" target="_blank">
-                    <img src="../../assets/img/instagram.png" alt="Instagram" class="icon"> Instagram
-                </a>
-            </p>
-            <p>
-                <a href="https://facebook.com/filidicreativita" target="_blank">
-                    <img src="../../assets/img/facebook.png" alt="Facebook" class="icon"> Facebook
-                </a>
-            </p>
-            <p>
-                <a href="https://tiktok.com/@filidicreativita" target="_blank">
-                    <img src="../../assets/img/tiktok.png" alt="TikTok" class="icon"> TikTok
-                </a>
-            </p>
-        </div>
+  <!-- Griglia Prodotti -->
+  <section class="prodotti-main">
+    <div class="prodotti-grid">
 
-        <!-- Info -->
-        <div class="footer-section">
-            <h3>Info</h3>
-            <p>&copy; 2025 Fili di Creatività</p>
-            <p>Tutti i diritti riservati</p>
-            <p><a href="#">Privacy Policy</a> | <a href="#">Termini & Condizioni</a></p>
-        </div>
+      <!-- Candele -->
+      <div class="prodotto-card reveal">
+        <a href="candele.html">
+          <div class="img-container">
+            <img src="../../assets/img/candele.jpg" alt="Candele artigianali" data-speed="10">
+          </div>
+          <h2>Candele</h2>
+        </a>
+      </div>
+
+      <!-- Tessuti -->
+      <div class="prodotto-card reveal">
+        <a href="tessuti.html">
+          <div class="img-container">
+            <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Personalizzazione tessuti" data-speed="8">
+          </div>
+          <h2>Tessuti</h2>
+        </a>
+      </div>
+
+      <!-- Tazze e Borracce -->
+      <div class="prodotto-card reveal">
+        <a href="tazze-borracce.html">
+          <div class="img-container">
+            <img src="../../assets/img/personalizzazioni-oggettistica.jpg" alt="Personalizzazione tazze e borracce" data-speed="12">
+          </div>
+          <h2>Tazze e Borracce</h2>
+        </a>
+      </div>
+
+      <!-- Oggetti -->
+      <div class="prodotto-card reveal">
+        <a href="oggetti.html">
+          <div class="img-container">
+            <img src="../../assets/img/personalizzazione_oggetti.jpg" alt="Personalizzazione oggetti" data-speed="6">
+          </div>
+          <h2>Oggetti</h2>
+        </a>
+      </div>
+
     </div>
-</footer>
+  </section>
 
+  <!-- Footer (iniettato da common.js) -->
+  <div id="footer-placeholder"></div>
 
+  <!-- Script comuni -->
+  <script src="../js/common.js" defer></script>
 
-   <script>
-  const hamburger = document.getElementById("hamburger");
-  const navLinks = document.getElementById("navLinks");
-
-  hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-
-    // cambia anche l'icona ☰ ↔ ✖
-    if (navLinks.classList.contains("active")) {
-      hamburger.textContent = "✖";
-    } else {
-      hamburger.textContent = "☰";
-    }
-  });
-</script>
-
-
-    <!-- Script slideshow -->
-    <script>
-        const slideshow = document.getElementById("slideshow");
-        const slides = slideshow.querySelector(".slides");
-        const images = slides.querySelectorAll("img");
-        const prevBtn = slideshow.querySelector(".prev");
-        const nextBtn = slideshow.querySelector(".next");
-
-        let index = 0;
-        let interval = setInterval(nextSlide, 4000);
-
-        function showSlide(i) {
-            index = (i + images.length) % images.length;
-            slides.style.transform = `translateX(${-index * 100}%)`;
+  <!-- Animazioni: reveal + parallax morbido -->
+  <script>
+    // Reveal on scroll
+    const reveals = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          obs.unobserve(entry.target);
         }
+      });
+    }, { threshold: 0.2 });
+    reveals.forEach(el => io.observe(el));
 
-        function nextSlide() {
-            showSlide(index + 1);
-        }
+    // Parallax morbido (senza bordi bianchi)
+    document.addEventListener("mousemove", (e) => {
+      document.querySelectorAll(".img-container img").forEach(img => {
+        const speed = Number(img.getAttribute("data-speed")) || 10;
+        const x = (window.innerWidth  - e.pageX * speed) / 1000;
+        const y = (window.innerHeight - e.pageY * speed) / 1000;
+        img.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
+      });
+    });
 
-        function prevSlide() {
-            showSlide(index - 1);
-        }
-
-        nextBtn.addEventListener("click", () => {
-            nextSlide();
-            resetInterval();
-        });
-
-        prevBtn.addEventListener("click", () => {
-            prevSlide();
-            resetInterval();
-        });
-
-        function resetInterval() {
-            clearInterval(interval);
-            interval = setInterval(nextSlide, 4000);
-        }
-
-        slideshow.addEventListener("mouseenter", () => clearInterval(interval));
-        slideshow.addEventListener("mouseleave", () => resetInterval());
-    </script>
+    // Reset trasformazioni quando si esce dalla pagina/finestra
+    document.addEventListener("mouseleave", () => {
+      document.querySelectorAll(".img-container img").forEach(img => {
+        img.style.transform = "translate(0,0) scale(1)";
+      });
+    });
+  </script>
 </body>
 </html>

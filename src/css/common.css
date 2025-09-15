@@ -15,7 +15,7 @@
   background-color: #fff;
   border-bottom: 1px solid #ddd;
   position: relative;
-  z-index: 1100;
+  z-index: 100;
 }
 
 .navbar .logo {
@@ -29,14 +29,20 @@
   gap: 20px;
 }
 
-.nav-links a {
+.nav-links a,
+.nav-links button {
   text-decoration: none;
   color: #333;
   font-weight: 500;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
   transition: color 0.3s;
 }
 
 .nav-links a:hover,
+.nav-links button:hover,
 .nav-links a.active {
   color: #b8860b;
 }
@@ -45,9 +51,22 @@
   display: none;
   font-size: 2rem;
   cursor: pointer;
-  background: none;
-  border: none;
-  user-select: none;
+}
+
+/* Overlay Menu Fullscreen */
+.nav-links.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  font-size: 1.5rem;
+  z-index: 1000;
 }
 
 /* Footer */
@@ -73,6 +92,10 @@ footer {
   color: #f4f4f4;
 }
 
+.footer-section p {
+  margin: 8px 0;
+}
+
 .footer-section a {
   color: #ddd;
   text-decoration: none;
@@ -83,47 +106,30 @@ footer {
   transition: color 0.3s;
 }
 
-.footer-section a:hover { color: #fff; }
+.footer-section a:hover {
+  color: #fff;
+}
 
+/* Icone nel footer */
 .footer-section img.icon {
   width: 18px;
   height: 18px;
   object-fit: contain;
 }
 
-/* --- Mobile Styles --- */
+/* Responsive */
 @media (max-width: 768px) {
-  .nav-links { display: none; }
-
-  .nav-links.active {
-    display: flex !important;
-    position: fixed;
-    inset: 0;
-    background: #fff;
+  .nav-links {
+    display: none; /* nasconde i link finché non clicchi il burger */
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    z-index: 1000;
-  }
-
-  .nav-links li { list-style: none; }
-
-  .nav-links a {
-    font-size: 2rem;
-    color: #000;
-    text-align: center;
   }
 
   .hamburger {
     display: block;
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 1101;
   }
 
   .footer-container {
     flex-direction: column;
-    text-align: center;
+    align-items: center;
   }
 }

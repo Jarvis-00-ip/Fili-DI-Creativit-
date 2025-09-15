@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fili di Creatività</title>
-  <meta name="description" content="Candele e personalizzazioni fatte a mano con amore e creatività.">
-  <meta name="author" content="Fili di Creatività">
-  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-  <link rel="stylesheet" href="src/css/common.css">
-  <link rel="stylesheet" href="src/css/index.css">
+  <meta name="description" content="Candele e personalizzazioni fatte a mano con amore e creatività." />
+  <meta name="author" content="Fili di Creatività" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="src/css/common.css" />
+  <link rel="stylesheet" href="src/css/index.css" />
 </head>
 <body>
+  <!-- Snipcart container -->
+  <div hidden id="snipcart" data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
+
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">Fili di Creatività</div>
@@ -20,6 +27,9 @@
       <li><a href="src/html/contatti.html">Contatti</a></li>
       <li><a href="src/html/carrello.html">Carrello</a></li>
       <li><a href="src/html/chisiamo.html">Chi siamo</a></li>
+      <!-- Snipcart -->
+      <li><button class="snipcart-customer-signin">👤 Accedi</button></li>
+      <li><button class="snipcart-customer-signout">🚪 Esci</button></li>
     </ul>
     <div class="hamburger">☰</div>
   </nav>
@@ -36,52 +46,36 @@
   <section class="prodotti-home">
     <h2>I nostri prodotti</h2>
     <div class="prodotti-grid">
-
-      <!-- Candele -->
-      <a href="src/html/candele.html" class="prodotto">
+      <!-- Candele (ANTEPRIMA) -->
+      <a href="src/html/candele-anteprima.html" class="prodotto">
         <img src="assets/img/candele.jpg" alt="Candele artigianali" />
         <h3>Candele</h3>
       </a>
 
-      <!-- Personalizzazione Tessuti -->
-      <a href="src/html/tessuti.html" class="prodotto">
-        <img src="assets/img/personalizzazione_tessuti.jpg" alt="Personalizzazione tessuti" />
+      <!-- Personalizzazione Tessuti (ANTEPRIMA) -->
+      <a href="src/html/tessuti-anteprima.html" class="prodotto">
+        <img src="assets/img/personalizzazioni-tessuti.jpg" alt="Personalizzazione tessuti" />
         <h3>Personalizzazione Tessuti</h3>
       </a>
 
-      <!-- Personalizzazione Tazze e Borracce -->
-      <a href="src/html/tazze-borracce.html" class="prodotto">
-        <img src="assets/img/personalizzazione_tazze.jpg" alt="Personalizzazione tazze e borracce" />
+      <!-- Personalizzazione Tazze e Borracce (ANTEPRIMA) -->
+      <a href="src/html/tazze-borracce-anteprima.html" class="prodotto">
+        <img src="assets/img/personalizzazioni-oggettistica.jpg" alt="Personalizzazione tazze e borracce" />
         <h3>Personalizzazione Tazze e Borracce</h3>
       </a>
 
-      <!-- Personalizzazione Oggetti -->
-      <a href="src/html/oggetti.html" class="prodotto">
-        <img src="assets/img/personalizzazione_oggetti.jpg" alt="Personalizzazione oggetti vari" />
-        <h3>Personalizzazione Oggetti</h3>
-      </a>
-
+      <!-- Personalizzazione Oggetti (ANTEPRIMA) -->
+<a href="src/html/oggetti-anteprima.html" class="prodotto">
+  <img src="assets/img/personalizzazione_oggetti.jpg" alt="Personalizzazione oggetti vari" />
+  <h3>Personalizzazione Oggetti</h3>
+</a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-section">
-        <h3>Contatti</h3>
-        <a href="mailto:info@filidicreativita.com">📧 info@filidicreativita.com</a><br>
-        <a href="https://wa.me/391234567890" target="_blank">📱 WhatsApp</a>
-      </div>
-      <div class="footer-section">
-        <h3>Seguici</h3>
-        <a href="#" target="_blank">📸 Instagram</a><br>
-        <a href="#" target="_blank">📘 Facebook</a><br>
-        <a href="#" target="_blank">🎵 TikTok</a>
-      </div>
-    </div>
-    <p style="margin-top:20px;">© 2025 Fili di Creatività - Tutti i diritti riservati.</p>
-  </footer>
+  <div id="footer-placeholder"></div>
 
-  <script src="src/js/common.js"></script>
+  <!-- Script -->
+  <script src="src/js/common.js" defer></script>
 </body>
 </html>
