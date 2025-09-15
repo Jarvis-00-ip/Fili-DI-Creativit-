@@ -1,7 +1,9 @@
 // src/js/common.js
 document.addEventListener("DOMContentLoaded", () => {
+  // rileva se la pagina è in /html/ oppure in root
   const inHtmlFolder = window.location.pathname.includes("/html/");
 
+  // 🔗 percorsi corretti
   const links = inHtmlFolder
     ? {
         home: "../../index.html",
@@ -13,16 +15,16 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     : {
         home: "index.html",
-        prodotti: "html/prodotti.html",
-        contatti: "html/contatti.html",
-        carrello: "html/carrello.html",
-        chisiamo: "html/chisiamo.html",
-        footer: "html/footer.html",
+        prodotti: "src/html/prodotti.html",
+        contatti: "src/html/contatti.html",
+        carrello: "src/html/carrello.html",
+        chisiamo: "src/html/chisiamo.html",
+        footer: "src/html/footer.html",
       };
 
-  // 🔧 Inietta SOLO se la navbar è vuota (così Index può avere una navbar statica sua)
+  // Inietta la navbar
   const navbar = document.querySelector(".navbar");
-  if (navbar && navbar.childElementCount === 0) {
+  if (navbar) {
     navbar.innerHTML = `
       <div class="logo">Fili di Creatività</div>
       <ul class="nav-links">
@@ -38,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
-  // Burger overlay + fix overlay fantasma
+  // Gestione hamburger menu (overlay fullscreen)
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".nav-links");
   if (hamburger && navLinks) {
@@ -63,14 +65,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
- // Carica automaticamente il footer
-const footerPlaceholder = document.getElementById("footer-placeholder");
-if (footerPlaceholder) {
-    fetch("./src/html/footer.html")  // ✅ aggiungi ./ così parte sempre dalla cartella corrente
-        .then(response => response.text())
-        .then(data => {
-            footerPlaceholder.innerHTML = data;
-        })
-        .catch(error => console.error("Errore nel caricamento del footer:", error));
-}
+  // Caricamento footer
+  const footerPlaceholder = document.getElementById("footer-placeholder");
+  if (footerPlaceholder) {
+    fetch(links.footer)
+      .then(response => response.text())
+      .then(data => {
+        footerPlaceholder.innerHTML = data;
+      })
+      .catch(error =>
+        console.error("Errore nel caricamento del footer:", error)
+      );
+  }
 });
+// Aggiungi qui eventuali altre funzionalità comuni a tutte le pagine
+// Ad esempio, gestione del carrello Snipcart, ecc.
