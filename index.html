@@ -67,21 +67,22 @@
   <script src="../js/parallax.js" defer></script>
 
   <!-- Snipcart Config -->
-  <script>
-    window.SnipcartSettings = {
-      publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
-      loadStrategy: "on-user-interaction",
-      currency: "eur",
-      modalStyle: "side"
-    };
-  </script>
+<script>
+  window.SnipcartSettings = {
+    publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
+    loadStrategy: "on-user-interaction",
+    currency: "eur",
+    modalStyle: "side"
+  };
+</script>
 
-  <!-- Snipcart Script + CSS -->
-  <script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
+<!-- Snipcart Script + CSS -->
+<script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
+<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
 
-  <!-- Snipcart Container (duplicato necessario per login) -->
-  <div hidden id="snipcart" 
-       data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
+<!-- Snipcart Container (unico) -->
+<div hidden id="snipcart"
+     data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy">
+</div>
 </body>
 </html>
