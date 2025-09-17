@@ -45,13 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
           <button id="account-toggle">Account ⌄</button>
           <ul id="account-dropdown" style="display:none; position:absolute; top:100%; left:0; background:white; padding:0.5rem; border:1px solid #ccc; border-radius:5px; list-style:none; min-width:150px; box-shadow:0 2px 6px rgba(0,0,0,0.15); z-index:5000;">
             <li>
-              <button id="account-info" class="snipcart-customer-signin" style="background:none; border:none; cursor:pointer; padding:5px 10px; width:100%; text-align:left;">
+              <button class="snipcart-customer-dashboard" style="background:none; border:none; cursor:pointer; padding:5px 10px; width:100%; text-align:left;">
                 Il mio account
               </button>
             </li>
             <li>
-              <!-- placeholder che verrà sostituito da Snipcart -->
-              <button id="account-logout" style="background:none; border:none; cursor:pointer; padding:5px 10px; width:100%; text-align:left;">
+              <button class="snipcart-customer-signout" style="background:none; border:none; cursor:pointer; padding:5px 10px; width:100%; text-align:left;">
                 Esci
               </button>
             </li>
@@ -102,8 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const accountMenu = document.getElementById("account-menu");
     const accountToggle = document.getElementById("account-toggle");
     const accountDropdown = document.getElementById("account-dropdown");
-    const accountInfo = document.getElementById("account-info");
-    let accountLogout = document.getElementById("account-logout");
 
     function updateUI() {
       const state = window.Snipcart.store.getState();
@@ -113,7 +110,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (customer.status === "SignedIn") {
         if (loginBtn) loginBtn.style.display = "none";
         if (accountMenu) accountMenu.style.display = "block";
-        if (accountInfo) accountInfo.textContent = "Il mio account";
       } else {
         if (loginBtn) loginBtn.style.display = "block";
         if (accountMenu) accountMenu.style.display = "none";
@@ -132,15 +128,6 @@ document.addEventListener("DOMContentLoaded", () => {
             ? "block"
             : "none";
       });
-    }
-
-    // Sostituisci il pulsante Esci con quello Snipcart nativo
-    if (accountLogout) {
-      accountLogout.outerHTML = `
-        <button class="snipcart-customer-signout" style="background:none; border:none; cursor:pointer; padding:5px 10px; width:100%; text-align:left;">
-          Esci
-        </button>
-      `;
     }
   });
 });
