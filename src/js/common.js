@@ -1,8 +1,9 @@
 // src/js/common.js
 document.addEventListener("DOMContentLoaded", () => {
+  // Sei in /src/html/... ?
   const inHtmlFolder = window.location.pathname.includes("/html/");
 
-  // 🔗 percorsi corretti
+  // Percorsi pagine
   const links = inHtmlFolder
     ? {
         home: "../../index.html",
@@ -21,7 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
         footer: "src/html/footer.html",
       };
 
-  // Inietta la navbar
+  // Percorso icone
+  const iconsPath = inHtmlFolder ? "../../assets/img/" : "assets/img/";
+
+  // Inietta navbar
   const navbar = document.querySelector(".navbar");
   if (navbar) {
     navbar.innerHTML = `
@@ -33,35 +37,30 @@ document.addEventListener("DOMContentLoaded", () => {
         <li><a href="${links.carrello}">Carrello</a></li>
         <li><a href="${links.chisiamo}">Chi siamo</a></li>
 
-        <!-- Login (solo se sloggato) -->
-        <li id="login-btn">
-          <button class="snipcart-customer-signin">
-            <img src="../../assets/img/login-icon.png" alt="Login" style="height:20px; vertical-align:middle;">
+        <!-- Icone auth -->
+        <li id="btn-login">
+          <button class="nav-icon snipcart-customer-signin" title="Accedi">
+            <img src="${iconsPath}login-icon.png" alt="Login" />
           </button>
         </li>
 
-        <!-- Account menu (solo se loggato) -->
-        <li id="account-menu" style="display:none; position:relative;">
-          <button id="account-toggle">Account ⌄</button>
-          <ul id="account-dropdown" style="display:none; position:absolute; top:100%; left:0; background:white; padding:0.5rem; border:1px solid #ccc; border-radius:5px; list-style:none; min-width:150px; box-shadow:0 2px 6px rgba(0,0,0,0.15); z-index:5000;">
-            <li>
-              <button class="snipcart-customer-profile" style="background:none; border:none; cursor:pointer; padding:5px 10px; width:100%; text-align:left;">
-                Il mio account
-              </button>
-            </li>
-            <li>
-              <button class="snipcart-customer-signout" style="background:none; border:none; cursor:pointer; padding:5px 10px; width:100%; text-align:left;">
-                Esci
-              </button>
-            </li>
-          </ul>
+        <li id="btn-account" style="display:none;">
+          <button class="nav-icon snipcart-customer-profile" title="Il mio account">
+            <img src="${iconsPath}user-icon.png" alt="Account" />
+          </button>
+        </li>
+
+        <li id="btn-logout" style="display:none;">
+          <button class="nav-icon snipcart-customer-signout" title="Esci">
+            <img src="${iconsPath}logout-icon.png" alt="Logout" />
+          </button>
         </li>
       </ul>
       <div class="hamburger">☰</div>
     `;
   }
 
-  // Hamburger menu
+  // Hamburger overlay
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".nav-links");
   if (hamburger && navLinks) {
@@ -91,43 +90,33 @@ document.addEventListener("DOMContentLoaded", () => {
   if (footerPlaceholder) {
     fetch(links.footer)
       .then(r => r.text())
-      .then(data => (footerPlaceholder.innerHTML = data))
+      .then(html => (footerPlaceholder.innerHTML = html))
       .catch(err => console.error("Errore nel caricamento del footer:", err));
   }
 
-  // Snipcart login/logout
-  document.addEventListener("snipcart.ready", () => {
-    const loginBtn = document.getElementById("login-btn");
-    const accountMenu = document.getElementById("account-menu");
-    const accountToggle = document.getElementById("account-toggle");
-    const accountDropdown = document.getElementById("account-dropdown");
+  // Toggling icone in base allo stato Snipcart
+  function bindSnipcartUI() {
+    const btnLogin  = document.getElementById("btn-login");
+    const btnAcc    = document.getElementById("btn-account");
+    const btnLogout = document.getElementById("btn-logout");
 
-    function updateUI() {
-      const state = window.Snipcart.store.getState();
-      const customer = state.customer;
-      console.log("Snipcart stato utente:", customer.status);
+    if (!window.Snipcart || !window.Snipcart.store) return;
 
-      if (customer.status === "SignedIn") {
-        if (loginBtn) loginBtn.style.display = "none";
-        if (accountMenu) accountMenu.style.display = "block";
-      } else {
-        if (loginBtn) loginBtn.style.display = "block";
-        if (accountMenu) accountMenu.style.display = "none";
-        if (accountDropdown) accountDropdown.style.display = "none";
-      }
-    }
+    const render = () => {
+      const { customer } = window.Snipcart.store.getState();
+      // console.log("Snipcart stato utente:", customer.status);
 
-    updateUI();
-    window.Snipcart.store.subscribe(updateUI);
+      const signedIn = customer.status === "SignedIn";
 
-    // Gestione dropdown Account
-    if (accountToggle) {
-      accountToggle.addEventListener("click", () => {
-        accountDropdown.style.display =
-          accountDropdown.style.display === "none" || accountDropdown.style.display === ""
-            ? "block"
-            : "none";
-      });
-    }
-  });
+      if (btnLogin)  btnLogin.style.display  = signedIn ? "none"  : "block";
+      if (btnAcc)    btnAcc.style.display    = signedIn ? "block" : "none";
+      if (btnLogout) btnLogout.style.display = signedIn ? "block" : "none";
+    };
+
+    render();
+    window.Snipcart.store.subscribe(render);
+  }
+
+  // Aspetta Snipcart
+  document.addEventListener("snipcart.ready", bindSnipcartUI);
 });
