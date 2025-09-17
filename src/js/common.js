@@ -44,9 +44,17 @@ document.addEventListener("DOMContentLoaded", () => {
         <!-- Account menu (solo se loggato) -->
         <li id="account-menu" style="display:none; position:relative;">
           <button id="account-toggle">Account ⌄</button>
-          <ul id="account-dropdown" style="display:none; position:absolute; top:100%; left:0; background:white; padding:0.5rem; border:1px solid #ccc; border-radius:5px; list-style:none; min-width:150px; box-shadow:0 2px 6px rgba(0,0,0,0.15);">
-            <li><button class="snipcart-customer-signin" style="background:none; border:none; cursor:pointer; padding:5px 10px; width:100%; text-align:left;">Informazioni Account</button></li>
-            <li><button class="snipcart-customer-signout" style="background:none; border:none; cursor:pointer; padding:5px 10px; width:100%; text-align:left;">Esci</button></li>
+          <ul id="account-dropdown" style="display:none; position:absolute; top:100%; left:0; background:white; padding:0.5rem; border:1px solid #ccc; border-radius:5px; list-style:none; min-width:150px; box-shadow:0 2px 6px rgba(0,0,0,0.15); z-index:5000;">
+            <li>
+              <button class="snipcart-customer-signin" style="background:none; border:none; cursor:pointer; padding:5px 10px; width:100%; text-align:left;">
+                Informazioni Account
+              </button>
+            </li>
+            <li>
+              <button class="snipcart-customer-signout" style="background:none; border:none; cursor:pointer; padding:5px 10px; width:100%; text-align:left;">
+                Esci
+              </button>
+            </li>
           </ul>
         </li>
       </ul>
@@ -104,6 +112,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const state = window.Snipcart.store.getState();
       const customer = state.customer;
 
+      console.log("Snipcart stato utente:", customer.status);
+
       if (customer.status === "SignedIn") {
         if (loginBtn) loginBtn.style.display = "none";
         if (accountMenu) accountMenu.style.display = "block";
@@ -117,8 +127,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Gestione dropdown Account
     if (accountToggle) {
       accountToggle.addEventListener("click", () => {
-        accountDropdown.style.display =
-          accountDropdown.style.display === "none" ? "block" : "none";
+        if (accountDropdown.style.display === "none" || accountDropdown.style.display === "") {
+          accountDropdown.style.display = "block";
+        } else {
+          accountDropdown.style.display = "none";
+        }
       });
     }
   });
