@@ -1,31 +1,53 @@
 // src/js/common.js
 document.addEventListener("DOMContentLoaded", () => {
-  // Sei in /src/html/... ?
   const inHtmlFolder = window.location.pathname.includes("/html/");
 
   // Percorsi pagine
   const links = inHtmlFolder
-    ? {
-        home: "../../index.html",
-        prodotti: "prodotti.html",
-        contatti: "contatti.html",
-        carrello: "carrello.html",
-        chisiamo: "chisiamo.html",
-        footer: "footer.html",
-      }
-    : {
-        home: "index.html",
-        prodotti: "src/html/prodotti.html",
-        contatti: "src/html/contatti.html",
-        carrello: "src/html/carrello.html",
-        chisiamo: "src/html/chisiamo.html",
-        footer: "src/html/footer.html",
-      };
+    ? { home: "../../index.html", prodotti: "prodotti.html", contatti: "contatti.html", carrello: "carrello.html", chisiamo: "chisiamo.html", footer: "footer.html" }
+    : { home: "index.html", prodotti: "src/html/prodotti.html", contatti: "src/html/contatti.html", carrello: "src/html/carrello.html", chisiamo: "src/html/chisiamo.html", footer: "src/html/footer.html" };
 
   // Percorso icone
   const iconsPath = inHtmlFolder ? "../../assets/img/" : "assets/img/";
 
-  // Inietta navbar
+  // --- 0) Assicura Snipcart presente su TUTTE le pagine ---
+  (function ensureSnipcart() {
+    // Impostazioni (non reimpostare se già definite)
+    window.SnipcartSettings = window.SnipcartSettings || {
+      publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
+      loadStrategy: "on-user-interaction",
+      currency: "EUR",
+      modalStyle: "side",
+      version: "3.7.2"
+    };
+
+    // #snipcart container
+    if (!document.getElementById("snipcart")) {
+      const div = document.createElement("div");
+      div.id = "snipcart";
+      div.hidden = true;
+      div.setAttribute("data-api-key", "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy");
+      document.body.appendChild(div);
+    }
+
+    // CSS Snipcart
+    if (!document.querySelector('link[href^="https://cdn.snipcart.com/themes/v3.7.2/default/snipcart.css"]')) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "https://cdn.snipcart.com/themes/v3.7.2/default/snipcart.css";
+      document.head.appendChild(link);
+    }
+
+    // JS Snipcart
+    if (!document.querySelector('script[src^="https://cdn.snipcart.com/themes/v3.7.2/default/snipcart.js"]')) {
+      const s = document.createElement("script");
+      s.async = true;
+      s.src = "https://cdn.snipcart.com/themes/v3.7.2/default/snipcart.js";
+      document.head.appendChild(s);
+    }
+  })();
+
+  // --- 1) Navbar ---
   const navbar = document.querySelector(".navbar");
   if (navbar) {
     navbar.innerHTML = `
@@ -43,13 +65,11 @@ document.addEventListener("DOMContentLoaded", () => {
             <img src="${iconsPath}login-icon.png" alt="Login" />
           </button>
         </li>
-
         <li id="btn-account" style="display:none;">
           <button class="nav-icon snipcart-customer-profile" title="Il mio account">
             <img src="${iconsPath}user-icon.png" alt="Account" />
           </button>
         </li>
-
         <li id="btn-logout" style="display:none;">
           <button class="nav-icon snipcart-customer-signout" title="Esci">
             <img src="${iconsPath}logout-icon.png" alt="Logout" />
@@ -60,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
-  // Hamburger overlay
+  // --- 2) Hamburger overlay ---
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".nav-links");
   if (hamburger && navLinks) {
@@ -85,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Footer
+  // --- 3) Footer ---
   const footerPlaceholder = document.getElementById("footer-placeholder");
   if (footerPlaceholder) {
     fetch(links.footer)
@@ -94,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(err => console.error("Errore nel caricamento del footer:", err));
   }
 
-  // Toggling icone in base allo stato Snipcart
+  // --- 4) Stato Snipcart: mostra/nasconde icone ---
   function bindSnipcartUI() {
     const btnLogin  = document.getElementById("btn-login");
     const btnAcc    = document.getElementById("btn-account");
@@ -104,9 +124,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const render = () => {
       const { customer } = window.Snipcart.store.getState();
-      // console.log("Snipcart stato utente:", customer.status);
-
       const signedIn = customer.status === "SignedIn";
+      // console.log("Snipcart:", customer.status);
 
       if (btnLogin)  btnLogin.style.display  = signedIn ? "none"  : "block";
       if (btnAcc)    btnAcc.style.display    = signedIn ? "block" : "none";
@@ -117,6 +136,5 @@ document.addEventListener("DOMContentLoaded", () => {
     window.Snipcart.store.subscribe(render);
   }
 
-  // Aspetta Snipcart
   document.addEventListener("snipcart.ready", bindSnipcartUI);
 });
