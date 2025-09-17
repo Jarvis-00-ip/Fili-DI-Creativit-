@@ -50,7 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
               </button>
             </li>
             <li>
-              <button id="account-logout" class="snipcart-customer-signout" style="background:none; border:none; cursor:pointer; padding:5px 10px; width:100%; text-align:left;">
+              <!-- placeholder che verrà sostituito da Snipcart -->
+              <button id="account-logout" style="background:none; border:none; cursor:pointer; padding:5px 10px; width:100%; text-align:left;">
                 Esci
               </button>
             </li>
@@ -102,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const accountToggle = document.getElementById("account-toggle");
     const accountDropdown = document.getElementById("account-dropdown");
     const accountInfo = document.getElementById("account-info");
-    const accountLogout = document.getElementById("account-logout");
+    let accountLogout = document.getElementById("account-logout");
 
     function updateUI() {
       const state = window.Snipcart.store.getState();
@@ -120,9 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // inizializza subito
     updateUI();
-    // aggiorna ogni volta che cambia lo store
     window.Snipcart.store.subscribe(updateUI);
 
     // Gestione dropdown Account
@@ -135,18 +134,13 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // Fallback manuale logout
+    // Sostituisci il pulsante Esci con quello Snipcart nativo
     if (accountLogout) {
-      accountLogout.addEventListener("click", async (e) => {
-        e.preventDefault();
-        try {
-          await window.Snipcart.api.session.logout();
-          console.log("Logout eseguito con successo");
-        } catch (err) {
-          console.error("Errore durante il logout:", err);
-        }
-      });
+      accountLogout.outerHTML = `
+        <button class="snipcart-customer-signout" style="background:none; border:none; cursor:pointer; padding:5px 10px; width:100%; text-align:left;">
+          Esci
+        </button>
+      `;
     }
   });
 });
-// Fine src/js/common.js
