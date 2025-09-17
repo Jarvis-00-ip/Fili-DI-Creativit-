@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Snipcart Test Avanzato - Fili di Creatività</title>
-  <meta name="description" content="Pagina di test avanzata Snipcart">
+  <title>Snipcart Test Step - Fili di Creatività</title>
+  <meta name="description" content="Pagina di test Snipcart con config progressiva">
   <meta name="author" content="Pietro">
 
   <!-- Snipcart CSS -->
@@ -12,37 +12,43 @@
 </head>
 <body>
   <header>
-    <h1>Test Snipcart Avanzato</h1>
-    <p>Questa è la versione con SnipcartSettings + v3.7.2</p>
+    <h1>Test Snipcart Step by Step</h1>
+    <p>Prova ad aggiungere le opzioni di configurazione una alla volta.</p>
   </header>
 
   <!-- Prodotto finto -->
   <section>
     <div class="prodotto-card">
-      <img src="../../assets/img/candele.jpg" alt="Candela Test Avanzata" width="200">
-      <h2>Candela Test Avanzata</h2>
-      <p class="price">7,00 €</p>
+      <img src="../../assets/img/candele.jpg" alt="Candela Step Test" width="200">
+      <h2>Candela Step Test</h2>
+      <p class="price">9,00 €</p>
       <button 
         class="snipcart-add-item"
-        data-item-id="TEST-002"
-        data-item-price="7.00"
-        data-item-url="/src/html/test-snipcart-advanced.html"
-        data-item-description="Candela di prova con configurazione avanzata"
+        data-item-id="TEST-STEP"
+        data-item-price="9.00"
+        data-item-url="/src/html/test-snipcart-step.html"
+        data-item-description="Candela di prova per test configurazione"
         data-item-image="../../assets/img/candele.jpg"
-        data-item-name="Candela Test Avanzata">
+        data-item-name="Candela Step Test">
         🕯️ Aggiungi al Carrello
       </button>
     </div>
   </section>
 
-  <!-- Snipcart Config -->
+  <!-- Snipcart Config (modifica qui passo passo) -->
   <script>
     window.SnipcartSettings = {
-      publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
-      loadStrategy: "on-user-interaction",
-      currency: "eur",
-      modalStyle: "side",
-      version: "3.7.2"
+      publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"
+      
+      // STEP 1: lascia solo la chiave e prova
+      // STEP 2: togli i commenti e riprova
+      //, currency: "eur"
+      
+      // STEP 3: se ancora funziona, prova ad aggiungere anche questo
+      //, modalStyle: "side"
+      
+      // STEP 4: se ancora funziona, prova anche a forzare la versione
+      //, version: "3.7.2"
     };
   </script>
 
