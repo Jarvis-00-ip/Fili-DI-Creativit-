@@ -1,6 +1,5 @@
 // src/js/common.js
 document.addEventListener("DOMContentLoaded", () => {
-  // rileva se la pagina è in /html/ oppure in root
   const inHtmlFolder = window.location.pathname.includes("/html/");
 
   // 🔗 percorsi corretti
@@ -51,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
               </button>
             </li>
             <li>
-              <button class="snipcart-customer-signout" style="background:none; border:none; cursor:pointer; padding:5px 10px; width:100%; text-align:left;">
+              <button id="account-logout" class="snipcart-customer-signout" style="background:none; border:none; cursor:pointer; padding:5px 10px; width:100%; text-align:left;">
                 Esci
               </button>
             </li>
@@ -62,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
-  // Gestione hamburger menu (overlay fullscreen)
+  // Hamburger menu
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".nav-links");
   if (hamburger && navLinks) {
@@ -87,56 +86,67 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Caricamento footer
+  // Footer
   const footerPlaceholder = document.getElementById("footer-placeholder");
   if (footerPlaceholder) {
     fetch(links.footer)
-      .then(response => response.text())
-      .then(data => {
-        footerPlaceholder.innerHTML = data;
-      })
-      .catch(error =>
-        console.error("Errore nel caricamento del footer:", error)
-      );
+      .then(r => r.text())
+      .then(data => (footerPlaceholder.innerHTML = data))
+      .catch(err => console.error("Errore nel caricamento del footer:", err));
   }
 
-  // Gestione login/logout con Snipcart
+  // Snipcart login/logout
   document.addEventListener("snipcart.ready", () => {
     const loginBtn = document.getElementById("login-btn");
     const accountMenu = document.getElementById("account-menu");
     const accountToggle = document.getElementById("account-toggle");
     const accountDropdown = document.getElementById("account-dropdown");
     const accountInfo = document.getElementById("account-info");
+    const accountLogout = document.getElementById("account-logout");
 
-    // Aggiorna lo stato quando cambia il customer
-    window.Snipcart.store.subscribe(() => {
+    function updateUI() {
       const state = window.Snipcart.store.getState();
       const customer = state.customer;
-
       console.log("Snipcart stato utente:", customer.status);
 
       if (customer.status === "SignedIn") {
         if (loginBtn) loginBtn.style.display = "none";
         if (accountMenu) accountMenu.style.display = "block";
-
         if (accountInfo) accountInfo.textContent = "Il mio account";
       } else {
         if (loginBtn) loginBtn.style.display = "block";
         if (accountMenu) accountMenu.style.display = "none";
         if (accountDropdown) accountDropdown.style.display = "none";
       }
-    });
+    }
+
+    // inizializza subito
+    updateUI();
+    // aggiorna ogni volta che cambia lo store
+    window.Snipcart.store.subscribe(updateUI);
 
     // Gestione dropdown Account
     if (accountToggle) {
       accountToggle.addEventListener("click", () => {
-        if (accountDropdown.style.display === "none" || accountDropdown.style.display === "") {
-          accountDropdown.style.display = "block";
-        } else {
-          accountDropdown.style.display = "none";
+        accountDropdown.style.display =
+          accountDropdown.style.display === "none" || accountDropdown.style.display === ""
+            ? "block"
+            : "none";
+      });
+    }
+
+    // Fallback manuale logout
+    if (accountLogout) {
+      accountLogout.addEventListener("click", async (e) => {
+        e.preventDefault();
+        try {
+          await window.Snipcart.api.session.logout();
+          console.log("Logout eseguito con successo");
+        } catch (err) {
+          console.error("Errore durante il logout:", err);
         }
       });
     }
   });
 });
-// fine common.js
+// Fine src/js/common.js
