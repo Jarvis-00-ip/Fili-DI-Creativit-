@@ -15,13 +15,8 @@
   <link rel="stylesheet" href="../css/candele.css">
 </head>
 <body>
-  <!-- Snipcart container (necessario in OGNI pagina) -->
-  <div hidden id="snipcart" data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
-
   <!-- Navbar vuota che verrà riempita da common.js -->
   <nav class="navbar"></nav>
-
-
 
   <!-- Hero -->
   <section class="candele-hero">
@@ -44,7 +39,7 @@
           class="snipcart-add-item"
           data-item-id="CND-25-001"
           data-item-price="10.00"
-          data-item-url="https://filidicreativita.com/src/html/candele.html"
+          data-item-url="/src/html/candele.html"
           data-item-description="Candela profumata artigianale, edizione 2025"
           data-item-image="../../assets/img/candele.jpg"
           data-item-name="Candela Artigianale 2025">
@@ -61,7 +56,7 @@
           class="snipcart-add-item"
           data-item-id="CND-25-002"
           data-item-price="12.00"
-          data-item-url="https://filidicreativita.com/src/html/candele.html"
+          data-item-url="/src/html/candele.html"
           data-item-description="Candela decorata a mano, edizione 2025"
           data-item-image="../../assets/img/candele.jpg"
           data-item-name="Candela Decorata 2025">
@@ -78,7 +73,7 @@
           class="snipcart-add-item"
           data-item-id="CND-25-003"
           data-item-price="15.00"
-          data-item-url="https://filidicreativita.com/src/html/candele.html"
+          data-item-url="/src/html/candele.html"
           data-item-description="Candela profumata premium con fragranze uniche"
           data-item-image="../../assets/img/candele.jpg"
           data-item-name="Candela Profumata Special">
@@ -93,27 +88,20 @@
   <div id="footer-placeholder"></div>
   <script src="../js/common.js"></script>
 
-
-
   <!-- Script hamburger -->
   <script>
-  const hamburger = document.getElementById("hamburger");
-  const navLinks = document.getElementById("navLinks");
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
 
-  hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-
-    // cambia anche l'icona ☰ ↔ ✖
-    if (navLinks.classList.contains("active")) {
-      hamburger.textContent = "✖";
-    } else {
-      hamburger.textContent = "☰";
+    if (hamburger && navLinks) {
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        hamburger.textContent = navLinks.classList.contains("active") ? "✖" : "☰";
+      });
     }
-  });
-</script>
+  </script>
 
-
-  <!-- Snipcart -->
+  <!-- Snipcart Config -->
   <script>
     window.SnipcartSettings = {
       publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
@@ -124,6 +112,8 @@
   </script>
   <script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
   <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
+
+  <!-- Snipcart Container (unico) -->
   <div hidden id="snipcart" data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
 </body>
 </html>
