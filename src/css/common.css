@@ -63,16 +63,15 @@
   line-height: 0;
 }
 
-.nav-icon img {
+/* Forza dimensioni fisse delle icone su TUTTE le pagine */
+ul.nav-links li button.nav-icon img {
   width: 22px !important;
   height: 22px !important;
-  display: block;
-  object-fit: contain;
-  transition: opacity 0.2s ease;
-}
-
-.nav-icon:hover img {
-  opacity: 0.75;
+  max-width: 22px !important;
+  max-height: 22px !important;
+  object-fit: contain !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
 }
 
 /* Overlay Menu Fullscreen */
@@ -94,6 +93,8 @@
 .nav-links.active .nav-icon img {
   width: 22px !important;
   height: 22px !important;
+  max-width: 22px !important;
+  max-height: 22px !important;
 }
 
 /* Footer */
@@ -159,16 +160,4 @@ footer {
     flex-direction: column;
     align-items: center;
   }
-
-/* Forza dimensioni fisse delle icone auth (login/account/logout) */
-.nav-links .nav-icon img {
-  width: 22px !important;
-  height: 22px !important;
-  max-width: none !important;
-  max-height: none !important;
-  object-fit: contain !important;
-  display: inline-block;
-  vertical-align: middle;
-}
-
 }
