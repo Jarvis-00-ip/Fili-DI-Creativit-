@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="src/css/index.css" />
 </head>
 <body>
-  <!-- Snipcart container -->
+  <!-- Snipcart container (necessario in OGNI pagina) -->
   <div hidden id="snipcart" data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
 
   <!-- Navbar -->
@@ -52,20 +52,36 @@
       </a>
 
       <!-- Personalizzazione Oggetti (ANTEPRIMA) -->
-<a href="src/html/oggetti-anteprima.html" class="prodotto">
-  <img src="assets/img/personalizzazione_oggetti.jpg" alt="Personalizzazione oggetti vari" />
-  <h3>Personalizzazione Oggetti</h3>
-</a>
+      <a href="src/html/oggetti-anteprima.html" class="prodotto">
+        <img src="assets/img/personalizzazione_oggetti.jpg" alt="Personalizzazione oggetti vari" />
+        <h3>Personalizzazione Oggetti</h3>
+      </a>
     </div>
   </section>
 
   <!-- Footer -->
   <div id="footer-placeholder"></div>
 
-  <!-- Script -->
+  <!-- Script comuni -->
   <script src="src/js/common.js" defer></script>
   <script src="../js/parallax.js" defer></script>
-  <script src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js" async></script>
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
+
+  <!-- Snipcart Config -->
+  <script>
+    window.SnipcartSettings = {
+      publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
+      loadStrategy: "on-user-interaction",
+      currency: "eur",
+      modalStyle: "side"
+    };
+  </script>
+
+  <!-- Snipcart Script + CSS -->
+  <script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
+
+  <!-- Snipcart Container (duplicato necessario per login) -->
+  <div hidden id="snipcart" 
+       data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
 </body>
 </html>

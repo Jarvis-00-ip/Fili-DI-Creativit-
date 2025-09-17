@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrello - Fili di Creatività</title>
+  <meta name="description" content="Visualizza il tuo carrello e scopri prodotti consigliati.">
+  <meta name="author" content="Fili di Creatività">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.ico">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style-base.css">
+  <link rel="stylesheet" href="../css/carrello.css">
+</head>
+<body>
+  <!-- Snipcart -->
+  <div hidden id="snipcart" 
+       data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar"></nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-text">
+      <h1>Il tuo carrello</h1>
+      <p>Rivedi i prodotti scelti e completa l’ordine</p>
+    </div>
+  </header>
+
+  <!-- Carrello Snipcart -->
+  <main class="cart-container">
+    <section>
+      <button class="snipcart-checkout btn">Vai al Checkout</button>
+      <div class="snipcart-summary">
+        <h2>Riepilogo Carrello</h2>
+        <p>Prodotti: <span class="snipcart-items-count"></span></p>
+        <p>Totale: <span class="snipcart-total-price"></span></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Prodotti Consigliati -->
+  <section class="recommended">
+    <h2>Potrebbe interessarti anche</h2>
+    <div id="recommendations" class="recommendations-grid"></div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Script comuni -->
+  <script src="../js/common.js" defer></script>
+
+  <!-- Script prodotti consigliati -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const recDiv = document.getElementById("recommendations");
+      const visited = JSON.parse(localStorage.getItem("visitedProducts")) || [];
+
+      const prodotti = {
+        candele: {
+          nome: "Candela profumata - Offerta",
+          prezzo: "8.00",
+          img: "../../assets/img/candele.jpg",
+          id: "CAND-SALE"
+        },
+        tessuti: {
+          nome: "Tessuto personalizzato - Promo",
+          prezzo: "12.00",
+          img: "../../assets/img/personalizzazioni-tessuti.jpg",
+          id: "TESS-SALE"
+        },
+        "tazze-borracce": {
+          nome: "Tazza personalizzata - Sconto",
+          prezzo: "9.00",
+          img: "../../assets/img/personalizzazioni-oggettistica.jpg",
+          id: "TAZZA-SALE"
+        },
+        oggetti: {
+          nome: "Oggetto creativo - Offerta",
+          prezzo: "7.00",
+          img: "../../assets/img/personalizzazione_oggetti.jpg",
+          id: "OGG-SALE"
+        }
+      };
+
+      visited.forEach(prod => {
+        if (prodotti[prod]) {
+          const p = prodotti[prod];
+          recDiv.innerHTML += `
+            <div class="rec-card">
+              <img src="${p.img}" alt="${p.nome}">
+              <h3>${p.nome}</h3>
+              <p>Solo €${p.prezzo}</p>
+              <button 
+                class="snipcart-add-item"
+                data-item-id="${p.id}"
+                data-item-price="${p.prezzo}"
+                data-item-url="/src/html/carrello.html"
+                data-item-description="Offerta speciale ${p.nome}"
+                data-item-image="${p.img}"
+                data-item-name="${p.nome}">
+                Aggiungi al Carrello
+              </button>
+            </div>
+          `;
+        }
+      });
+    });
+  </script>
+    <!-- Snipcart Config -->
+  <script>
+    window.SnipcartSettings = {
+      publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
+      loadStrategy: "on-user-interaction",
+      currency: "eur",
+      modalStyle: "side"
+    };
+  </script>
+
+  <!-- Snipcart Script -->
+  <script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
+
+  <!-- Snipcart Container (necessario!) -->
+  <div hidden id="snipcart" data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
+
+</body>
+</html>
