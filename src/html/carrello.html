@@ -114,31 +114,15 @@
       publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
       loadStrategy: "on-user-interaction",
       currency: "eur",
-      modalStyle: "side"
+      modalStyle: "side",
+      version: "3.7.1"   // 👈 forza Snipcart alla versione giusta
     };
   </script>
   <script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
   <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
 
-  <!-- Snipcart Config -->
-<script>
-  window.SnipcartSettings = {
-    publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
-    loadStrategy: "on-user-interaction",
-    currency: "eur",
-    modalStyle: "side",
-    version: "3.7.1"   // 👈 forza Snipcart a usare la 3.7.1
-  };
-</script>
-
-<!-- Snipcart Script + CSS -->
-<script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
-<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
-
-<!-- Snipcart Container (unico) -->
-<div hidden id="snipcart"
-     data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy">
-</div>
-
+  <!-- Snipcart Container (unico, in fondo) -->
+  <div hidden id="snipcart"
+       data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
 </body>
 </html>
