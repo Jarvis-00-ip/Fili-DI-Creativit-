@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snipcart Test Avanzato - Fili di Creatività</title>
+  <meta name="description" content="Pagina di test avanzata Snipcart">
+  <meta name="author" content="Pietro">
+
+  <!-- Snipcart CSS -->
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.2/default/snipcart.css" />
+</head>
+<body>
+  <header>
+    <h1>Test Snipcart Avanzato</h1>
+    <p>Questa è la versione con SnipcartSettings + v3.7.2</p>
+  </header>
+
+  <!-- Prodotto finto -->
+  <section>
+    <div class="prodotto-card">
+      <img src="../../assets/img/candele.jpg" alt="Candela Test Avanzata" width="200">
+      <h2>Candela Test Avanzata</h2>
+      <p class="price">7,00 €</p>
+      <button 
+        class="snipcart-add-item"
+        data-item-id="TEST-002"
+        data-item-price="7.00"
+        data-item-url="/src/html/test-snipcart-advanced.html"
+        data-item-description="Candela di prova con configurazione avanzata"
+        data-item-image="../../assets/img/candele.jpg"
+        data-item-name="Candela Test Avanzata">
+        🕯️ Aggiungi al Carrello
+      </button>
+    </div>
+  </section>
+
+  <!-- Snipcart Config -->
+  <script>
+    window.SnipcartSettings = {
+      publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
+      loadStrategy: "on-user-interaction",
+      currency: "eur",
+      modalStyle: "side",
+      version: "3.7.2"
+    };
+  </script>
+
+  <!-- Snipcart Script -->
+  <script async src="https://cdn.snipcart.com/themes/v3.7.2/default/snipcart.js"></script>
+
+  <!-- Snipcart Container -->
+  <div hidden id="snipcart" 
+       data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy">
+  </div>
+</body>
+</html>
