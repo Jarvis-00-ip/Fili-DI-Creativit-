@@ -6,6 +6,11 @@
   font-family: 'Georgia', serif;
 }
 
+/* === Palette + Variabili === */
+:root {
+  --gold: #b8860b;
+}
+
 /* Sfondo dinamico Apple-style */
 body {
   background: linear-gradient(-45deg, #fdfcfb, #e2d1c3, #d3c0cd, #a2c2e6);
@@ -44,6 +49,7 @@ body {
   gap: 20px;
 }
 
+/* Link in nav */
 .nav-links a {
   text-decoration: none;
   color: #333;
@@ -53,13 +59,33 @@ body {
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: #b8860b;
+  color: var(--gold);
 }
 
 .hamburger {
   display: none;
   font-size: 2rem;
   cursor: pointer;
+}
+
+/* 🔢 Badge carrello (uniforme su tutte le pagine) */
+.nav-links a#open-cart-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cart-count {
+  background: var(--gold);
+  color: #fff;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 0.8rem;
+  line-height: 1;
+  font-weight: 700;
+  min-width: 18px;
+  text-align: center;
+  display: inline-block;
 }
 
 /* Hero Prodotti */
@@ -157,7 +183,7 @@ body {
 }
 
 .prodotto-card a:hover h2 {
-  color: #b8860b;
+  color: var(--gold);
 }
 
 /* Animazioni stile Apple */

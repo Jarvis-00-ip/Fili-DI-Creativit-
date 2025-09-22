@@ -32,6 +32,32 @@ body {
   z-index: 1000;
 }
 
+/* =========================
+   🛒 Badge carrello uniforme
+   ========================= */
+:root {
+  --gold: #b8860b;
+}
+
+.cart-count {
+  background: var(--gold);
+  color: #fff;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 0.8rem;
+  line-height: 1;
+  font-weight: 700;
+  min-width: 18px;
+  text-align: center;
+  display: inline-block;
+}
+
+.nav-links a#open-cart-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
 /* Hero */
 .hero {
   text-align: center;

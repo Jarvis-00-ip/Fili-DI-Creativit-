@@ -1,30 +1,22 @@
 // src/js/common.js
 document.addEventListener("DOMContentLoaded", () => {
-  const inHtmlFolder = window.location.pathname.includes("/html/");
+  const path = window.location.pathname;
+  const inHtmlFolder = path.includes("/src/html/");
+  const prefix = inHtmlFolder ? "" : "src/html/";
 
-  // 🔗 Percorsi corretti
-  const links = inHtmlFolder
-    ? {
-        home: "../../index.html",
-        prodotti: "prodotti.html",
-        contatti: "contatti.html",
-        chisiamo: "chisiamo.html",
-        footer: "footer.html",
-      }
-    : {
-        home: "index.html",
-        prodotti: "src/html/prodotti.html",
-        contatti: "src/html/contatti.html",
-        chisiamo: "src/html/chisiamo.html",
-        footer: "src/html/footer.html",
-      };
+  const links = {
+    home: inHtmlFolder ? "../../index.html" : "index.html",
+    prodotti: prefix + "prodotti.html",
+    contatti: prefix + "contatti.html",
+    chisiamo: prefix + "chisiamo.html",
+    footer: prefix + "footer.html",
+  };
 
-  // --- Navbar ---
   const navbar = document.querySelector(".navbar");
   if (navbar) {
     navbar.innerHTML = `
       <div class="logo">Fili di Creatività</div>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
         <li><a href="${links.home}">Home</a></li>
         <li><a href="${links.prodotti}">Prodotti</a></li>
         <li><a href="${links.contatti}">Contatti</a></li>
@@ -35,27 +27,21 @@ document.addEventListener("DOMContentLoaded", () => {
         </li>
         <li><a href="${links.chisiamo}">Chi siamo</a></li>
       </ul>
-      <div class="hamburger">☰</div>
+      <div class="hamburger" id="hamburger">☰</div>
     `;
   }
 
-  // --- Apertura carrello Snipcart + contatore ---
   document.addEventListener("snipcart.ready", () => {
     const cartLink = document.getElementById("open-cart-link");
     const cartCount = document.querySelector(".cart-count");
-
     if (cartLink) {
       cartLink.addEventListener("click", (e) => {
         e.preventDefault();
         Snipcart.api.theme.cart.open();
       });
     }
-
     if (cartCount) {
-      // Aggiorna il contatore all'avvio
       cartCount.textContent = Snipcart.store.getState().cart.items.count;
-
-      // Aggiorna il contatore ad ogni cambiamento nel carrello
       Snipcart.store.subscribe(() => {
         const state = Snipcart.store.getState();
         cartCount.textContent = state.cart.items.count;
@@ -63,37 +49,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // --- Hamburger menu ---
-  const hamburger = document.querySelector(".hamburger");
-  const navLinks = document.querySelector(".nav-links");
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("navLinks");
   if (hamburger && navLinks) {
     hamburger.addEventListener("click", () => {
       navLinks.classList.toggle("active");
       if (navLinks.classList.contains("active")) {
-        navLinks.style.position = "fixed";
-        navLinks.style.top = "0";
-        navLinks.style.left = "0";
-        navLinks.style.width = "100%";
-        navLinks.style.height = "100%";
-        navLinks.style.background = "#fff";
-        navLinks.style.flexDirection = "column";
-        navLinks.style.justifyContent = "center";
-        navLinks.style.alignItems = "center";
-        navLinks.style.fontSize = "1.5rem";
-        navLinks.style.zIndex = "1000";
-      } else {
-        navLinks.removeAttribute("style");
-        navLinks.classList.remove("active");
+        if (!document.getElementById("closeMenu")) {
+          const closeBtn = document.createElement("button");
+          closeBtn.id = "closeMenu";
+          closeBtn.classList.add("close-menu");
+          closeBtn.textContent = "✖";
+          navLinks.appendChild(closeBtn);
+          closeBtn.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+            closeBtn.remove();
+          });
+        }
       }
     });
   }
 
-  // --- Footer ---
   const footerPlaceholder = document.getElementById("footer-placeholder");
   if (footerPlaceholder) {
     fetch(links.footer)
-      .then(r => r.text())
-      .then(html => (footerPlaceholder.innerHTML = html))
-      .catch(err => console.error("Errore nel caricamento del footer:", err));
+      .then((r) => r.text())
+      .then((html) => (footerPlaceholder.innerHTML = html))
+      .catch((err) => console.error("Errore nel caricamento del footer:", err));
   }
 });

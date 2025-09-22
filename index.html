@@ -6,82 +6,52 @@
   <title>Fili di Creatività</title>
   <meta name="description" content="Candele e personalizzazioni fatte a mano con amore e creatività." />
   <meta name="author" content="Fili di Creatività" />
-
-  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="./src/css/common.css">
-  <link rel="stylesheet" href="src/css/index.css" />
+  <link rel="stylesheet" href="src/css/common.css">
+  <link rel="stylesheet" href="src/css/index.css">
 </head>
 <body>
-  <!-- Snipcart container (necessario in OGNI pagina) -->
-  <div hidden id="snipcart" data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
-
-  <!-- Navbar -->
+  <div hidden id="snipcart"
+       data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
   <nav class="navbar"></nav>
-
-  <!-- Hero -->
   <header class="hero">
     <div class="hero-text">
       <h1>Fili di Creatività</h1>
       <p>Personalizzazioni, candele e oggettistica fatta a mano</p>
     </div>
   </header>
-
-  <!-- Sezione Prodotti -->
   <section class="prodotti-home">
     <h2>I nostri prodotti</h2>
     <div class="prodotti-grid">
-      <!-- Candele (ANTEPRIMA) -->
       <a href="src/html/candele-anteprima.html" class="prodotto">
         <img src="assets/img/candele.jpg" alt="Candele artigianali" />
         <h3>Candele</h3>
       </a>
-
-      <!-- Personalizzazione Tessuti (ANTEPRIMA) -->
       <a href="src/html/tessuti-anteprima.html" class="prodotto">
         <img src="assets/img/personalizzazioni-tessuti.jpg" alt="Personalizzazione tessuti" />
         <h3>Personalizzazione Tessuti</h3>
       </a>
-
-      <!-- Personalizzazione Tazze e Borracce (ANTEPRIMA) -->
       <a href="src/html/tazze-borracce-anteprima.html" class="prodotto">
         <img src="assets/img/personalizzazioni-oggettistica.jpg" alt="Personalizzazione tazze e borracce" />
         <h3>Personalizzazione Tazze e Borracce</h3>
       </a>
-
-      <!-- Personalizzazione Oggetti (ANTEPRIMA) -->
       <a href="src/html/oggetti-anteprima.html" class="prodotto">
         <img src="assets/img/personalizzazione_oggetti.jpg" alt="Personalizzazione oggetti vari" />
         <h3>Personalizzazione Oggetti</h3>
       </a>
     </div>
   </section>
-
-  <!-- Footer -->
   <div id="footer-placeholder"></div>
-
-  <!-- Script comuni -->
   <script src="src/js/common.js" defer></script>
-  <script src="../js/parallax.js" defer></script>
-
-  <!-- Snipcart Config -->
-<script>
-  window.SnipcartSettings = {
-    publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
-    loadStrategy: "on-user-interaction",
-    modalStyle: "side"
-  };
-</script>
-
-<!-- Snipcart Script + CSS -->
-<script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
-<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
-
-<!-- Snipcart Container (unico) -->
-<div hidden id="snipcart"
-     data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy">
-</div>
+  <script src="src/js/parallax.js" defer></script>
+  <script>
+    window.SnipcartSettings = {
+      publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
+      loadStrategy: "on-user-interaction",
+      modalStyle: "side"
+    };
+  </script>
+  <script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
 </body>
 </html>

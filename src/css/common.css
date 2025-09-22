@@ -1,4 +1,14 @@
-/* Reset */
+/* 🎨 Palette Colori */
+:root {
+  --bg-main: #e6dfd5;
+  --bg-alt: #f5f1eb;
+  --text-dark: #3c2f2f;
+  --text-medium: #5a4634;
+  --accent: #d4a373;
+  --highlight: #b85c38;
+  --gold: #b8860b;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -15,163 +25,55 @@
   background-color: #fff;
   border-bottom: 1px solid #ddd;
   position: relative;
-  z-index: 100;
-}
-/* Contatore carrello */
-.cart-count {
-  background: #b8860b;
-  color: #fff;
-  border-radius: 50%;
-  padding: 2px 8px;
-  font-size: 0.8rem;
-  margin-left: 6px;
-  font-weight: bold;
-  display: inline-block;
-  min-width: 18px;
-  text-align: center;
-}
-
-
-.navbar .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.nav-links a,
-.nav-links button {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  font-size: 1rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover,
-.nav-links button:hover,
-.nav-links a.active {
-  color: #b8860b;
-}
-
-.hamburger {
-  display: none;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-/* 🔑 Icone auth (login / account / logout) */
-.nav-icon {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  line-height: 0;
-}
-
-/* Forza dimensioni fisse delle icone su TUTTE le pagine */
-ul.nav-links li button.nav-icon img {
-  width: 22px !important;
-  height: 22px !important;
-  max-width: 22px !important;
-  max-height: 22px !important;
-  object-fit: contain !important;
-  display: inline-block !important;
-  vertical-align: middle !important;
-}
-
-/* Overlay Menu Fullscreen */
-.nav-links.active {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  font-size: 1.5rem;
   z-index: 1000;
 }
-
-.nav-links.active .nav-icon img {
-  width: 22px !important;
-  height: 22px !important;
-  max-width: 22px !important;
-  max-height: 22px !important;
+.navbar .logo { font-size: 1.5rem; font-weight: bold; }
+.nav-links { list-style: none; display: flex; gap: 20px; align-items: center; }
+.nav-links a,
+.nav-links button {
+  text-decoration: none; color: #333; font-weight: 500; font-size: 1rem;
+  background: none; border: none; cursor: pointer; transition: color 0.3s;
 }
+.nav-links a:hover,
+.nav-links button:hover,
+.nav-links a.active { color: var(--gold); }
+
+/* Carrello */
+.cart-count {
+  background: var(--gold); color: #fff; border-radius: 50%;
+  padding: 2px 8px; font-size: 0.8rem; margin-left: 6px;
+  font-weight: bold; display: inline-block; min-width: 18px; text-align: center;
+}
+
+/* Hamburger */
+.hamburger { display: none; font-size: 2rem; cursor: pointer; z-index: 1100; }
+
+/* Fullscreen menu */
+.nav-links.active {
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: #fff; font-size: 1.5rem; z-index: 1000;
+}
+.close-menu {
+  position: absolute; top: 20px; right: 20px; width: 36px; height: 36px;
+  border: 2px solid var(--gold); border-radius: 50%; background: #fff; color: var(--gold);
+  font-size: 1.2rem; font-weight: bold; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.close-menu:hover { background: var(--gold); color: #fff; }
 
 /* Footer */
-footer {
-  background: #333;
-  color: #fff;
-  padding: 40px 20px;
-  text-align: center;
-}
-
+footer { background: #333; color: #fff; padding: 40px 20px; text-align: center; }
 .footer-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
+  display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; max-width: 1200px; margin: 0 auto;
 }
+.footer-section h3 { margin-bottom: 15px; font-size: 1.2rem; color: #f4f4f4; }
+.footer-section a { color: #ddd; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s; }
+.footer-section a:hover { color: #fff; }
+.footer-section img.icon { width: 18px; height: 18px; object-fit: contain; }
 
-.footer-section h3 {
-  margin-bottom: 15px;
-  font-size: 1.2rem;
-  color: #f4f4f4;
-}
-
-.footer-section p {
-  margin: 8px 0;
-}
-
-.footer-section a {
-  color: #ddd;
-  text-decoration: none;
-  font-size: 0.95rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: color 0.3s;
-}
-
-.footer-section a:hover {
-  color: #fff;
-}
-
-/* Icone nel footer */
-.footer-section img.icon {
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none; /* nascosti fino a click su hamburger */
-    flex-direction: column;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-  }
+  .nav-links { display: none; flex-direction: column; }
+  .hamburger { display: block; }
+  .footer-container { flex-direction: column; align-items: center; }
 }
