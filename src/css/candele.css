@@ -9,7 +9,7 @@
 /* Hero */
 .candele-hero {
   background: url("../../assets/img/candele.jpg") no-repeat center center/cover;
-  height: 40vh;
+  height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +21,7 @@
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.5);
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4));
 }
 
 .hero-text {
@@ -31,51 +31,67 @@
 }
 
 .candele-hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: #fff;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6), 
+               0 0 8px rgba(184, 134, 11, 0.6); /* effetto dorato */
 }
 
 .candele-hero p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #f0e6d2; /* grigio-dorato elegante */
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
 }
 
-/* Prodotti grid */
+
+/* Prodotti */
 .prodotti-candele {
-  padding: 60px 20px;
-  background: #fafafa;
+  padding: 70px 30px;
+  background: #f9f9f9;
 }
 
 .prodotti-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* Card prodotto */
 .prodotto-card {
   background: #fff;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
-  width: 280px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   text-align: center;
-  padding-bottom: 20px;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .prodotto-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .prodotto-card img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.prodotto-card:hover img {
+  transform: scale(1.05);
 }
 
 .prodotto-card h2 {
-  margin: 15px 0 10px;
-  font-size: 1.4rem;
+  margin: 18px 0 8px;
+  font-size: 1.3rem;
+  color: #333;
 }
 
 .price {
@@ -87,16 +103,29 @@
 
 /* Pulsanti carrello */
 .snipcart-add-item {
-  padding: 10px 20px;
+  padding: 12px;
   background: #b8860b;
   color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 0 0 12px 12px;
+  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.2s;
+  margin-top: auto;
 }
 
 .snipcart-add-item:hover {
   background: #8b6508;
+  transform: scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .candele-hero h1 {
+    font-size: 2.2rem;
+  }
+  .candele-hero p {
+    font-size: 1rem;
+  }
 }

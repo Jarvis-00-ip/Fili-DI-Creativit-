@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
         home: "../../index.html",
         prodotti: "prodotti.html",
         contatti: "contatti.html",
-        carrello: "carrello.html",
         chisiamo: "chisiamo.html",
         footer: "footer.html",
       }
@@ -16,12 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
         home: "index.html",
         prodotti: "src/html/prodotti.html",
         contatti: "src/html/contatti.html",
-        carrello: "src/html/carrello.html",
         chisiamo: "src/html/chisiamo.html",
         footer: "src/html/footer.html",
       };
 
-  // --- Navbar base (senza pulsanti Snipcart custom) ---
+  // --- Navbar ---
   const navbar = document.querySelector(".navbar");
   if (navbar) {
     navbar.innerHTML = `
@@ -30,14 +28,42 @@ document.addEventListener("DOMContentLoaded", () => {
         <li><a href="${links.home}">Home</a></li>
         <li><a href="${links.prodotti}">Prodotti</a></li>
         <li><a href="${links.contatti}">Contatti</a></li>
-        <li><a href="${links.carrello}">Carrello</a></li>
+        <li>
+          <a href="#" id="open-cart-link">
+            Carrello <span class="cart-count">0</span>
+          </a>
+        </li>
         <li><a href="${links.chisiamo}">Chi siamo</a></li>
       </ul>
       <div class="hamburger">☰</div>
     `;
   }
 
-  // --- Gestione hamburger menu (overlay fullscreen) ---
+  // --- Apertura carrello Snipcart + contatore ---
+  document.addEventListener("snipcart.ready", () => {
+    const cartLink = document.getElementById("open-cart-link");
+    const cartCount = document.querySelector(".cart-count");
+
+    if (cartLink) {
+      cartLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        Snipcart.api.theme.cart.open();
+      });
+    }
+
+    if (cartCount) {
+      // Aggiorna il contatore all'avvio
+      cartCount.textContent = Snipcart.store.getState().cart.items.count;
+
+      // Aggiorna il contatore ad ogni cambiamento nel carrello
+      Snipcart.store.subscribe(() => {
+        const state = Snipcart.store.getState();
+        cartCount.textContent = state.cart.items.count;
+      });
+    }
+  });
+
+  // --- Hamburger menu ---
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".nav-links");
   if (hamburger && navLinks) {
@@ -62,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- Caricamento footer ---
+  // --- Footer ---
   const footerPlaceholder = document.getElementById("footer-placeholder");
   if (footerPlaceholder) {
     fetch(links.footer)

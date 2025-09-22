@@ -13,77 +13,66 @@
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="../../favicon.ico">
 
-    <!-- collegamento al CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="../css/chi-siamo.css">
     <link rel="stylesheet" href="../css/style-base.css">
 </head>
 <body>
-  <!-- Snipcart container (necessario in OGNI pagina) -->
-  <div hidden id="snipcart" data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
-
-  <!-- Navbar vuota che verrà riempita da common.js -->
+  <!-- Navbar (riempita da common.js) -->
   <nav class="navbar"></nav>
 
+  <!-- Hero -->
+  <section class="chi-siamo-hero">
+    <div class="chi-siamo-hero-text">
+      <h1>Chi siamo</h1>
+      <p>Una storia fatta di passione, creatività e artigianato.</p>
+    </div>
+  </section>
 
-
-
-    <!-- Hero -->
-    <section class="chi-siamo-hero">
-        <div class="chi-siamo-hero-text">
-            <h1>Chi siamo</h1>
-            <p>Una storia fatta di passione, creatività e artigianato.</p>
-        </div>
-    </section>
-
-    <!-- Contenuto principale -->
-    <section class="chi-siamo-main">
-        <div class="container">
-            <div class="text">
-                <h2>La nostra storia</h2>
-                <p>
-                    Fili di Creatività nasce dall’amore per le cose fatte a mano.  
-                    Ogni oggetto che realizziamo è unico, frutto di passione, dedizione e tanta fantasia.  
-                    Amiamo sperimentare materiali diversi e trasformarli in creazioni che possano emozionare.
-                </p>
-                <p>
-                    Dalle candele profumate alle personalizzazioni su misura, mettiamo cura in ogni dettaglio.  
-                    Ogni creazione è pensata per raccontare una storia, la tua storia.
-                </p>
-            </div>
-            <div class="image">
-                <img src="../../assets/img/chi-siamo-pagina.jpg" alt="Il nostro laboratorio">
-            </div>
-        </div>
-    </section>
-
-    <!-- Mission -->
-    <section class="mission">
-        <h2>La nostra missione</h2>
+  <!-- Contenuto principale -->
+  <section class="chi-siamo-main">
+    <div class="container">
+      <div class="text">
+        <h2>La nostra storia</h2>
         <p>
-            Vogliamo portare un tocco di creatività e calore nelle case delle persone,  
-            creando oggetti che non siano semplici decorazioni, ma ricordi preziosi.  
-            Ogni candela, ogni personalizzazione, ogni piccolo dettaglio è pensato per rendere speciale un momento.
+          Fili di Creatività nasce dall’amore per le cose fatte a mano.  
+          Ogni oggetto che realizziamo è unico, frutto di passione, dedizione e tanta fantasia.  
+          Amiamo sperimentare materiali diversi e trasformarli in creazioni che possano emozionare.
         </p>
-    </section>
+        <p>
+          Dalle candele profumate alle personalizzazioni su misura, mettiamo cura in ogni dettaglio.  
+          Ogni creazione è pensata per raccontare una storia, la tua storia.
+        </p>
+      </div>
+      <div class="image">
+        <img src="../../assets/img/chi-siamo-pagina.jpg" alt="Il nostro laboratorio">
+      </div>
+    </div>
+  </section>
 
- <!-- Footer -->
- <div id="footer-placeholder"></div>
- <script src="../js/common.js"></script>
+  <!-- Mission -->
+  <section class="mission">
+    <h2>La nostra missione</h2>
+    <p>
+      Vogliamo portare un tocco di creatività e calore nelle case delle persone,  
+      creando oggetti che non siano semplici decorazioni, ma ricordi preziosi.  
+      Ogni candela, ogni personalizzazione, ogni piccolo dettaglio è pensato per rendere speciale un momento.
+    </p>
+  </section>
 
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
 
- <script>
-  const hamburger = document.getElementById("hamburger");
-  const navLinks = document.getElementById("navLinks");
+  <!-- Script comuni -->
+  <script src="../js/common.js" defer></script>
 
-  hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
+  <!-- Snipcart CSS/JS -->
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
+  <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
 
-    // cambia anche l'icona ☰ ↔ ✖
-    if (navLinks.classList.contains("active")) {
-      hamburger.textContent = "✖";
-    } else {
-      hamburger.textContent = "☰";
-    }
-  });
-</script>
-
+  <!-- Snipcart container (unico per pagina) -->
+  <div hidden id="snipcart"
+       data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy">
+  </div>
+</body>
+</html>

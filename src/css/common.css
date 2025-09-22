@@ -17,6 +17,20 @@
   position: relative;
   z-index: 100;
 }
+/* Contatore carrello */
+.cart-count {
+  background: #b8860b;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 8px;
+  font-size: 0.8rem;
+  margin-left: 6px;
+  font-weight: bold;
+  display: inline-block;
+  min-width: 18px;
+  text-align: center;
+}
+
 
 .navbar .logo {
   font-size: 1.5rem;
