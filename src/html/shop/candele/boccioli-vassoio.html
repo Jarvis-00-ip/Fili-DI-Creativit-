@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set Boccioli con Vassoio - Fili di Creatività</title>
+  <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+  <link rel="stylesheet" href="../../../css/common.css">
+  <link rel="stylesheet" href="../../../css/style-base.css">
+  <link rel="stylesheet" href="../../../css/candele.css">
+  <link rel="stylesheet" href="../../../css/product.css">
+</head>
+<body>
+  <nav class="navbar"></nav>
+
+  <!-- Hero -->
+  <section class="product-hero" style="background-image: url('/assets/img/candele-collage.jpg')">
+    <div class="hero-text">
+      <h1>Set Boccioli con Vassoio</h1>
+      <p>Scopri il nostro prodotto artigianale unico ✨</p>
+    </div>
+    <a href="../../../html/candele.html" class="back-link">← Torna alle Candele</a>
+  </section>
+
+  <!-- Contenuto prodotto -->
+  <section class="product-container">
+    <div class="product-image">
+      <img src="/assets/img/boccioli-vassoio.jpg" alt="Set Boccioli con Vassoio">
+    </div>
+    <div class="product-info">
+      <h2>Set Boccioli con Vassoio</h2>
+      <p class="price">30,00 €</p>
+      <p>Tre boccioli artigianali realizzati a mano, presentati su un elegante vassoio in resina o ceramica.</p>
+      <button class="snipcart-add-item"
+        data-item-id="BOC-002"
+        data-item-price="30.00"
+        data-item-url="/src/html/shop/candele/boccioli-vassoio.html"
+        data-item-description="Tre boccioli artigianali realizzati a mano, presentati su un elegante vassoio in resina o ceramica."
+        data-item-image="/assets/img/boccioli-vassoio.jpg"
+        data-item-name="Set Boccioli con Vassoio">
+        🕯️ Aggiungi al Carrello
+      </button>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script>
+    window.FOOTER_SRC = '/src/html/footer.html';
+  </script>
+  <script src="../../../js/common.js"></script>
+  <!-- Snipcart Config -->
+  <script>
+    window.SnipcartSettings = {
+      publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
+      loadStrategy: "on-user-interaction",
+      modalStyle: "full"
+    };
+  </script>
+  <script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
+
+  <!-- Container Snipcart -->
+  <div hidden id="snipcart"
+       data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
+
+</body>
+</html>

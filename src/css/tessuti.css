@@ -34,15 +34,36 @@
   font-size: 3rem;
   margin-bottom: 15px;
   color: #fff;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.6), 
-               0 0 8px rgba(184, 134, 11, 0.6);
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6),
+               0 0 8px rgba(184, 134, 11, 0.6); /* effetto dorato */
 }
 
 .tessuti-hero p {
   font-size: 1.3rem;
   font-weight: 300;
-  color: #f0e6d2;
+  color: #f0e6d2; /* grigio-dorato elegante */
   text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+/* Pulsante "Torna ai Prodotti" */
+.back-link {
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  font-size: 0.95rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+.back-link:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: translateY(-2px);
 }
 
 /* Prodotti */
@@ -62,18 +83,19 @@
 /* Card prodotto */
 .prodotto-card {
   background: #fff;
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
+  padding-bottom: 20px;
 }
 
 .prodotto-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.18);
 }
 
 .prodotto-card img {
@@ -90,7 +112,17 @@
 .prodotto-card h2 {
   margin: 18px 0 8px;
   font-size: 1.3rem;
-  color: #333;
+  color: #2a2a2a;
+}
+
+.prodotto-card h2 a {
+  color: #2a2a2a;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.prodotto-card h2 a:hover {
+  color: #b8860b; /* effetto dorato al passaggio */
 }
 
 .price {
@@ -98,25 +130,6 @@
   font-weight: bold;
   color: #b8860b;
   margin-bottom: 15px;
-}
-
-/* Pulsanti carrello */
-.snipcart-add-item {
-  padding: 12px;
-  background: #b8860b;
-  color: #fff;
-  border: none;
-  border-radius: 0 0 12px 12px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-  margin-top: auto;
-}
-
-.snipcart-add-item:hover {
-  background: #8b6508;
-  transform: scale(1.02);
 }
 
 /* Responsive */

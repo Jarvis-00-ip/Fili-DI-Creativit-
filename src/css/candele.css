@@ -8,13 +8,15 @@
 
 /* Hero */
 .candele-hero {
-  background: url("../../assets/img/candele.jpg") no-repeat center center/cover;
+  background: url("../../assets/img/candele-collage.jpg") no-repeat center center/cover;
   height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   color: white;
   position: relative;
+  text-align: center;
 }
 
 .candele-hero::after {
@@ -27,7 +29,6 @@
 .hero-text {
   position: relative;
   z-index: 2;
-  text-align: center;
 }
 
 .candele-hero h1 {
@@ -35,14 +36,38 @@
   margin-bottom: 15px;
   color: #fff;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.6), 
-               0 0 8px rgba(184, 134, 11, 0.6); /* effetto dorato */
+               0 0 8px rgba(184, 134, 11, 0.6);
 }
 
 .candele-hero p {
   font-size: 1.3rem;
   font-weight: 300;
-  color: #f0e6d2; /* grigio-dorato elegante */
+  color: #f0e6d2;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+/* Pulsante torna indietro */
+.back-link {
+  position: absolute;
+  bottom: 20px;
+  left: 25px;
+  font-size: 0.95rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 6px 12px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 2;
+}
+
+.back-link:hover {
+  background: rgba(0, 0, 0, 0.65);
+  transform: scale(1.05);
 }
 
 
@@ -63,18 +88,17 @@
 /* Card prodotto */
 .prodotto-card {
   background: #fff;
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
-  flex-direction: column;
 }
 
 .prodotto-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.18);
 }
 
 .prodotto-card img {
@@ -88,36 +112,68 @@
   transform: scale(1.05);
 }
 
+.prodotto-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  padding: 15px;
+}
+
 .prodotto-card h2 {
-  margin: 18px 0 8px;
+  margin: 12px 0 8px;
   font-size: 1.3rem;
-  color: #333;
+  color: #2a2a2a;
+}
+
+.prodotto-card h2 a {
+  color: #2a2a2a;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.prodotto-card h2 a:hover {
+  color: #b8860b;
+}
+
+.prodotto-card .description {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0 10px 12px;
+  line-height: 1.4;
 }
 
 .price {
   font-size: 1.2rem;
   font-weight: bold;
   color: #b8860b;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
-/* Pulsanti carrello */
+/* Pulsanti premium */
 .snipcart-add-item {
   padding: 12px;
-  background: #b8860b;
-  color: #fff;
+  background: linear-gradient(135deg, #b8860b, #d4af37);
+  color: #fff !important;
   border: none;
-  border-radius: 0 0 12px 12px;
+  border-radius: 30px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+  transition: all 0.3s ease;
   margin-top: auto;
+  text-decoration: none;
+  display: inline-block;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
 .snipcart-add-item:hover {
-  background: #8b6508;
-  transform: scale(1.02);
+  background: linear-gradient(135deg, #8b6508, #b8860b);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
 }
 
 /* Responsive */

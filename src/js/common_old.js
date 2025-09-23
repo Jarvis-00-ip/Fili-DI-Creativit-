@@ -1,24 +1,11 @@
-// src/js/common.js 
+// src/js/common.js
 document.addEventListener("DOMContentLoaded", () => {
   const path = window.location.pathname;
-
-  let prefix;
-  let homeLink;
-
- if (path.includes("/src/html/shop/")) {
-  prefix = "../../";
-  homeLink = "/index.html"; // assoluto
-} else if (path.includes("/src/html/")) {
-  prefix = "";
-  homeLink = "/index.html"; // assoluto
-} else {
-  prefix = "src/html/";
-  homeLink = "/index.html"; // assoluto
-}
-
+  const inHtmlFolder = path.includes("/src/html/");
+  const prefix = inHtmlFolder ? "" : "src/html/";
 
   const links = {
-    home: homeLink,
+    home: inHtmlFolder ? "../../index.html" : "index.html",
     prodotti: prefix + "prodotti.html",
     contatti: prefix + "contatti.html",
     chisiamo: prefix + "chisiamo.html",
@@ -85,8 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const footerPlaceholder = document.getElementById("footer-placeholder");
   if (footerPlaceholder) {
-    const footerPath = window.FOOTER_SRC || links.footer;
-    fetch(footerPath)
+    fetch(links.footer)
       .then((r) => r.text())
       .then((html) => (footerPlaceholder.innerHTML = html))
       .catch((err) => console.error("Errore nel caricamento del footer:", err));

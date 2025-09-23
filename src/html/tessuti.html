@@ -8,60 +8,86 @@
   <meta name="author" content="Pietro">
 
   <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+  <!-- CSS comuni -->
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/style-base.css">
+  <!-- CSS specifico -->
   <link rel="stylesheet" href="../css/tessuti.css">
 </head>
 <body>
+  <!-- Navbar -->
   <nav class="navbar"></nav>
 
+  <!-- Hero -->
   <section class="tessuti-hero">
     <div class="hero-text">
       <h1>I nostri Tessuti</h1>
       <p>Tessuti artigianali personalizzati per ogni occasione ✨</p>
     </div>
+    <!-- Pulsante Torna ai Prodotti -->
+    <a href="prodotti.html" class="back-link">← Torna ai Prodotti</a>
   </section>
 
+  <!-- Prodotti -->
   <section class="prodotti-tessuti">
     <div class="prodotti-grid">
+
+      <!-- Kit Nascita -->
       <div class="prodotto-card">
-        <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Tessuto Floreale">
-        <h2>Tessuto Floreale</h2>
-        <p class="price">18,00 €</p>
-        <button class="snipcart-add-item" data-item-id="TSS-001" data-item-price="18.00" data-item-url="/src/html/tessuti.html" data-item-description="Tessuto floreale elegante con motivi primaverili" data-item-image="../../assets/img/personalizzazioni-tessuti.jpg" data-item-name="Tessuto Floreale">🧵 Aggiungi al Carrello</button>
+        <a href="./shop/personalizzazione-tessuti/kit-nascita.html">
+          <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Kit Nascita">
+        </a>
+        <h2><a href="./shop/personalizzazione-tessuti/kit-nascita.html">Kit Nascita</a></h2>
+        <p class="price">25,00 €</p>
       </div>
+
+      <!-- Bavaglino -->
       <div class="prodotto-card">
-        <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Tessuto a Righe">
-        <h2>Tessuto a Righe</h2>
-        <p class="price">20,00 €</p>
-        <button class="snipcart-add-item" data-item-id="TSS-002" data-item-price="20.00" data-item-url="/src/html/tessuti.html" data-item-description="Tessuto a righe per arredamento e moda" data-item-image="../../assets/img/personalizzazioni-tessuti.jpg" data-item-name="Tessuto a Righe">🧵 Aggiungi al Carrello</button>
+        <a href="./shop/personalizzazione-tessuti/bavaglino.html">
+          <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Bavaglino">
+        </a>
+        <h2><a href="./shop/personalizzazione-tessuti/bavaglino.html">Bavaglino</a></h2>
+        <p class="price">8,00 €</p>
       </div>
+
+      <!-- Porta Ciuccio -->
       <div class="prodotto-card">
-        <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Tessuto Minimal">
-        <h2>Tessuto Minimal</h2>
-        <p class="price">15,00 €</p>
-        <button class="snipcart-add-item" data-item-id="TSS-003" data-item-price="15.00" data-item-url="/src/html/tessuti.html" data-item-description="Tessuto minimal per creazioni sobrie" data-item-image="../../assets/img/personalizzazioni-tessuti.jpg" data-item-name="Tessuto Minimal">🧵 Aggiungi al Carrello</button>
+        <a href="./shop/personalizzazione-tessuti/porta-ciuccio.html">
+          <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Porta Ciuccio">
+        </a>
+        <h2><a href="./shop/personalizzazione-tessuti/porta-ciuccio.html">Porta Ciuccio</a></h2>
+        <p class="price">6,00 €</p>
       </div>
+
+      <!-- Sacchetta -->
       <div class="prodotto-card">
-        <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Tessuto Vintage">
-        <h2>Tessuto Vintage</h2>
-        <p class="price">22,00 €</p>
-        <button class="snipcart-add-item" data-item-id="TSS-004" data-item-price="22.00" data-item-url="/src/html/tessuti.html" data-item-description="Tessuto stile retrò anni 70" data-item-image="../../assets/img/personalizzazioni-tessuti.jpg" data-item-name="Tessuto Vintage">🧵 Aggiungi al Carrello</button>
+        <a href="./shop/personalizzazione-tessuti/sacchetta.html">
+          <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Sacchetta">
+        </a>
+        <h2><a href="./shop/personalizzazione-tessuti/sacchetta.html">Sacchetta</a></h2>
+        <p class="price">10,00 €</p>
       </div>
-      <div class="prodotto-card">
-        <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Tessuto Geometrico">
-        <h2>Tessuto Geometrico</h2>
-        <p class="price">19,00 €</p>
-        <button class="snipcart-add-item" data-item-id="TSS-005" data-item-price="19.00" data-item-url="/src/html/tessuti.html" data-item-description="Tessuto moderno con fantasie geometriche" data-item-image="../../assets/img/personalizzazioni-tessuti.jpg" data-item-name="Tessuto Geometrico">🧵 Aggiungi al Carrello</button>
-      </div>
+
     </div>
   </section>
 
+  <!-- Footer -->
   <div id="footer-placeholder"></div>
   <script src="../js/common.js"></script>
-  <script>window.SnipcartSettings={publicApiKey:"OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",loadStrategy:"on-user-interaction",modalStyle:"full"};</script>
+
+  <!-- Snipcart Config -->
+  <script>
+    window.SnipcartSettings = {
+      publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
+      loadStrategy: "on-user-interaction",
+      modalStyle: "full"
+    };
+  </script>
   <script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
   <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
-  <div hidden id="snipcart" data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
+
+  <!-- Snipcart Container -->
+  <div hidden id="snipcart"
+       data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
 </body>
 </html>

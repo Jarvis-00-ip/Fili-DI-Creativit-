@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bavaglino Personalizzato - Fili di Creatività</title>
+  <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+  <link rel="stylesheet" href="../../../css/common.css">
+  <link rel="stylesheet" href="../../../css/style-base.css">
+  <link rel="stylesheet" href="../../../css/product.css">
+</head>
+<body>
+  <nav class="navbar"></nav>
+
+  <section class="product-hero" style="background-image: url('/assets/img/personalizzazioni-tessuti.jpg')">
+    <div class="hero-text">
+      <h1>Bavaglino Personalizzato</h1>
+      <p>Scopri il nostro prodotto artigianale unico ✨</p>
+    </div>
+    <a href="../../../html/tessuti.html" class="back-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H2.707l3.147 
+        3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 
+        1 0 0-.708l4-4a.5.5 0 0 1 .708.708L2.707 
+        7.5H14.5A.5.5 0 0 1 15 8z"/>
+      </svg>
+      Torna ai Tessuti
+    </a>
+  </section>
+
+  <section class="product-container">
+    <div class="product-image">
+      <img src="/assets/img/personalizzazioni-tessuti.jpg" alt="Bavaglino Personalizzato">
+    </div>
+    <div class="product-info">
+      <h2>Bavaglino Personalizzato</h2>
+      <p class="price">8.00 €</p>
+      <p>Bavaglino in cotone personalizzabile con nome o disegno.</p>
+      <button class="snipcart-add-item"
+        data-item-id="BAVAGLINO"
+        data-item-price="8.00"
+        data-item-url="/src/html/shop/tessuti/bavaglino.html"
+        data-item-description="Bavaglino in cotone personalizzabile con nome o disegno."
+        data-item-image="/assets/img/personalizzazioni-tessuti.jpg"
+        data-item-name="Bavaglino Personalizzato">
+        🧵 Aggiungi al Carrello
+      </button>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script>
+    window.FOOTER_SRC = '/src/html/footer.html';
+  </script>
+  <script src="../../../js/common.js"></script>
+  <!-- Snipcart Config -->
+  <script>
+    window.SnipcartSettings = {
+      publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
+      loadStrategy: "on-user-interaction",
+      modalStyle: "full"
+    };
+  </script>
+  <script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
+
+  <!-- Container Snipcart -->
+  <div hidden id="snipcart"
+       data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
+
+</body>
+</html>
