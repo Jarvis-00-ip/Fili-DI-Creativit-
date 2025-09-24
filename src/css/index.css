@@ -1,4 +1,6 @@
-/* Reset */
+/* ========================
+   RESET
+   ======================== */
 * {
   margin: 0;
   padding: 0;
@@ -17,11 +19,19 @@
   text-align: center;
   color: #fff;
   position: relative;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url("../../assets/img/hero.jpg") no-repeat center center/cover;
 }
 
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(0,0,0,0.35) 0%,
+    rgba(0,0,0,0.2) 40%,
+    rgba(0,0,0,0) 100%);
+  z-index: 1;
+}
 
 .hero-text {
   position: relative;
@@ -104,6 +114,7 @@
 @media (max-width: 768px) {
   .hero {
     height: 70vh;
+    background: url("../../assets/img/hero-mobile.jpg") no-repeat center center/cover;
   }
 
   .hero-text h1 {
