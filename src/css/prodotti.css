@@ -264,27 +264,40 @@ body {
   opacity: 0;
   will-change: opacity, transform;
   transition-property: opacity, transform;
-  transition-duration: 2s;          /* più lento */
+  transition-duration: 2s;
   transition-timing-function: ease-out;
 }
 
-.reveal { 
-  transform: translateY(50px); 
-}
-
-.reveal-left { 
-  transform: translateX(-100px);   /* distanza maggiore */
-}
-
-.reveal-right { 
-  transform: translateX(100px);    /* distanza maggiore */
-}
+.reveal { transform: translateY(50px); }
+.reveal-left { transform: translateX(-100px); }
+.reveal-right { transform: translateX(100px); }
 
 .reveal.visible,
 .reveal-left.visible,
 .reveal-right.visible {
   opacity: 1;
   transform: translate(0, 0);
+}
+
+/* Effetto sequenziale desktop */
+.prodotti-grid .prodotto-card:nth-child(1) { transition-delay: 0.1s; }
+.prodotti-grid .prodotto-card:nth-child(2) { transition-delay: 0.3s; }
+.prodotti-grid .prodotto-card:nth-child(3) { transition-delay: 0.5s; }
+.prodotti-grid .prodotto-card:nth-child(4) { transition-delay: 0.7s; }
+
+/* =========================
+   MOBILE OVERRIDE
+   ========================= */
+@media (max-width: 768px) {
+  .reveal-left,
+  .reveal-right {
+    transform: translateY(80px);   /* entra dal basso */
+  }
+
+  .reveal-left.visible,
+  .reveal-right.visible {
+    transform: translateY(0);      /* normale */
+  }
 }
 
 /* Effetto sequenziale sulle card della griglia prodotti */
