@@ -22,7 +22,7 @@
   background: url("../../assets/img/hero.jpg") no-repeat center center/cover;
 }
 
-/* Overlay per migliorare leggibilità testi */
+/* Overlay per migliorare leggibilità testi
 .hero::after {
   content: "";
   position: absolute;
@@ -34,7 +34,7 @@
     rgba(0,0,0,0) 100%
   );
   z-index: 1;
-}
+} */
 
 /* Testo nascosto di default (desktop) */
 .hero-text {
