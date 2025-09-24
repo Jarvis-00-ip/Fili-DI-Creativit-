@@ -22,14 +22,17 @@
   background: url("../../assets/img/hero.jpg") no-repeat center center/cover;
 }
 
+/* Overlay per migliorare leggibilità testi */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom,
+  background: linear-gradient(
+    to bottom,
     rgba(0,0,0,0.35) 0%,
     rgba(0,0,0,0.2) 40%,
-    rgba(0,0,0,0) 100%);
+    rgba(0,0,0,0) 100%
+  );
   z-index: 1;
 }
 
@@ -44,7 +47,7 @@
   font-size: 3.5rem;
   margin-bottom: 15px;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.6),
-               0 0 8px rgba(184, 134, 11, 0.6); /* effetto dorato */
+               0 0 8px rgba(184, 134, 11, 0.6); /* glow dorato */
 }
 
 .hero-text p {
@@ -115,6 +118,12 @@
   .hero {
     height: 70vh;
     background: url("../../assets/img/hero-mobile.jpg") no-repeat center center/cover;
+  }
+
+  /* fallback se hero-mobile non esiste */
+  .hero[style*="hero.jpg"] {
+    background-size: contain;
+    background-color: #000; /* evita bande bianche */
   }
 
   .hero-text h1 {
