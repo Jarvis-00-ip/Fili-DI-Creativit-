@@ -3,20 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tessuti Anteprima - Fili di Creatività</title>
-  <link rel="stylesheet" href="../css/tessuti-anteprima.css">
+  <title>Tessuti - Anteprima | Fili di Creatività</title>
   <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/tessuti-anteprima.css">
+  <link rel="stylesheet" href="../css/style-base.css">
 </head>
 <body>
+  <!-- Snipcart container -->
+  <div hidden id="snipcart" data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
+
+  <!-- Navbar -->
   <nav class="navbar"></nav>
-  <section class="hero">
+
+  <!-- Pulsante superiore flottante -->
+  <a href="tessuti.html" class="btn-top">Acquista ora</a>
+
+  <!-- Hero -->
+  <header class="hero">
     <div class="hero-text">
       <h1>Tessuti Personalizzati</h1>
-      <p>Scopri le nostre creazioni uniche.</p>
+      <p>Eleganza e artigianato su stoffa ✨</p>
     </div>
-  </section>
-  <a href="tessuti.html" class="btn-bottom">Vai ai Prodotti</a>
+  </header>
+
+  <!-- Sezioni scorrevoli -->
+  <main>
+    <section class="scroll-section">
+      <div class="text">
+        <h2>Artigianalità</h2>
+        <p>
+          Ogni tessuto è fatta a mano con amore e passione.
+          Dal design più semplice a quello più complesso,
+          accogliamo le tue richieste e lasciamo spazio alla fantasia.
+        </p>
+      </div>
+      <div class="image">
+        <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Tessuti artigianali">
+      </div>
+    </section>
+
+    <section class="scroll-section alt">
+      <div class="image">
+        <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Esempi tessuti">
+      </div>
+      <div class="text">
+        <h2>Materiali naturali</h2>
+        <p>
+          Usiamo materiali di qualità e personalizzabili,
+          per un prodotto sostenibile e rispettoso dell’ambiente.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-section">
+      <div class="text">
+        <h2>Un regalo perfetto</h2>
+        <p>
+          Ideali per eventi speciali e momenti da ricordare.
+          Ogni tessuto è pensata per emozionare e sorprendere.
+        </p>
+      </div>
+      <div class="image">
+        <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Tessuti personalizzati">
+      </div>
+    </section>
+  </main>
+
+  <!-- Pulsante inferiore -->
+  <a href="tessuti.html" class="btn-bottom">Acquista ora</a>
+
+  <!-- Footer -->
   <div id="footer-placeholder"></div>
-  <script src="../js/common.js" defer></script>
+
+  <!-- Script -->
+  <script src="../js/common.js"></script>
+  <script src="../js/scroll-animation.js"></script>
+  <script src="../js/scrollButton.js"></script>
+
+  <!-- Snipcart Config -->
+  <script>
+    window.SnipcartSettings = {
+      publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
+      loadStrategy: "on-user-interaction",
+      modalStyle: "full"
+    };
+  </script>
+
+  <!-- Snipcart Script + CSS -->
+  <script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
 </body>
 </html>

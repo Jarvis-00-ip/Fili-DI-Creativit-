@@ -28,7 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.querySelector(".navbar");
   if (navbar) {
     navbar.innerHTML = `
-      <div class="logo">Fili di Creatività</div>
+      <div class="logo">
+  <a href="${links.home}">
+    <span class="logo-main">Fili di</span> 
+    <span class="logo-highlight">Creatività</span>
+  </a>
+</div>
       <ul class="nav-links" id="navLinks">
         <li><a href="${links.home}">Home</a></li>
         <li><a href="${links.prodotti}">Prodotti</a></li>

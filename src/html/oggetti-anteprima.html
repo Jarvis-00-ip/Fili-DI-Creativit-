@@ -3,20 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oggetti Anteprima - Fili di Creatività</title>
-  <link rel="stylesheet" href="../css/oggetti-anteprima.css">
+  <title>Oggetti - Anteprima | Fili di Creatività</title>
   <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/oggetti-anteprima.css">
+  <link rel="stylesheet" href="../css/style-base.css">
 </head>
 <body>
+  <!-- Snipcart container -->
+  <div hidden id="snipcart" data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
+
+  <!-- Navbar -->
   <nav class="navbar"></nav>
-  <section class="hero">
+
+  <!-- Pulsante superiore flottante -->
+  <a href="oggetti.html" class="btn-top">Acquista ora</a>
+
+  <!-- Hero -->
+  <header class="hero">
     <div class="hero-text">
       <h1>Oggetti Personalizzati</h1>
-      <p>Anteprima delle nostre creazioni.</p>
+      <p>Artigianato unico per idee regalo 🎁</p>
     </div>
-  </section>
-  <a href="oggetti.html" class="btn-bottom">Vai ai Prodotti</a>
+  </header>
+
+  <!-- Sezioni scorrevoli -->
+  <main>
+    <section class="scroll-section">
+      <div class="text">
+        <h2>Artigianalità</h2>
+        <p>
+          Ogni oggetto è fatta a mano con amore e passione.
+          Dal design più semplice a quello più complesso,
+          accogliamo le tue richieste e lasciamo spazio alla fantasia.
+        </p>
+      </div>
+      <div class="image">
+        <img src="../../assets/img/personalizzazione_oggetti.jpg" alt="Oggetti artigianali">
+      </div>
+    </section>
+
+    <section class="scroll-section alt">
+      <div class="image">
+        <img src="../../assets/img/personalizzazione_oggetti.jpg" alt="Oggetti vari">
+      </div>
+      <div class="text">
+        <h2>Materiali naturali</h2>
+        <p>
+          Usiamo materiali di qualità e personalizzabili,
+          per un prodotto sostenibile e rispettoso dell’ambiente.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-section">
+      <div class="text">
+        <h2>Un regalo perfetto</h2>
+        <p>
+          Ideali per eventi speciali e momenti da ricordare.
+          Ogni oggetto è pensata per emozionare e sorprendere.
+        </p>
+      </div>
+      <div class="image">
+        <img src="../../assets/img/personalizzazione_oggetti.jpg" alt="Oggetti personalizzati">
+      </div>
+    </section>
+  </main>
+
+  <!-- Pulsante inferiore -->
+  <a href="oggetti.html" class="btn-bottom">Acquista ora</a>
+
+  <!-- Footer -->
   <div id="footer-placeholder"></div>
-  <script src="../js/common.js" defer></script>
+
+  <!-- Script -->
+  <script src="../js/common.js"></script>
+  <script src="../js/scroll-animation.js"></script>
+  <script src="../js/scrollButton.js"></script>
+
+  <!-- Snipcart Config -->
+  <script>
+    window.SnipcartSettings = {
+      publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
+      loadStrategy: "on-user-interaction",
+      modalStyle: "full"
+    };
+  </script>
+
+  <!-- Snipcart Script + CSS -->
+  <script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
 </body>
 </html>
