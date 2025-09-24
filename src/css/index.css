@@ -36,7 +36,9 @@
   z-index: 1;
 }
 
+/* Testo nascosto di default (desktop) */
 .hero-text {
+  display: none;
   position: relative;
   z-index: 2;
   max-width: 900px;
@@ -124,6 +126,11 @@
   .hero[style*="hero.jpg"] {
     background-size: contain;
     background-color: #000; /* evita bande bianche */
+  }
+
+  /* Mostra il testo solo su mobile */
+  .hero-text {
+    display: block;
   }
 
   .hero-text h1 {
