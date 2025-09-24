@@ -273,11 +273,11 @@ body {
 }
 
 .reveal-left { 
-  transform: translateX(-600px);   /* distanza maggiore */
+  transform: translateX(-400px);   /* distanza maggiore */
 }
 
 .reveal-right { 
-  transform: translateX(600px);    /* distanza maggiore */
+  transform: translateX(400px);    /* distanza maggiore */
 }
 
 .reveal.visible,
