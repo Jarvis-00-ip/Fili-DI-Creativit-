@@ -18,7 +18,7 @@
 
 /* Hero */
 .hero {
-  background: url("../../assets/img/candele.jpg") no-repeat center/cover;
+  background: url("./../../assets/img/personalizzazione_oggetti_hero.jpg") no-repeat center/cover;
   height: 80vh;
   display: flex;
   justify-content: center;
