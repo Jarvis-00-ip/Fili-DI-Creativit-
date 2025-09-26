@@ -1,4 +1,6 @@
-/* Reset */
+/* ========================
+   RESET
+   ======================== */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +8,9 @@
   font-family: 'Georgia', serif;
 }
 
-/* Hero */
+/* ========================
+   HERO
+   ======================== */
 .tessuti-hero {
   background: url("../../assets/img/personalizzazioni-tessuti.jpg") no-repeat center center/cover;
   height: 50vh;
@@ -66,7 +70,9 @@
   transform: translateY(-2px);
 }
 
-/* Prodotti */
+/* ========================
+   PRODOTTI
+   ======================== */
 .prodotti-tessuti {
   padding: 70px 30px;
   background: #f9f9f9;
@@ -125,6 +131,7 @@
   color: #b8860b; /* effetto dorato al passaggio */
 }
 
+/* Prezzo */
 .price {
   font-size: 1.2rem;
   font-weight: bold;
@@ -132,7 +139,42 @@
   margin-bottom: 15px;
 }
 
-/* Responsive */
+/* Descrizione */
+.prodotto-card .description {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  padding: 0 15px;
+  margin-bottom: 15px;
+}
+
+/* ========================
+   BOTTONE "VEDI PRODOTTO"
+   ======================== */
+.btn,
+.snipcart-add-item {
+  display: inline-block;
+  background: #b8860b; /* oro */
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.btn:hover,
+.snipcart-add-item:hover {
+  background: #a67809;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+
+/* ========================
+   RESPONSIVE
+   ======================== */
 @media (max-width: 768px) {
   .tessuti-hero h1 {
     font-size: 2.2rem;
