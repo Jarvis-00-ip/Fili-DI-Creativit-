@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pagina non trovata • Fili di Creatività</title>
+  <meta name="robots" content="noindex">
+  <!-- CSS base del progetto -->
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/style-base.css">
+  <link rel="stylesheet" href="../css/404.css">
+  <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.ico">
+</head>
+<body>
+  <!-- Navbar gestita da common.js -->
+  <nav class="navbar"></nav>
+
+  <main class="wrap">
+    <section class="card" aria-labelledby="titolo-404">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="#b8aea2" d="M2 19h20v2H2v-2zm9-16h2v6h-2V3zm7.07 2.93 1.41 1.41-4.24 4.24-1.41-1.41 4.24-4.24zM4.93 5.93l4.24 4.24-1.41 1.41L3.52 7.34l1.41-1.41zM12 12a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/>
+      </svg>
+
+      <h1 id="titolo-404">Pagina non trovata • Work in progress</h1>
+      <p class="lead">
+        Ops! La pagina che cerchi non è disponibile oppure è ancora in lavorazione.
+      </p>
+
+      <div class="hero-ghost" aria-hidden="true"></div>
+
+      <div class="buttons">
+        <button class="btn btn-ghost" id="btn-back">← Torna alla pagina precedente</button>
+        <a class="btn btn-primary" href="/index.html">🏠 Vai alla Home</a>
+      </div>
+
+      <p class="tips">
+        Se pensi sia un errore, torna indietro o visita la home per continuare la navigazione.
+        <span class="tag">Errore 404</span>
+      </p>
+
+      <a class="back-link" href="/src/html/prodotti.html">Oppure vai al catalogo prodotti</a>
+    </section>
+  </main>
+
+  <!-- Footer comune -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    window.FOOTER_SRC = '/src/html/footer.html';
+  </script>
+  <script src="../js/common.js" defer></script>
+
+  <script>
+    document.getElementById('btn-back').addEventListener('click', () => {
+      if (window.history.length > 1) {
+        history.back();
+      } else {
+        window.location.href = '/index.html';
+      }
+    });
+  </script>
+</body>
+</html>

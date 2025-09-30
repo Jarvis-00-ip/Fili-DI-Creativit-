@@ -71,11 +71,11 @@ body {
 }
 
 /* 🔢 Badge carrello */
-.nav-links a#open-cart-link {
+/* .nav-links a#open-cart-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-}
+} */
 
 .cart-count {
   background: var(--gold);

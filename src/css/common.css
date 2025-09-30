@@ -80,7 +80,7 @@
 /* =========================
    CARRELLO
    ========================= */
-.cart-count {
+/* .cart-count {
   background: var(--gold);
   color: #fff;
   border-radius: 50%;
@@ -91,7 +91,7 @@
   display: inline-block;
   min-width: 18px;
   text-align: center;
-}
+} */
 
 /* =========================
    HAMBURGER MENU

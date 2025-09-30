@@ -146,7 +146,7 @@
 /* =========================
    🛒 Carrello - Stile uniforme
    ========================= */
-.cart-count {
+/* .cart-count {
   background: var(--gold);
   color: #fff;
   border-radius: 999px;
@@ -162,7 +162,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-}
+} */
 
 
 /* Footer */

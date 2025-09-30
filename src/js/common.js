@@ -38,11 +38,13 @@ document.addEventListener("DOMContentLoaded", () => {
         <li><a href="${links.home}">Home</a></li>
         <li><a href="${links.prodotti}">Prodotti</a></li>
         <li><a href="${links.contatti}">Contatti</a></li>
-        <li>
-          <a href="#" id="open-cart-link">
-            Carrello <span class="cart-count">0</span>
-          </a>
-        </li>
+         <!-- 
+      <li>
+        <a href="#" id="open-cart-link">
+          Carrello <span class="cart-count">0</span>
+        </a>
+      </li>
+      -->
         <li><a href="${links.chisiamo}">Chi siamo</a></li>
       </ul>
       <div class="hamburger" id="hamburger">☰</div>

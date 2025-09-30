@@ -1,0 +1,127 @@
+:root{
+  --bg:#f5f1eb;
+  --ink:#2b2b2b;
+  --muted:#7c7c7c;
+  --accent:#b8aea2; /* palette del sito */
+}
+
+body{
+  background:var(--bg);
+  color:var(--ink);
+}
+
+.wrap{
+  min-height:60vh;
+  display:grid;
+  place-items:center;
+  padding:4rem 1.25rem;
+}
+
+.card{
+  background:#fff;
+  border-radius:20px;
+  padding:2.25rem;
+  max-width:720px;
+  width:100%;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  text-align:center;
+}
+
+.icon{
+  width:96px;
+  height:96px;
+  margin:0 auto 1rem;
+  display:block;
+}
+
+h1{
+  font-size:clamp(1.8rem,3.5vw,2.4rem);
+  margin:.25rem 0 .5rem;
+}
+
+p.lead{
+  color:var(--muted);
+  margin:0 auto 1rem;
+  max-width:52ch;
+}
+
+.buttons{
+  margin-top:1.25rem;
+  display:flex;
+  gap:.75rem;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.btn{
+  appearance:none;
+  border:0;
+  cursor:pointer;
+  padding:.85rem 1.1rem;
+  border-radius:999px;
+  font-weight:600;
+  transition:transform .08s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+}
+
+.btn:active{transform:translateY(1px)}
+
+.btn-primary{
+  background:var(--accent);
+  color:#fff;
+}
+
+.btn-primary:hover{
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
+}
+
+.btn-ghost{
+  background:#f3f3f3;
+  color:var(--ink);
+}
+
+.btn-ghost:hover{background:#ececec}
+
+.tips{
+  margin-top:1rem;
+  font-size:.95rem;
+  color:var(--muted);
+}
+
+.tag{
+  display:inline-block;
+  background:#fff3;
+  color:#fff;
+  border:1px solid #ffffff40;
+  padding:.2rem .6rem;
+  border-radius:999px;
+  font-size:.8rem;
+  margin-top:.35rem
+}
+
+.hero-ghost{
+  width:100%;
+  max-width:780px;
+  height:140px;
+  margin:1.25rem auto 0;
+  background:linear-gradient(135deg,#e9e5de 0%, #f6f2ec 100%);
+  border-radius:16px;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-ghost::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(1000px 140px at -20% 0%, #ffffff90 0, transparent 55%),
+             radial-gradient(900px 120px at 120% 100%, #ffffff80 0, transparent 60%);
+  mix-blend:overlay;
+  opacity:.6;
+}
+
+.back-link{
+  display:block;
+  margin:.5rem 0 0;
+  color:inherit;
+  opacity:.8
+}

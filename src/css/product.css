@@ -43,7 +43,7 @@
 }
 
 /* Pulsante carrello */
-.snipcart-add-item {
+/* .snipcart-add-item {
   padding: 14px 22px;
   background: linear-gradient(135deg, #b8860b, #d4af37);
   color: #fff;
@@ -60,7 +60,7 @@
 .snipcart-add-item:hover {
   background: linear-gradient(135deg, #8b6508, #b8860b);
   transform: scale(1.05);
-}
+} */
 
 /* Hero con immagine */
 .product-hero {
