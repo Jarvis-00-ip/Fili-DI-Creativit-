@@ -14,18 +14,37 @@
   <link rel="stylesheet" href="../css/contatti.css">
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/style-base.css">
+
+  <!-- Script Google reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  <style>
+    .attachments-preview{display:flex; gap:12px; flex-wrap:wrap; margin-top:8px;}
+    .att-thumb{width:96px; height:96px; border-radius:8px; overflow:hidden; position:relative; box-shadow:0 6px 16px rgba(0,0,0,.08);}
+    .att-thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+    .att-remove{position:absolute; top:6px; right:6px; background:rgba(0,0,0,.6); color:#fff; border:0; width:26px; height:26px; border-radius:999px; display:inline-flex; align-items:center; justify-content:center; cursor:pointer;}
+    .hint{font-size:.95rem;color:#666;margin-top:6px;}
+    .error{color:#b00020;margin-top:6px;}
+
+    /* Forza il campo reCAPTCHA come required */
+    #g-recaptcha-response {
+      display: block !important;
+      position: absolute;
+      margin: -50px 0 0 0 !important;
+      z-index: -999999;
+      opacity: 0;
+    }
+  </style>
 </head>
 <body>
-  <!-- Snipcart container -->
-  <div hidden id="snipcart" data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
+  <!-- Snipcart container (nascosto) -->
+  <div hidden id="snipcart" data-api-key=""></div>
 
   <!-- Navbar -->
   <nav class="navbar"></nav>
 
   <!-- Hero SOLO immagine -->
-  <section class="contatti-hero" style="background: url('../../assets/img/contattaci.jpg') no-repeat center/cover;">
-    <!-- testo rimosso -->
-  </section>
+  <section class="contatti-hero" style="background: url('../../assets/img/contattaci.jpg') no-repeat center/cover;"></section>
 
   <!-- Form di contatto -->
   <section class="contatti-main">
@@ -38,7 +57,7 @@
       </div>
 
       <div class="contact-form">
-        <form id="contactForm" action="https://formspree.io/f/xvgbyypw" method="POST">
+        <form id="contactForm" action="https://formspree.io/f/xvgbyypw" method="POST" enctype="multipart/form-data">
           <label for="name">Nome e Cognome</label>
           <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
 
@@ -48,11 +67,20 @@
           <label for="subject">Oggetto</label>
           <input type="text" id="subject" name="subject" placeholder="Motivo del contatto">
 
-          <label for="message">Messaggio</label>
-          <textarea id="message" name="message" rows="6" placeholder="Scrivici il tuo messaggio" required></textarea>
+          <label for="contact-product">Prodotto</label>
+          <input type="text" id="contact-product" name="product" readonly placeholder="Prodotto selezionato (se presente)">
+
+          <input type="hidden" id="contact-product-img" name="product_img" value="">
+          <input type="hidden" id="contact-product-price" name="product_price" value="">
+
+          <label for="contact-message">Messaggio</label>
+          <textarea id="contact-message" name="message" rows="6" placeholder="Scrivici il tuo messaggio" required></textarea>
+
+          <!-- reCAPTCHA v2 Custom -->
+          <div class="g-recaptcha" data-sitekey="6LekytorAAAAABUFkPG_vwdX4ZJMFvuKUJTBjJq7"></div>
 
           <button type="submit" class="btn">Invia Messaggio</button>
-          <p id="form-status" class="form-status"></p>
+          <p id="form-status" class="form-status" aria-live="polite"></p>
         </form>
       </div>
     </div>
@@ -62,46 +90,81 @@
   <div id="footer-placeholder"></div>
   <script src="../js/common.js"></script>
 
-  <!-- Script invio Formspree -->
   <script>
-    const form = document.getElementById("contactForm");
-    const status = document.getElementById("form-status");
+  (function () {
+    const qs = new URLSearchParams(window.location.search);
+    const product = qs.get('product') || '';
+    const price = qs.get('price') || '';
+    const img = qs.get('img') || '';
+    const message = qs.get('message') || '';
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
+    const prodField = document.getElementById('contact-product');
+    const msgField = document.getElementById('contact-message');
+    const preview = document.getElementById('contact-product-preview');
+    const hiddenImg = document.getElementById('contact-product-img');
+    const hiddenPrice = document.getElementById('contact-product-price');
 
-      if (response.ok) {
-        status.textContent = "Grazie! Il tuo messaggio è stato inviato ✅";
-        status.style.color = "green";
-        form.reset();
-      } else {
-        status.textContent = "Errore nell'invio, riprova ❌";
+    if (prodField && product) prodField.value = product + (price ? ` — ${price} €` : '');
+    if (msgField && message) msgField.value = message;
+    if (hiddenImg && img) hiddenImg.value = img;
+    if (hiddenPrice && price) hiddenPrice.value = price;
+
+    if (preview && img) {
+      const safeSrc = String(img).replace(/"/g, '%22').trim();
+      preview.innerHTML = `<img src="${safeSrc}" alt="${product}" style="max-width:140px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.08)">`;
+      preview.setAttribute('aria-hidden','false');
+    }
+
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', async (ev) => {
+      ev.preventDefault();
+      const formData = new FormData(form);
+
+      try {
+        status.textContent = 'Invio in corso…';
+        status.style.color = '#333';
+
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          status.textContent = "Grazie! Il tuo messaggio è stato inviato ✅";
+          status.style.color = "green";
+          form.reset();
+          const previewElm = document.getElementById('contact-product-preview');
+          if (previewElm) previewElm.innerHTML = '';
+        } else {
+          const text = await response.text().catch(() => '');
+          status.textContent = "Errore nell'invio, riprova ❌";
+          status.style.color = "red";
+          console.error('Form submit error', response.status, text);
+        }
+      } catch (err) {
+        console.error(err);
+        status.textContent = "Errore di rete durante l'invio, riprova ❌";
         status.style.color = "red";
       }
     });
-  </script>
 
-  <!-- Snipcart Config -->
-  <!-- <script>
-    window.SnipcartSettings = {
-      publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
-      loadStrategy: "on-user-interaction",
-      currency: "eur",
-      modalStyle: "full",
-      version: "3.7.1"
-    };
-  </script>
-  <script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" /> -->
+    if (form && (product || message)) {
+      setTimeout(() => {
+        try { form.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch(e){ }
+      }, 250);
+    }
+  })();
 
-  <!-- Snipcart Container -->
-  <!-- <div hidden id="snipcart"
-       data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div> -->
+  // Forza reCAPTCHA come campo obbligatorio
+  window.onload = function() { 
+    var el = document.getElementById('g-recaptcha-response'); 
+    if (el) { 
+      el.setAttribute('required', 'required'); 
+    } 
+  }
+  </script>
 </body>
 </html>

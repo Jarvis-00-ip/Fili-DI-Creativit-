@@ -31,6 +31,53 @@
       <h2>Set Boccioli con Vassoio</h2>
       <p class="price">30,00 €</p>
       <p>Tre boccioli artigianali realizzati a mano, presentati su un elegante vassoio in resina o ceramica.</p>
+
+      <!-- ===== Pulsante "Contattaci per ordini" (Variant 1) ===== -->
+      <div class="product-actions"
+           data-product-name="Set Boccioli con Vassoio"
+           data-product-price="30.00"
+           data-product-img="/assets/img/boccioli-vassoio.jpg">
+        <a id="contact-order-link" class="btn btn-primary" href="/src/html/contatti.html" rel="noopener" title="Contattaci per informazioni su questo prodotto">
+          📩 Contattaci per ordini
+        </a>
+      </div>
+
+      <script>
+      (function () {
+        const container = document.querySelector('.product-actions');
+        if (!container) return;
+
+        // Dati prodotto (vengono letti dai data-attributes)
+        const name = container.dataset.productName || '';
+        const price = container.dataset.productPrice || '';
+        const img = container.dataset.productImg || '';
+
+        // Messaggio predefinito (URLSearchParams farà l'encoding)
+        const defaultMessage = `Ciao, vorrei informazioni su: ${name} (prezzo indicativo: ${price} €). Vorrei conoscere disponibilità, tempi e personalizzazioni.`;
+
+        // Costruisci query string in modo sicuro
+        const params = new URLSearchParams({
+          product: name,
+          price: price,
+          img: img,
+          message: defaultMessage
+        });
+
+        // Percorso verso la pagina contatti: modifica se necessario
+        const contattiPath = '/src/html/contatti.html'; // <-- se il tuo contatti.html è altrove cambialo
+
+        const href = `${contattiPath}?${params.toString()}`;
+        const link = document.getElementById('contact-order-link');
+
+        if (link) {
+          link.setAttribute('href', href);
+          // se preferisci aprire in nuova scheda, decommenta:
+          // link.setAttribute('target', '_blank');
+        }
+      })();
+      </script>
+      <!-- ==================================================== -->
+
       <!-- <button class="snipcart-add-item"
         data-item-id="BOC-002"
         data-item-price="30.00"
@@ -48,20 +95,5 @@
     window.FOOTER_SRC = '/src/html/footer.html';
   </script>
   <script src="../../../js/common.js"></script>
-  <!-- Snipcart Config -->
-  <!-- <script>
-    window.SnipcartSettings = {
-      publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
-      loadStrategy: "on-user-interaction",
-      modalStyle: "full"
-    };
-  </script>
-  <script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" /> -->
-
-  <!-- Container Snipcart -->
-  <!-- <div hidden id="snipcart"
-       data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div> -->
-
 </body>
 </html>
