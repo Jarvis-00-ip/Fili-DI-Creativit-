@@ -1,0 +1,29 @@
+/* privacy-policy.css */
+:root{
+  --bg:#fbfaf8;
+  --card:#ffffff;
+  --ink:#222;
+  --muted:#6f6f6f;
+  --accent:#b8aea2;
+}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+.page-hero{
+  background:linear-gradient(180deg, rgba(184,174,162,0.08), transparent 60%);
+  padding:48px 20px;
+  text-align:center;
+}
+.page-hero .hero-text h1{font-size:clamp(1.6rem,3vw,2.4rem); margin:0 0.25rem;}
+.page-hero .hero-text p{color:var(--muted); margin-top:0.5rem;}
+.back-link{display:inline-block;margin-top:12px;color:var(--ink);opacity:0.9}
+.content-wrap{max-width:980px;margin:28px auto;padding:0 22px;}
+.policy-card{background:var(--card);border-radius:12px;padding:28px;box-shadow:0 10px 30px rgba(17,17,17,0.06);}
+.policy-card h2{margin-top:18px;color:var(--accent);}
+.policy-card p, .policy-card ul{color:var(--muted);line-height:1.6}
+.small-muted{color:var(--muted);font-size:.9rem;margin-top:18px;}
+@media (max-width:640px){.content-wrap{padding:0 14px}.page-hero{padding:32px 12px}}
