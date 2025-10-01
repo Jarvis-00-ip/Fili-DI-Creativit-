@@ -6,6 +6,7 @@
   --text-medium: #5a4634;
   --accent: #d4a373;
   --highlight: #b85c38;
+  --gold: #b8860b;
 }
 
 /* Reset */
@@ -16,7 +17,9 @@
   font-family: 'Georgia', serif;
 }
 
-/* Hero */
+/* =========================
+   HERO
+   ========================= */
 .hero {
   background: url("./../../assets/img/personalizzazione_oggetti_hero.jpg") no-repeat center/cover;
   height: 80vh;
@@ -27,45 +30,67 @@
   text-align: center;
   position: relative;
 }
+
 .hero::after {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  
+  background: rgba(0, 0, 0, 0.35); /* leggero overlay scuro */
+  z-index: 0;
 }
+
 /* Titolo principale */
 .hero-text h1 {
   font-size: 3.5rem;
   font-weight: bold;
-  color: #fff; /* bianco puro */
-  text-shadow: 0 2px 6px rgba(0,0,0,0.4); /* solo ombra leggera per stacco */
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
   margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
 }
 
 /* Sottotitolo */
 .hero .hero-text p {
-  color: #ffffff !important; /* forza il colore */
+  color: #ffffff !important;
   font-weight: bold;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.4); /* solo ombra leggera per stacco */
-  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  font-size: 1.2rem;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  position: relative;
+  z-index: 1;
 }
+
+.hero-text {
+  position: relative;
+  display: inline-block;
+  padding: 20px 30px;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+/* =========================
+   PULSANTI
+   ========================= */
 .btn {
   padding: 12px 24px;
   background: var(--accent);
   color: white;
   text-decoration: none;
   border-radius: 6px;
-  transition: background 0.3s;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.3s;
 }
 .btn:hover {
   background: var(--highlight);
+  transform: translateY(-2px);
 }
 
 /* Pulsante superiore flottante */
 .btn-top {
   position: fixed;
-  top: 70px;   /* sotto la navbar */
-  right: 20px; /* 👉 spostato a destra */
+  top: 70px;
+  right: 20px;
   padding: 8px 14px;
   background: var(--accent);
   color: #fff;
@@ -84,7 +109,6 @@
   pointer-events: none;
 }
 
-
 /* Pulsante inferiore */
 .btn-bottom {
   display: block;
@@ -99,12 +123,16 @@
   text-align: center;
   max-width: 200px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s, transform 0.3s;
 }
 .btn-bottom:hover {
   background: var(--highlight);
+  transform: scale(1.05);
 }
 
-/* Sezioni scroll */
+/* =========================
+   SEZIONI SCROLL
+   ========================= */
 .scroll-section {
   display: flex;
   align-items: center;
@@ -112,9 +140,16 @@
   padding: 80px 10%;
   background: var(--bg-main);
   gap: 40px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
 }
 .scroll-section.alt {
   background: var(--bg-alt);
+}
+.scroll-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 .scroll-section .text {
   flex: 1;
@@ -131,41 +166,18 @@
   width: 100%;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.6s ease, opacity 0.6s ease;
   opacity: 0;
   transform: translateY(50px);
-  transition: all 0.8s ease;
 }
-
-/* Animazioni scroll */
-.scroll-section.visible .image img,
-.scroll-section.visible .text {
+.scroll-section.visible .image img {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1.02);
 }
 
 /* =========================
-   🛒 Carrello - Stile uniforme
+   FOOTER
    ========================= */
-/* .cart-count {
-  background: var(--gold);
-  color: #fff;
-  border-radius: 999px;
-  padding: 2px 8px;
-  font-size: 0.8rem;
-  line-height: 1;
-  font-weight: 700;
-  min-width: 18px;
-  text-align: center;
-  display: inline-block;
-}
-.nav-links a#open-cart-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-} */
-
-
-/* Footer */
 footer {
   background: var(--text-dark);
   color: #fff;

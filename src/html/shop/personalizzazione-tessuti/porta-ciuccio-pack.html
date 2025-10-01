@@ -7,7 +7,7 @@
   <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
   <link rel="stylesheet" href="../../../css/common.css">
   <link rel="stylesheet" href="../../../css/style-base.css">
-  <link rel="stylesheet" href="../../../css/tessuti.css">
+  <link rel="stylesheet" href="../../../css/candele.css">
   <link rel="stylesheet" href="../../../css/product.css">
 </head>
 <body>
@@ -31,7 +31,49 @@
       <h2>Porta Ciuccio Pack da 2</h2>
       <p class="price">15,00 €</p>
       <p>Un set di due porta ciuccio artigianali, sicuri e resistenti, perfetti per accompagnare i tuoi bambini con stile.</p>
-      <!-- <button class="snipcart-add-item"
+
+      <!-- ===== Pulsante "Contattaci per ordini" ===== -->
+      <div class="product-actions"
+           data-product-name="Porta Ciuccio Pack da 2"
+           data-product-price="15.00"
+           data-product-img="/assets/img/ciucci-combo-hero.png">
+        <a id="contact-order-link" class="btn-order" href="/src/html/contatti.html" rel="noopener" title="Contattaci per informazioni su questo prodotto">
+          📩 Contattaci per ordini
+        </a>
+      </div>
+
+      <script>
+      (function () {
+        const container = document.querySelector('.product-actions');
+        if (!container) return;
+
+        const name = container.dataset.productName || '';
+        const price = container.dataset.productPrice || '';
+        const img = container.dataset.productImg || '';
+
+        const defaultMessage = `Ciao, vorrei informazioni su: ${name} (prezzo indicativo: ${price} €). Vorrei conoscere disponibilità, tempi e personalizzazioni.`;
+
+        const params = new URLSearchParams({
+          product: name,
+          price: price,
+          img: img,
+          message: defaultMessage
+        });
+
+        const contattiPath = '/src/html/contatti.html';
+        const href = `${contattiPath}?${params.toString()}`;
+        const link = document.getElementById('contact-order-link');
+
+        if (link) {
+          link.setAttribute('href', href);
+        }
+      })();
+      </script>
+      <!-- =========================================== -->
+
+      <!-- Pulsante Snipcart (commentato, lasciato intatto) -->
+      <!--
+      <button class="snipcart-add-item"
         data-item-id="TC-001"
         data-item-price="15.00"
         data-item-url="/src/html/shop/personalizzazione-tessuti/porta-ciuccio-pack.html"
@@ -39,7 +81,8 @@
         data-item-image="/assets/img/ciucci-combo-hero.png"
         data-item-name="Porta Ciuccio Pack da 2">
         👶 Aggiungi al Carrello
-      </button> -->
+      </button>
+      -->
     </div>
   </section>
 
@@ -49,7 +92,7 @@
   </script>
   <script src="../../../js/common.js"></script>
 
-  <!-- Snipcart Config -->
+  <!-- Snipcart Config (commentato, lasciato intatto) -->
   <!-- <script>
     window.SnipcartSettings = {
       publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
@@ -63,6 +106,5 @@
   <!-- Container Snipcart -->
   <!-- <div hidden id="snipcart"
        data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div> -->
-
 </body>
 </html>

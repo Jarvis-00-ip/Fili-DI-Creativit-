@@ -7,11 +7,13 @@
   <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
   <link rel="stylesheet" href="../../../css/common.css">
   <link rel="stylesheet" href="../../../css/style-base.css">
+  <link rel="stylesheet" href="../../../css/candele.css">
   <link rel="stylesheet" href="../../../css/product.css">
 </head>
 <body>
   <nav class="navbar"></nav>
 
+  <!-- Hero -->
   <section class="product-hero" style="background-image: url('/assets/img/personalizzazioni-tessuti.jpg')">
     <div class="hero-text">
       <h1>Sacchetta Personalizzata</h1>
@@ -28,6 +30,7 @@
     </a>
   </section>
 
+  <!-- Contenuto prodotto -->
   <section class="product-container">
     <div class="product-image">
       <img src="/assets/img/sacchetta-anteprima.png" alt="Sacchetta Personalizzata">
@@ -36,7 +39,49 @@
       <h2>Sacchetta Personalizzata</h2>
       <p class="price">10.00 €</p>
       <p>Sacchetta in tessuto ideale per il cambio o piccoli oggetti, personalizzabile.</p>
-      <!-- <button class="snipcart-add-item"
+
+      <!-- ===== Pulsante "Contattaci per ordini" ===== -->
+      <div class="product-actions"
+           data-product-name="Sacchetta Personalizzata"
+           data-product-price="10.00"
+           data-product-img="/assets/img/sacchetta-anteprima.png">
+        <a id="contact-order-link" class="btn-order" href="/src/html/contatti.html" rel="noopener" title="Contattaci per informazioni su questo prodotto">
+          📩 Contattaci per ordini
+        </a>
+      </div>
+
+      <script>
+      (function () {
+        const container = document.querySelector('.product-actions');
+        if (!container) return;
+
+        const name = container.dataset.productName || '';
+        const price = container.dataset.productPrice || '';
+        const img = container.dataset.productImg || '';
+
+        const defaultMessage = `Ciao, vorrei informazioni su: ${name} (prezzo indicativo: ${price} €). Vorrei conoscere disponibilità, tempi e personalizzazioni.`;
+
+        const params = new URLSearchParams({
+          product: name,
+          price: price,
+          img: img,
+          message: defaultMessage
+        });
+
+        const contattiPath = '/src/html/contatti.html';
+        const href = `${contattiPath}?${params.toString()}`;
+        const link = document.getElementById('contact-order-link');
+
+        if (link) {
+          link.setAttribute('href', href);
+        }
+      })();
+      </script>
+      <!-- =========================================== -->
+
+      <!-- Pulsante Snipcart (commentato, lasciato intatto) -->
+      <!--
+      <button class="snipcart-add-item"
         data-item-id="SACCHETTA"
         data-item-price="10.00"
         data-item-url="/src/html/shop/tessuti/sacchetta.html"
@@ -44,7 +89,8 @@
         data-item-image="/assets/img/sacchetta-anteprima.png"
         data-item-name="Sacchetta Personalizzata">
         🧵 Aggiungi al Carrello
-      </button> -->
+      </button>
+      -->
     </div>
   </section>
 
@@ -53,7 +99,8 @@
     window.FOOTER_SRC = '/src/html/footer.html';
   </script>
   <script src="../../../js/common.js"></script>
-  <!-- Snipcart Config -->
+
+  <!-- Snipcart Config (commentato, lasciato intatto) -->
   <!-- <script>
     window.SnipcartSettings = {
       publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
@@ -67,6 +114,5 @@
   <!-- Container Snipcart -->
   <!-- <div hidden id="snipcart"
        data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div> -->
-
 </body>
 </html>

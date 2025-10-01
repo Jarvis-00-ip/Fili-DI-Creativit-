@@ -20,9 +20,9 @@
    HERO
    ========================= */
 .hero {
-  background: url("../../assets/img/candele-collage.jpg") no-repeat center/cover; /* immagine hero */
-  height: 80vh;                  /* altezza della sezione */
-  display: flex;                 /* centrare contenuto */
+  background: url("../../assets/img/candele-collage.jpg") no-repeat center/cover;
+  height: 80vh;
+  display: flex;
   justify-content: center;
   align-items: center;
   color: white;
@@ -30,7 +30,7 @@
   position: relative;
 }
 
-/* overlay trasparente sopra l’immagine (se vuoi scurirla aggiungi rgba) */
+/* overlay trasparente */
 .hero::after {
   content: "";
   position: absolute;
@@ -41,18 +41,19 @@
 .hero-text h1 {
   font-size: 3.5rem;
   font-weight: bold;
-  color: #fff; /* bianco puro */
-  text-shadow: 0 2px 6px rgba(0,0,0,0.4); /* solo ombra leggera per stacco */
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
   margin-bottom: 10px;
 }
 
 /* Sottotitolo */
 .hero .hero-text p {
-  color: #ffffff !important; /* forza il colore */
+  color: #ffffff !important;
   font-weight: bold;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.4); /* solo ombra leggera per stacco */
-  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4),
+               0 1px 3px rgba(0,0,0,0.3);
 }
+
 .hero-text {
   position: relative;
   display: inline-block;
@@ -78,8 +79,8 @@
 /* Pulsante superiore flottante */
 .btn-top {
   position: fixed;
-  top: 70px;   /* sotto la navbar */
-  right: 20px; /* posizionato a destra */
+  top: 70px;
+  right: 20px;
   padding: 8px 14px;
   background: var(--accent);
   color: #fff;
