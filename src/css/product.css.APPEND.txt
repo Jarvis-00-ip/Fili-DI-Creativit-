@@ -1,0 +1,52 @@
+/* =====================================================
+   CTA PULSANTI PRODOTTO (MAIL / ACQUISTO) — AUTO TOGGLE
+   Aggiungi questo blocco IN FONDO a: /src/css/product.css
+   ===================================================== */
+
+/* Wrapper CTA */
+.product-cta{
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Default: vendita OFF -> mostra mail */
+.cta-buy{ display:none; }
+.cta-mail{ display:inline-flex; }
+
+/* Vendita ON -> mostra Snipcart */
+html.selling-enabled .cta-buy{ display:inline-flex; }
+html.selling-enabled .cta-mail{ display:none; }
+
+/* Bottone mail: stesso “feel” del bottone Vedi Prodotto */
+.btn-info{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 12px 22px;
+  border-radius: 999px;
+
+  background: #b8860b; /* oro */
+  color: #fff !important;
+  text-decoration: none !important;
+  font-weight: 700;
+
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.14);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.btn-info:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  filter: brightness(.95);
+}
+
+.btn-info:active{
+  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.14);
+}

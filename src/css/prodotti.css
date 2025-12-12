@@ -385,3 +385,45 @@ footer {
     padding: 8px 14px;
   }
 }
+
+/* =========================
+   CTA: RICHIEDI INFORMAZIONI (MAIL)
+   Aggiunto per le pagine prodotto (classe .btn-info)
+   ========================= */
+.btn-info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: 16px;
+  padding: 12px 22px;
+
+  background: var(--gold);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.14);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.btn-info:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  filter: brightness(0.95);
+}
+
+.btn-info:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.14);
+}
+
+.btn-info:focus-visible {
+  outline: 3px solid rgba(184, 134, 11, 0.35);
+  outline-offset: 3px;
+}
