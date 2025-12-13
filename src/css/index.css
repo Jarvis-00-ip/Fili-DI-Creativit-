@@ -12,55 +12,93 @@
    HERO
    ======================== */
 .hero {
-  height: 90vh;
+  /* Prima: height: 90vh; -> su desktop può far “tagliare” o posizionare male */
+  min-height: 78vh;
+  height: auto;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   text-align: center;
   color: #fff;
   position: relative;
+
+  /* più spazio sopra (navbar) e sotto */
+  padding: 110px 18px 60px;
+
   background: url("../../assets/img/hero.jpg") no-repeat center center/cover;
+  overflow: visible; /* evita clipping del testo */
 }
 
-/* Overlay per migliorare leggibilità testi
+/* Overlay per migliorare leggibilità testi (ATTIVO) */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
+
+  /* Gradiente più efficace su desktop */
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.35) 0%,
-    rgba(0,0,0,0.2) 40%,
-    rgba(0,0,0,0) 100%
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,0,0,0.35) 45%,
+    rgba(0,0,0,0.18) 100%
   );
-  z-index: 1;
-} */
 
-/* Testo nascosto di default (desktop) */
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Testo: PRIMA era nascosto su desktop, ora è visibile */
 .hero-text {
-  display: none;
+  display: block;
   position: relative;
   z-index: 2;
-  max-width: 900px;
-  padding: 20px;
+
+  max-width: 980px;
+  padding: 22px 26px;
+
+  /* “glass” leggero per garantire leggibilità */
+  background: rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+
+  overflow: visible; /* evita righe “tagliate” */
 }
 
 .hero-text h1 {
-  font-size: 3.5rem;
-  margin-bottom: 15px;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.6),
-               0 0 8px rgba(184, 134, 11, 0.6); /* glow dorato */
+  /* prima: 3.5rem fisso -> meglio fluido */
+  font-size: clamp(2.4rem, 4.3vw, 4.2rem);
+
+  margin-bottom: 14px;
+
+  /* IMPORTANTISSIMO per non “tagliare” le righe */
+  line-height: 1.15;
+  padding: 6px 0;
+
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.55),
+               0 0 10px rgba(184, 134, 11, 0.55); /* glow dorato */
+  letter-spacing: 0.5px;
 }
 
 .hero-text p {
-  font-size: 1.3rem;
+  /* prima: 1.3rem fisso -> meglio fluido */
+  font-size: clamp(1rem, 1.6vw, 1.6rem);
+
   font-weight: 300;
   color: #f0e6d2; /* grigio-dorato elegante */
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+
+  line-height: 1.55; /* evita clipping e migliora lettura */
+
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.45);
 }
 
 /* ========================
    PRODOTTI HOME
+   (INVARIATO)
    ======================== */
 .prodotti-home {
   padding: 60px 20px;
@@ -118,19 +156,23 @@
    ======================== */
 @media (max-width: 768px) {
   .hero {
-    height: 70vh;
+    min-height: 70vh;
+    padding: 70px 16px 34px; /* meno spazio su mobile */
     background: url("../../assets/img/hero-mobile.jpg") no-repeat center center/cover;
   }
 
-  /* fallback se hero-mobile non esiste */
-  .hero[style*="hero.jpg"] {
-    background-size: contain;
-    background-color: #000; /* evita bande bianche */
+  /* fallback se hero-mobile non esiste (più robusto) */
+  /* se per qualche motivo hero-mobile manca, almeno non “sgrana” */
+  .hero {
+    background-color: #000; 
   }
 
-  /* Mostra il testo solo su mobile */
+  /* Testo resta visibile anche su mobile (prima era solo mobile) */
   .hero-text {
-    display: block;
+    max-width: 92%;
+    padding: 18px 18px;
+    border-radius: 16px;
+    background: rgba(0,0,0,0.28);
   }
 
   .hero-text h1 {
@@ -139,5 +181,15 @@
 
   .hero-text p {
     font-size: 1rem;
+  }
+}
+
+/* ========================
+   DESKTOP EXTRA (opzionale ma utile)
+   Se vuoi “spostare” il focus della foto
+   ======================== */
+@media (min-width: 1024px) {
+  .hero {
+    background-position: 55% center;
   }
 }
