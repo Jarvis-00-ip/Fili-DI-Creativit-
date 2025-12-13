@@ -12,93 +12,86 @@
    HERO
    ======================== */
 .hero {
-  /* Prima: height: 90vh; -> su desktop può far “tagliare” o posizionare male */
   min-height: 78vh;
   height: auto;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-  color: #fff;
   position: relative;
+  text-align: center;
 
-  /* più spazio sopra (navbar) e sotto */
-  padding: 110px 18px 60px;
+  padding: 90px 18px 60px;
 
-  background: url("../../assets/img/hero.jpg") no-repeat center center/cover;
-  overflow: visible; /* evita clipping del testo */
+  background: url("../../assets/img/hero.jpg") no-repeat center center;
+  background-size: cover; /* mobile/standard */
+
+  background-color: #000; /* nel caso si vedano “bordi” */
+
+  overflow: hidden;
+
+  filter: saturate(0.95) contrast(0.95) brightness(0.98);
 }
 
-/* Overlay per migliorare leggibilità testi (ATTIVO) */
+/* Overlay leggero */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-
-  /* Gradiente più efficace su desktop */
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.55) 0%,
-    rgba(0,0,0,0.35) 45%,
-    rgba(0,0,0,0.18) 100%
+    rgba(0,0,0,0.28) 0%,
+    rgba(0,0,0,0.14) 55%,
+    rgba(0,0,0,0.06) 100%
   );
-
   z-index: 1;
   pointer-events: none;
 }
 
-/* Testo: PRIMA era nascosto su desktop, ora è visibile */
+/* Testo in alto, senza box */
 .hero-text {
   display: block;
-  position: relative;
+  position: absolute;
+  top: 34px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
 
   max-width: 980px;
-  padding: 22px 26px;
+  width: min(980px, 92%);
 
-  /* “glass” leggero per garantire leggibilità */
-  background: rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.22);
-
-  overflow: visible; /* evita righe “tagliate” */
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
 
+/* Titolo */
 .hero-text h1 {
-  /* prima: 3.5rem fisso -> meglio fluido */
-  font-size: clamp(2.4rem, 4.3vw, 4.2rem);
-
-  margin-bottom: 14px;
-
-  /* IMPORTANTISSIMO per non “tagliare” le righe */
+  font-size: clamp(2.3rem, 3.8vw, 4.1rem);
+  margin-bottom: 10px;
   line-height: 1.15;
-  padding: 6px 0;
 
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.55),
-               0 0 10px rgba(184, 134, 11, 0.55); /* glow dorato */
-  letter-spacing: 0.5px;
+  color: #fff;
+  letter-spacing: 0.4px;
+
+  text-shadow:
+    0 3px 14px rgba(0,0,0,0.55),
+    0 0 1px rgba(255,255,255,0.55);
 }
 
+/* Sottotitolo */
 .hero-text p {
-  /* prima: 1.3rem fisso -> meglio fluido */
-  font-size: clamp(1rem, 1.6vw, 1.6rem);
-
+  font-size: clamp(1rem, 1.45vw, 1.5rem);
   font-weight: 300;
-  color: #f0e6d2; /* grigio-dorato elegante */
+  line-height: 1.55;
 
-  line-height: 1.55; /* evita clipping e migliora lettura */
+  color: rgba(255,255,255,0.92);
 
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.45);
+  text-shadow:
+    0 2px 10px rgba(0,0,0,0.45),
+    0 0 1px rgba(255,255,255,0.35);
 }
 
 /* ========================
    PRODOTTI HOME
-   (INVARIATO)
    ======================== */
 .prodotti-home {
   padding: 60px 20px;
@@ -157,39 +150,41 @@
 @media (max-width: 768px) {
   .hero {
     min-height: 70vh;
-    padding: 70px 16px 34px; /* meno spazio su mobile */
-    background: url("../../assets/img/hero-mobile.jpg") no-repeat center center/cover;
+    padding: 70px 16px 34px;
+
+    background: url("../../assets/img/hero-mobile.jpg") no-repeat center center;
+    background-size: cover;
+
+    filter: saturate(0.98) contrast(0.96) brightness(0.98);
+    background-color: #000;
   }
 
-  /* fallback se hero-mobile non esiste (più robusto) */
-  /* se per qualche motivo hero-mobile manca, almeno non “sgrana” */
-  .hero {
-    background-color: #000; 
-  }
-
-  /* Testo resta visibile anche su mobile (prima era solo mobile) */
   .hero-text {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+
     max-width: 92%;
-    padding: 18px 18px;
+    margin: 0 auto;
+
+    padding: 18px;
     border-radius: 16px;
-    background: rgba(0,0,0,0.28);
+    background: rgba(0,0,0,0.30);
   }
 
-  .hero-text h1 {
-    font-size: 2.2rem;
-  }
-
-  .hero-text p {
-    font-size: 1rem;
-  }
+  .hero-text h1 { font-size: 2.2rem; }
+  .hero-text p  { font-size: 1rem; }
 }
 
 /* ========================
-   DESKTOP EXTRA (opzionale ma utile)
-   Se vuoi “spostare” il focus della foto
+   DESKTOP: MENO ZOOM (OPZIONE 3 CORRETTA)
    ======================== */
 @media (min-width: 1024px) {
   .hero {
-    background-position: 55% center;
+    /* mostra più foto = meno zoom */
+    background-size: 100% auto;   /* prova anche 95% auto se vuoi ancora meno */
+    background-repeat: no-repeat;
+    background-position: 50% 65%;
   }
 }
