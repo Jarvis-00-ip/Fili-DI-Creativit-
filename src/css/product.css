@@ -75,15 +75,37 @@
   text-align: center;
   color: white;
 }
-
-.hero-text h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+/* Strato scuro sopra la foto */
+.product-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(117, 117, 117, 0.242); /* aumenta a 0.55 se lo vuoi più scuro */
+  z-index: 1;
+  pointer-events: none;
 }
 
-.hero-text p {
+/* Sottotitolo hero – stesso dorato di Candele */
+.product-hero .hero-text p {
   font-size: 1.2rem;
+  font-weight: 300;
+  color: #f0e6d2;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+
+.candele-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: #fff;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6), 
+               0 0 8px rgba(184, 134, 11, 0.6);
+}
+
+.candele-hero p {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #f0e6d2;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
 }
 

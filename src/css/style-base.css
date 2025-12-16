@@ -202,6 +202,7 @@ footer {
   object-fit: contain;
 }
 
+
 /* Responsive */
 @media (max-width: 768px) {
   .nav-links {
