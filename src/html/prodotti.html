@@ -8,15 +8,132 @@
   <meta name="author" content="Fili di Creatività" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="../css/prodotti.css" />
   <link rel="stylesheet" href="../css/style-base.css">
   <link rel="stylesheet" href="../css/common.css">
+
+  <!-- CSS Carosello (inline per non toccare prodotti.css) -->
+  <style>
+    /* =========================
+       CAROSELLO 3 PRODOTTI VISIBILI (INFINITE LOOP)
+       ========================= */
+    .prodotti-hero{
+      padding: 24px 0 10px;
+    }
+
+    .carousel3d{
+      --visible: 3;
+      --gap: 18px;
+
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 54px;
+    }
+
+    .carousel-viewport{
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    .carousel-track{
+      display: flex;
+      gap: var(--gap);
+      align-items: stretch;
+      padding: 18px 0;
+      transition: transform 600ms cubic-bezier(.2,.8,.2,1);
+      will-change: transform;
+    }
+
+    .carousel-card{
+      flex: 0 0 calc((100% - (var(--gap) * (var(--visible) - 1))) / var(--visible));
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      text-decoration: none;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      transform: perspective(900px) rotateY(0deg) translateZ(0);
+      transition: transform 600ms cubic-bezier(.2,.8,.2,1), opacity 600ms cubic-bezier(.2,.8,.2,1);
+    }
+
+    .carousel-card img{
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel-caption{
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(0,0,0,0.45);
+      color: #fff;
+      font-weight: 700;
+      text-align: center;
+      backdrop-filter: blur(6px);
+    }
+
+    /* Frecce piccole trasparenti */
+    .carousel-btn{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(0,0,0,0.25);
+      color: #fff;
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      z-index: 5;
+      transition: background .2s ease, transform .2s ease, opacity .2s ease;
+      opacity: 0.95;
+    }
+
+    .carousel-btn:hover{
+      background: rgba(0,0,0,0.40);
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .carousel-btn.prev{ left: 10px; }
+    .carousel-btn.next{ right: 10px; }
+
+    /* Stato visivo "3D": sinistra e destra leggermente ruotate */
+    .carousel-card.is-left{
+      transform: perspective(900px) rotateY(12deg) scale(0.98);
+      opacity: 0.86;
+    }
+    .carousel-card.is-center{
+      transform: perspective(900px) rotateY(0deg) scale(1.03);
+      opacity: 1;
+    }
+    .carousel-card.is-right{
+      transform: perspective(900px) rotateY(-12deg) scale(0.98);
+      opacity: 0.86;
+    }
+
+    /* Responsive: su mobile 1 prodotto */
+    @media (max-width: 820px){
+      .carousel3d{ --visible: 1; }
+      .carousel-card img{ height: 260px; }
+    }
+  </style>
 </head>
+
 <body>
-  <!-- Snipcart -->
+  <!-- Snipcart (una sola volta) -->
   <div hidden id="snipcart"
        data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy">
   </div>
@@ -24,40 +141,58 @@
   <!-- Navbar -->
   <nav class="navbar"></nav>
 
-  <!-- Hero Slideshow -->
+  <!-- HERO: Carosello prodotti in evidenza (3 visibili) -->
   <header class="prodotti-hero">
-    <div class="slideshow-container">
+    <div class="carousel3d" aria-label="Prodotti in evidenza">
+      <button class="carousel-btn prev" aria-label="Prodotto precedente">‹</button>
 
-      <!-- Candele: Alberello -->
-      <a href="shop/candele/alberello-classico.html" class="slide fade">
-        <img src="../../assets/img/alberello classico.png" alt="Alberello classico">
-        <div class="caption">Alberello Classico</div>
-      </a>
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carouselTrack">
+          <!-- CANDELE (principalmente) -->
+          <a class="carousel-card" href="shop/candele/alberello-classico.html">
+            <img src="../../assets/img/alberello classico.png" alt="Alberello Classico">
+            <div class="carousel-caption">Alberello Classico</div>
+          </a>
 
-      <!-- Candele: Orsetto -->
-      <a href="shop/candele/orsetto-classico.html" class="slide fade">
-        <img src="../../assets/img/oresetto.jpg" alt="Candela Orsetto">
-        <div class="caption">Candela Orsetto Classico</div>
-      </a>
+          <a class="carousel-card" href="shop/candele/orsetto-classico.html">
+            <img src="../../assets/img/candela-orsetto.jpg" alt="Candela Orsetto Classico">
+            <div class="carousel-caption">Orsetto Classico</div>
+          </a>
 
-      <!-- Tessuti: Sacchetta -->
-      <a href="shop/personalizzazione-tessuti/sacchetta.html" class="slide fade">
-        <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Sacchetta personalizzata">
-        <div class="caption">Sacchetta</div>
-      </a>
+          <a class="carousel-card" href="shop/candele/candela-in-vasetto-di-vetro-liscio-grande.html">
+            <img src="../../assets/img/candele vetro liscio.png" alt="Candela vetro liscio grande">
+            <div class="carousel-caption">Vetro liscio grande</div>
+          </a>
 
-      <!-- Oggetti: Portachiavi -->
-      <a href="shop/personalizzazione-oggetti/portachiavi.html" class="slide fade">
-        <img src="../../assets/img/personalizzazione_oggetti.jpg" alt="Portachiavi">
-        <div class="caption">Portachiavi</div>
-      </a>
+          <a class="carousel-card" href="shop/candele/candela-in-vasetto-di-vetro-rigato-con-fiore.html">
+            <img src="../../assets/img/candela-in-vasetto-di-vetro-rigato-con-fiore.jpg" alt="Vetro rigato con fiore">
+            <div class="carousel-caption">Vetro rigato con fiore</div>
+          </a>
 
-      <!-- Tazze e borracce: Borraccia -->
-      <!-- <a href="shop/boracce/borraccia.html" class="slide fade">
-        <img src="../../assets/img/personalizzazioni-oggettistica.jpg" alt="Borraccia personalizzata">
-        <div class="caption">Borraccia</div>
-      </a> -->
+          <a class="carousel-card" href="shop/candele/bouquet-classico.html">
+            <img src="../../assets/img/Bouquet rosa.jpg" alt="Bouquet Classico">
+            <div class="carousel-caption">Bouquet Classico</div>
+          </a>
 
+          <a class="carousel-card" href="shop/candele/dea-bendata.html">
+            <img src="../../assets/img/statuetta.jpg" alt="Dea Bendata">
+            <div class="carousel-caption">Dea Bendata</div>
+          </a>
+
+          <!-- EXTRA (1-2 prodotti) -->
+          <a class="carousel-card" href="shop/personalizzazione-tessuti/sacchetta.html">
+            <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Sacchetta">
+            <div class="carousel-caption">Sacchetta</div>
+          </a>
+
+          <a class="carousel-card" href="shop/personalizzazione-oggetti/portachiavi.html">
+            <img src="../../assets/img/personalizzazione_oggetti.jpg" alt="Portachiavi">
+            <div class="carousel-caption">Portachiavi</div>
+          </a>
+        </div>
+      </div>
+
+      <button class="carousel-btn next" aria-label="Prodotto successivo">›</button>
     </div>
   </header>
 
@@ -65,7 +200,7 @@
   <section class="intro-premium">
     <h2>Ogni creazione è unica</h2>
     <p>
-      Tra <strong>passione</strong>, <strong>cura</strong> e <strong>creatività</strong>, 
+      Tra <strong>passione</strong>, <strong>cura</strong> e <strong>creatività</strong>,
       realizziamo prodotti che non sono solo oggetti, ma <em>emozioni da vivere</em>.
     </p>
   </section>
@@ -80,7 +215,8 @@
           <div class="img-container">
             <img src="../../assets/img/candele.jpg" alt="Candele artigianali" data-speed="10">
           </div>
-          <h2>Candele</h2>
+          <!-- ✅ data-title per bottone perfettamente allineato -->
+          <h2 data-title="Candele">Candele</h2>
         </a>
       </div>
 
@@ -90,19 +226,10 @@
           <div class="img-container">
             <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Personalizzazione tessuti" data-speed="8">
           </div>
-          <h2>Tessuti</h2>
+          <!-- ✅ data-title -->
+          <h2 data-title="Tessuti">Tessuti</h2>
         </a>
       </div>
-
-      <!-- Tazze e Borracce -->
-      <!-- <div class="prodotto-card reveal-right">
-        <a href="tazze-borracce.html">
-          <div class="img-container">
-            <img src="../../assets/img/personalizzazioni-oggettistica.jpg" alt="Personalizzazione tazze e borracce" data-speed="12">
-          </div>
-          <h2>Tazze e Borracce</h2>
-        </a>
-      </div> -->
 
       <!-- Oggetti -->
       <div class="prodotto-card reveal-right">
@@ -110,7 +237,8 @@
           <div class="img-container">
             <img src="../../assets/img/personalizzazione_oggetti.jpg" alt="Personalizzazione oggetti" data-speed="6">
           </div>
-          <h2>Oggetti</h2>
+          <!-- ✅ data-title -->
+          <h2 data-title="Oggetti">Oggetti</h2>
         </a>
       </div>
 
@@ -123,7 +251,6 @@
   <!-- Script comuni -->
   <script src="../js/common.js" defer></script>
 
-  <!-- Animazioni scroll + slideshow -->
   <script>
     // Reveal animazioni (sinistra/destra)
     const reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
@@ -137,32 +264,180 @@
     }, { threshold: 0.2 });
     reveals.forEach(el => io.observe(el));
 
-    // Slideshow
+    // =========================
+    // CAROSELLO INFINITE LOOP (3 visibili)
+    // =========================
     document.addEventListener('DOMContentLoaded', () => {
-      const slides = document.querySelectorAll('.slideshow-container .slide');
-      if (!slides.length) return;
+      const track = document.getElementById('carouselTrack');
+      if (!track) return;
 
-      let i = 0;
-      const DURATION = 4000; // ms
+      const viewport = document.querySelector('.carousel-viewport');
+      const prevBtn = document.querySelector('.carousel-btn.prev');
+      const nextBtn = document.querySelector('.carousel-btn.next');
 
-      const show = (n) => {
-        slides.forEach((s, k) => s.classList.toggle('active', k === n));
-        i = n;
+      const getVisible = () => {
+        const root = document.querySelector('.carousel3d');
+        const v = parseInt(getComputedStyle(root).getPropertyValue('--visible')) || 3;
+        return Math.max(1, v);
       };
 
-      show(0);
-      let timer = setInterval(() => show((i + 1) % slides.length), DURATION);
+      // Original cards
+      let originals = Array.from(track.querySelectorAll('.carousel-card'));
+      if (originals.length <= 1) return;
 
-      const container = document.querySelector('.slideshow-container');
-      container.addEventListener('mouseenter', () => clearInterval(timer));
-      container.addEventListener('mouseleave', () => {
-        clearInterval(timer);
-        timer = setInterval(() => show((i + 1) % slides.length), DURATION);
+      // Build clones for seamless loop
+      const build = () => {
+        // reset track to originals only
+        track.innerHTML = '';
+        originals.forEach(n => track.appendChild(n));
+
+        const visible = getVisible();
+        originals = Array.from(track.querySelectorAll('.carousel-card'));
+
+        const headClones = originals.slice(0, visible).map(n => n.cloneNode(true));
+        const tailClones = originals.slice(-visible).map(n => n.cloneNode(true));
+
+        // prepend tail clones
+        tailClones.forEach(n => track.insertBefore(n, track.firstChild));
+        // append head clones
+        headClones.forEach(n => track.appendChild(n));
+
+        return { visible, total: originals.length };
+      };
+
+      let state = build();
+      let visible = state.visible;
+      let total = state.total;
+
+      // index points to the FIRST VISIBLE item inside the "real zone"
+      // Because we added tail clones at the beginning, we start at offset = visible
+      let index = visible;
+      let locked = false;
+
+      const gap = () => {
+        const root = document.querySelector('.carousel3d');
+        const g = getComputedStyle(root).getPropertyValue('--gap').trim();
+        return g || '18px';
+      };
+
+      const cardSize = () => {
+        const first = track.querySelector('.carousel-card');
+        if (!first) return 0;
+        // width + gap (gap is in px)
+        const w = first.getBoundingClientRect().width;
+        const g = parseFloat(gap()) || 18;
+        return w + g;
+      };
+
+      const apply3DClasses = () => {
+        const all = Array.from(track.querySelectorAll('.carousel-card'));
+        all.forEach(c => c.classList.remove('is-left','is-center','is-right'));
+
+        const left = all[index];
+        const center = all[index + Math.min(1, visible-1)];
+        const right = all[index + Math.min(2, visible-1)];
+
+        if (left) left.classList.add('is-left');
+        if (center) center.classList.add('is-center');
+        if (right && visible >= 3) right.classList.add('is-right');
+        if (visible === 1 && left) left.classList.add('is-center');
+        if (visible === 2 && center) center.classList.add('is-right');
+      };
+
+      const goTo = (newIndex, animate = true) => {
+        const step = cardSize();
+        if (!step) return;
+
+        track.style.transition = animate ? 'transform 600ms cubic-bezier(.2,.8,.2,1)' : 'none';
+        track.style.transform = `translateX(${-newIndex * step}px)`;
+
+        index = newIndex;
+        apply3DClasses();
+      };
+
+      const normalizeIfNeeded = () => {
+        // if we moved into clones, jump back into real zone without animation
+        if (index >= total + visible) {
+          // passed last real -> jump back
+          goTo(visible, false);
+        }
+        if (index < visible) {
+          // passed first real -> jump to last real zone
+          goTo(total + visible - 1, false);
+        }
+      };
+
+      const next = () => {
+        if (locked) return;
+        locked = true;
+        goTo(index + 1, true);
+      };
+
+      const prev = () => {
+        if (locked) return;
+        locked = true;
+        goTo(index - 1, true);
+      };
+
+      prevBtn?.addEventListener('click', prev);
+      nextBtn?.addEventListener('click', next);
+
+      // tastiera
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') next();
+        if (e.key === 'ArrowLeft') prev();
       });
 
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') { clearInterval(timer); show((i + 1) % slides.length); }
-        if (e.key === 'ArrowLeft')  { clearInterval(timer); show((i - 1 + slides.length) % slides.length); }
+      // autoplay + pausa hover
+      let timer = setInterval(next, 4500);
+      viewport?.addEventListener('mouseenter', () => clearInterval(timer));
+      viewport?.addEventListener('mouseleave', () => {
+        clearInterval(timer);
+        timer = setInterval(next, 4500);
+      });
+
+      // swipe mobile
+      let startX = null;
+      viewport?.addEventListener('touchstart', (e) => startX = e.touches[0].clientX, {passive:true});
+      viewport?.addEventListener('touchend', (e) => {
+        if (startX === null) return;
+        const endX = e.changedTouches[0].clientX;
+        const dx = endX - startX;
+        if (Math.abs(dx) > 40) (dx < 0 ? next() : prev());
+        startX = null;
+      }, {passive:true});
+
+      // when transition ends: unlock + normalize
+      track.addEventListener('transitionend', () => {
+        locked = false;
+        normalizeIfNeeded();
+      });
+
+      // initial position
+      // need a frame so widths are measured correctly
+      requestAnimationFrame(() => {
+        goTo(index, false);
+      });
+
+      // handle resize (rebuild clones safely)
+      let resizeTimer = null;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          // capture current real index (relative)
+          const realPos = ((index - visible) % total + total) % total;
+
+          // rebuild
+          state = build();
+          visible = state.visible;
+          total = state.total;
+
+          // restore index
+          index = visible + realPos;
+
+          // apply without animation
+          requestAnimationFrame(() => goTo(index, false));
+        }, 120);
       });
     });
   </script>
@@ -170,9 +445,5 @@
   <!-- Snipcart -->
   <script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
   <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
-
-  <div hidden id="snipcart"
-       data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy">
-  </div>
 </body>
 </html>

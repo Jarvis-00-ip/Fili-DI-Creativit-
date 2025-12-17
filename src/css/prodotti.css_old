@@ -1,0 +1,429 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Georgia', serif;
+}
+
+/* === Palette + Variabili === */
+:root {
+  --gold: #b8860b;
+}
+
+/* Sfondo dinamico Apple-style */
+body {
+  background: linear-gradient(-45deg, #fdfcfb, #e2d1c3, #d3c0cd, #a2c2e6);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  min-height: 100vh;
+  color: #222;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+/* Link in nav */
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold);
+}
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* 🔢 Badge carrello */
+.nav-links a#open-cart-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cart-count {
+  background: var(--gold);
+  color: #fff;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 0.8rem;
+  line-height: 1;
+  font-weight: 700;
+  min-width: 18px;
+  text-align: center;
+  display: inline-block;
+}
+
+/* =========================
+   HERO SLIDESHOW
+   ========================= */
+.prodotti-hero {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  pointer-events: none;   /* 👈 non cliccabile */
+}
+
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;   /* 👈 cliccabile solo quella visibile */
+}
+
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Caption sovrapposta */
+.caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+  letter-spacing: 1px;
+  pointer-events: none;
+}
+
+/* =========================
+   INTRO
+   ========================= */
+.intro-premium {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px 30px;
+  text-align: center;
+  color: #333;
+  background: rgba(255,255,255,0.8);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  position: relative;
+}
+
+.intro-premium::before,
+.intro-premium::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--gold);
+}
+
+.intro-premium::before {
+  top: 20px;
+}
+.intro-premium::after {
+  bottom: 20px;
+}
+
+.intro-premium h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.intro-premium p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* =========================
+   PRODOTTI GRID
+   ========================= */
+.prodotti-main {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.prodotti-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Card prodotto */
+.prodotto-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 280px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.prodotto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Contenitore immagini */
+.img-container {
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+  height: 200px;
+  position: relative;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+  transition: transform 0.25s ease-out;
+}
+
+/* Link prodotto */
+.prodotto-card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding-bottom: 10px;
+}
+
+.prodotto-card h2 {
+  padding: 15px;
+  font-size: 1.5rem;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.prodotto-card a:hover h2 {
+  color: var(--gold);
+}
+
+/* =========================
+   ANIMAZIONI REVEAL
+   ========================= */
+.reveal,
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition-property: opacity, transform;
+  transition-duration: 2s;
+  transition-timing-function: ease-out;
+}
+
+.reveal { transform: translateY(50px); }
+.reveal-left { transform: translateX(-100px); }
+.reveal-right { transform: translateX(100px); }
+
+.reveal.visible,
+.reveal-left.visible,
+.reveal-right.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Effetto sequenziale desktop */
+.prodotti-grid .prodotto-card:nth-child(1) { transition-delay: 0.1s; }
+.prodotti-grid .prodotto-card:nth-child(2) { transition-delay: 0.3s; }
+.prodotti-grid .prodotto-card:nth-child(3) { transition-delay: 0.5s; }
+.prodotti-grid .prodotto-card:nth-child(4) { transition-delay: 0.7s; }
+
+/* =========================
+   MOBILE OVERRIDE
+   ========================= */
+@media (max-width: 768px) {
+  .reveal-left,
+  .reveal-right {
+    transform: translateY(80px);   /* entra dal basso */
+  }
+
+  .reveal-left.visible,
+  .reveal-right.visible {
+    transform: translateY(0);      /* normale */
+  }
+}
+
+/* Effetto sequenziale sulle card della griglia prodotti */
+.prodotti-grid .prodotto-card:nth-child(1) { transition-delay: 0.015s; }
+.prodotti-grid .prodotto-card:nth-child(2) { transition-delay: 0.01s; }
+.prodotti-grid .prodotto-card:nth-child(3) { transition-delay: 0.025s; }
+.prodotti-grid .prodotto-card:nth-child(4) { transition-delay: 0.02s; }
+
+
+/* =========================
+   FOOTER
+   ========================= */
+footer {
+  background: #333;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section h3 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #f4f4f4;
+}
+
+.footer-section p {
+  margin: 8px 0;
+}
+
+.footer-section a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: #fff;
+}
+
+.footer-section img.icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    width: 200px;
+    display: none;
+    padding: 20px;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+  .nav-links.active { display: flex; }
+  .hamburger { display: block; }
+
+  .prodotti-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .caption {
+    font-size: 1.2rem;
+    padding: 8px 14px;
+  }
+}
+
+/* =========================
+   CTA: RICHIEDI INFORMAZIONI (MAIL)
+   Aggiunto per le pagine prodotto (classe .btn-info)
+   ========================= */
+.btn-info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: 16px;
+  padding: 12px 22px;
+
+  background: var(--gold);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.14);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.btn-info:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  filter: brightness(0.95);
+}
+
+.btn-info:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.14);
+}
+
+.btn-info:focus-visible {
+  outline: 3px solid rgba(184, 134, 11, 0.35);
+  outline-offset: 3px;
+}
