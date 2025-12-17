@@ -9,6 +9,34 @@
   --gold: #b8860b;
 }
 
+/* =========================================
+   SFONDO BOTANICO RIUTILIZZABILE
+   ========================================= */
+
+.bg-botanico {
+  background-color: #ffffff;
+
+  background-image:
+    radial-gradient(circle at center, rgba(0,0,0,0.03), rgba(0,0,0,0) 70%),
+    url("../../assets/img/background-botanico.jpg");
+
+  background-repeat: repeat, no-repeat;
+  background-position: center center, center center;
+  background-size: 420px 420px, cover;
+}
+
+@media (max-width: 768px) {
+  .bg-botanico {
+    background-image:
+      radial-gradient(circle at center, rgba(0,0,0,0.02), rgba(0,0,0,0) 70%),
+      url("../../assets/img/background-botanico-mobile.jpg");
+
+    background-position: center top;
+    background-size: 360px 360px, cover;
+  }
+}
+
+
 /* Reset */
 * {
   margin: 0;
