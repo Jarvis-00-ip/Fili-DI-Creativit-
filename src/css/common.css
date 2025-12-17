@@ -271,6 +271,98 @@ body.bg-botanico{
   padding: 24px;
 }
 
+/* =========================
+   BACKGROUND BOTANICO (GLOBAL)
+   Usa: <body class="bg-botanico">
+   ========================= */
+
+body.bg-botanico{
+  background-color:#fff !important;
+  background-image:
+    radial-gradient(circle at center, rgba(0,0,0,0.02), rgba(0,0,0,0) 70%),
+    url("../../assets/img/background-botanico.jpg") !important;
+  background-repeat: repeat, no-repeat !important;
+  background-position: center center, center top !important;
+  background-size: 420px 420px, contain !important;
+  min-height: 100vh;
+}
+
+/* MOBILE: invece di contain (che può lasciare “vuoti”), lo stendiamo in larghezza */
+@media (max-width: 768px){
+  body.bg-botanico{
+    background-image:
+      radial-gradient(circle at center, rgba(0,0,0,0.02), rgba(0,0,0,0) 70%),
+      url("../../assets/img/background-botanico-mobile.jpg") !important;
+
+    background-repeat: repeat, no-repeat !important;
+    background-position: center center, center top !important;
+
+    /* 🔥 niente crop e niente “zoom strano” */
+    background-size: 300px 300px, 100% auto !important;
+  }
+}
+
+/* =========================
+   FIX: prodotti centrati su mobile
+   (se qualche CSS li sposta a sinistra)
+   ========================= */
+@media (max-width: 768px){
+  .prodotti-main{ padding-left: 16px !important; padding-right: 16px !important; }
+
+  .prodotti-grid{
+    display:flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 22px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+
+  .prodotto-card{
+    width: min(92vw, 360px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+/* =========================
+   BG BOTANICO "FISSO" SU MOBILE
+   (più affidabile di background-attachment: fixed)
+   ========================= */
+
+body.bg-botanico{
+  position: relative;
+  background: #fff !important;
+}
+
+/* Layer fisso dietro a tutto */
+@media (max-width: 768px){
+  body.bg-botanico{
+    background-image: none !important; /* disattiva il bg normale su mobile */
+  }
+
+  body.bg-botanico::before{
+    content:"";
+    position: fixed;
+    inset: 0;
+    z-index: -1;          /* dietro */
+    pointer-events: none; /* non blocca click */
+    background-color: #fff;
+
+    /* stesso sistema desktop: pattern + immagine */
+    background-image:
+      radial-gradient(circle at center, rgba(0,0,0,0.02), rgba(0,0,0,0) 70%),
+      url("../../assets/img/background-botanico-mobile.jpg");
+
+    background-repeat: repeat, no-repeat;
+    background-position: center center, center top;
+
+    /* niente crop: immagine sempre completa in larghezza */
+    background-size: 300px 300px, 100% auto;
+  }
+}
+
 
 /* =========================
    RESPONSIVE
