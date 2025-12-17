@@ -214,6 +214,65 @@ footer {
 }
 
 /* =========================
+   OVERRIDE SFONDO BOTANICO – VERSIONE STABILE
+   ========================= */
+
+body.bg-botanico{
+  background-color: #ffffff !important;
+
+  /* 2 livelli:
+     1) micro texture
+     2) cornice botanica
+  */
+  background-image:
+    radial-gradient(circle at center, rgba(0,0,0,0.025), rgba(0,0,0,0) 70%),
+    url("../../assets/img/background-botanico.jpg") !important;
+
+  background-repeat: repeat, no-repeat !important;
+  background-position: center center, center top !important;
+
+  /* 🔴 QUI È LA CHIAVE */
+  background-size: 420px 420px, contain !important;
+
+  min-height: 100vh;
+}
+
+/* =========================
+   MOBILE – NESSUN TAGLIO
+   ========================= */
+@media (max-width: 768px){
+  body.bg-botanico{
+    background-image:
+      radial-gradient(circle at center, rgba(0,0,0,0.02), rgba(0,0,0,0) 70%),
+      url("../../assets/img/background-botanico-mobile.jpg") !important;
+
+    background-repeat: repeat, no-repeat !important;
+    background-position: center center, center top !important;
+
+    /* ❌ MAI cover su cornici */
+    background-size: 300px 300px, contain !important;
+  }
+}
+
+/* =========================
+   CONTENUTI TRASPARENTI
+   ========================= */
+.contatti-main{
+  background: transparent !important;
+}
+
+/* Box leggibile */
+.contatti-main .container{
+  background: rgba(255,255,255,0.88);
+  border-radius: 18px;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.14);
+  backdrop-filter: blur(3px);
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 24px;
+}
+
+
+/* =========================
    RESPONSIVE
    ========================= */
 @media (max-width: 768px) {
