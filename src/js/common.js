@@ -7,13 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (path.includes("/src/html/shop/")) {
     prefix = "../../";
-    homeLink = "/index.html"; // assoluto
+    homeLink = "../../../../index.html"; // relativo (4 livelli up: candele -> shop -> html -> src -> root)
   } else if (path.includes("/src/html/")) {
     prefix = "";
-    homeLink = "/index.html"; // assoluto
+    homeLink = "../../index.html"; // relativo (2 livelli up: html -> src -> root)
   } else {
     prefix = "src/html/";
-    homeLink = "/index.html"; // assoluto
+    homeLink = "index.html"; // relativo (root)
   }
 
   const links = {
@@ -99,10 +99,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const footerPlaceholder = document.getElementById("footer-placeholder");
   if (footerPlaceholder) {
-    const footerPath = window.FOOTER_SRC || links.footer;
-    fetch(footerPath)
-      .then((r) => r.text())
-      .then((html) => (footerPlaceholder.innerHTML = html))
-      .catch((err) => console.error("Errore nel caricamento del footer:", err));
+    // Calcola il percorso relativo per la root
+    let rootPrefix = "";
+    if (path.includes("/src/html/shop/")) {
+      rootPrefix = "../../../../";
+    } else if (path.includes("/src/html/")) {
+      rootPrefix = "../../";
+    } else {
+      rootPrefix = "";
+    }
+
+    const footerHTML = `
+    <footer>
+      <div class="footer-container">
+        <!-- Contatti -->
+        <div class="footer-section">
+          <h3>Contatti</h3>
+          <p>
+            <a href="mailto:lauracaprotti2000@gmail.com">
+              <img src="${rootPrefix}assets/img/email.png" alt="Email" class="icon"> info@filidicreativita.com
+            </a>
+          </p>
+        </div>
+
+        <!-- Social -->
+        <div class="footer-section">
+          <h3>Seguici</h3>
+          <p>
+            <a href="https://instagram.com/filidicreativita" target="_blank">
+              <img src="${rootPrefix}assets/img/instagram.png" alt="Instagram" class="icon"> Instagram
+            </a>
+          </p>
+          <p>
+            <a href="https://facebook.com/filidicreativita" target="_blank">
+              <img src="${rootPrefix}assets/img/facebook.png" alt="Facebook" class="icon"> Facebook
+            </a>
+          </p>
+          <p>
+            <a href="https://tiktok.com/@filidicreativita" target="_blank">
+              <img src="${rootPrefix}assets/img/tiktok.png" alt="TikTok" class="icon"> TikTok
+            </a>
+          </p>
+        </div>
+
+        <!-- Info -->
+        <div class="footer-section">
+          <h3>Info</h3>
+          <p>&copy; 2025 Fili di Creatività</p>
+          <p>Tutti i diritti riservati</p>
+          <p><a href="#">Privacy Policy</a> | <a href="#">Termini & Condizioni</a></p>
+        </div>
+      </div>
+    </footer>
+    `;
+
+    footerPlaceholder.innerHTML = footerHTML;
   }
 });

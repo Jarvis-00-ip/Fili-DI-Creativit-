@@ -26,7 +26,8 @@
      usa COVER (non contain).
    ========================================= */
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -36,7 +37,7 @@ body {
 
   /* 2 livelli: (1) texture leggerissima (2) cornice botanica */
   background-image:
-    radial-gradient(closest-side, rgba(0,0,0,0.03), rgba(0,0,0,0) 70%),
+    radial-gradient(closest-side, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0) 70%),
     url("../../assets/img/background-botanico.jpg");
 
   background-repeat: repeat, no-repeat;
@@ -53,7 +54,7 @@ body {
 @media (max-width: 768px) {
   body {
     background-image:
-      radial-gradient(closest-side, rgba(0,0,0,0.02), rgba(0,0,0,0) 70%),
+      radial-gradient(closest-side, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0) 70%),
       url("../../assets/img/background-botanico-mobile.jpg");
 
     background-repeat: repeat, no-repeat;
@@ -69,10 +70,19 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
-  position: relative;
-  z-index: 1000;
+
+  /* Sticky Glassmorphism */
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background-color: rgba(255, 255, 255, 0.85);
+  /* Semi-transparent */
+  backdrop-filter: blur(12px);
+  /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
 .navbar .logo {
@@ -139,11 +149,11 @@ body {
   line-height: 1.6;
 
   /* card leggera sopra lo sfondo */
-  background: rgba(255,255,255,0.78);
+  background: rgba(255, 255, 255, 0.78);
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(3px);
-  border: 1px solid rgba(0,0,0,0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 /* Prodotti Grid */
@@ -165,17 +175,41 @@ body {
   border-radius: 12px;
   overflow: hidden;
   width: 280px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
   transition: transform 0.3s, box-shadow 0.3s;
   text-align: center;
+  position: relative;
+  /* Needed for absolute positioning of the button */
 
   /* micro “cornice” elegante */
-  border: 1px solid rgba(0,0,0,0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Hover Button Effect */
+.prodotto-card::after {
+  content: "✨ Vedi Dettagli";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 0;
+  background: var(--accent);
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+  /* Allows click to pass through to the anchor tag */
+}
+
+.prodotto-card:hover::after {
+  transform: translateY(0);
 }
 
 .prodotto-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.16);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.16);
 }
 
 .prodotto-card img {
@@ -248,12 +282,15 @@ footer {
 /* Responsive */
 @media (max-width: 768px) {
   .nav-links {
-    display: none; /* nascosti fino al click su hamburger */
+    display: none;
+    /* nascosti fino al click su hamburger */
     flex-direction: column;
   }
+
   .nav-links.active {
     display: flex;
   }
+
   .hamburger {
     display: block;
   }
@@ -261,5 +298,12 @@ footer {
   .prodotti-grid {
     flex-direction: column;
     align-items: center;
+  }
+
+  /* Mobile: Pulsante sempre visibile */
+  .prodotto-card::after {
+    transform: translateY(0);
+    /* Opzionale: Riduci padding o background per essere meno invasivo su mobile */
+    padding: 12px 0;
   }
 }
