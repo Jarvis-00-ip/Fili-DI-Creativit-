@@ -1,5 +1,18 @@
-
 document.addEventListener("DOMContentLoaded", () => {
+    // Hero Video Logic
+    const heroVideo = document.getElementById('heroVideo');
+    if (heroVideo) {
+        // When video ends, fade it out to show the static image
+        heroVideo.addEventListener('ended', () => {
+            heroVideo.classList.add('video-hidden');
+        });
+
+        // Fallback: If video error or stall, hide it immediately
+        heroVideo.addEventListener('error', () => {
+            heroVideo.classList.add('video-hidden');
+        });
+    }
+
     // Intersection Observer for Story Blocks
     const observerOptions = {
         root: null,
@@ -19,14 +32,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const storyBlocks = document.querySelectorAll('.story-block');
     storyBlocks.forEach(block => observer.observe(block));
 
-    // Optional: Parallax effect for Hero
-    const heroBg = document.querySelector('.home-hero-bg');
-    if (heroBg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    // Optional: Parallax effect for Hero Image
+    const heroImg = document.querySelector('.hero-image');
+    if (heroImg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
             if (scrollY < window.innerHeight) {
                 // Subtle move down
-                heroBg.style.transform = `scale(1.05) translateY(${scrollY * 0.3}px)`;
+                heroImg.style.transform = `scale(1.05) translateY(${scrollY * 0.3}px)`;
             }
         });
     }
