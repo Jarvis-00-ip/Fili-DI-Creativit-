@@ -75,8 +75,8 @@
 }
 
 /* Reduce Motion / Mobile Fallback */
-@media (prefers-reduced-motion: reduce),
-(max-width: 768px) {
+/* Reduce Motion Preference Only */
+@media (prefers-reduced-motion: reduce) {
     .hero-video {
         display: none;
     }
@@ -395,7 +395,18 @@
 
 @media (max-width: 768px) {
     .home-hero {
-        height: 85vh;
+        height: 80vh;
+        /* Better framing on mobile */
+    }
+
+    .hero-video,
+    .hero-image {
+        object-position: center center;
+        /* Prevent weird cropping */
+        object-fit: cover;
+        /* Strict cover */
+        transform: scale(1.1);
+        /* Slight zoom to kill any black bars/edges */
     }
 
     .story-block {
