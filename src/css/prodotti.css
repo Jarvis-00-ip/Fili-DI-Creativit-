@@ -1,7 +1,6 @@
 /* =========================
-   PRODUCT.CSS (pagine prodotto singolo)
+   PRODUCT.CSS (Single Product Pages)
    ========================= */
-
 /* Container principale */
 .product-container {
   display: flex;
@@ -13,7 +12,6 @@
   flex-wrap: wrap;
 }
 
-/* Immagine prodotto */
 .product-image img {
   width: 400px;
   max-width: 100%;
@@ -23,7 +21,6 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Info prodotto */
 .product-info {
   max-width: 500px;
 }
@@ -48,7 +45,7 @@
   margin-bottom: 20px;
 }
 
-/* Pulsante azione (acquista / richiedi info) */
+/* Pulsante azione (acquista) */
 .snipcart-add-item {
   padding: 14px 22px;
   background: linear-gradient(135deg, #b8860b, #d4af37);
@@ -69,9 +66,7 @@
   transform: scale(1.05);
 }
 
-/* =========================
-   HERO con immagine (banner prodotto)
-   ========================= */
+/* Single Product Hero */
 .product-hero {
   position: relative;
   background-size: cover;
@@ -86,7 +81,6 @@
   overflow: hidden;
 }
 
-/* Overlay grigio soft sopra la foto */
 .product-hero::before {
   content: "";
   position: absolute;
@@ -96,23 +90,19 @@
   pointer-events: none;
 }
 
-/* Contenuto sopra overlay */
 .product-hero .hero-text,
 .product-hero .back-link {
   position: relative;
   z-index: 2;
 }
 
-/* Titolo hero prodotto (stile premium) */
 .product-hero h1 {
   font-size: 3rem;
   margin-bottom: 15px;
   color: #fff;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6),
-    0 0 8px rgba(184, 134, 11, 0.6);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6), 0 0 8px rgba(184, 134, 11, 0.6);
 }
 
-/* Sottotitolo hero – stesso dorato di Candele */
 .product-hero .hero-text p {
   font-size: 1.2rem;
   font-weight: 300;
@@ -120,7 +110,6 @@
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Pulsante Torna alle Candele (o categoria) */
 .back-link {
   position: absolute;
   bottom: 15px;
@@ -141,266 +130,6 @@
   transform: scale(1.05);
 }
 
-/* =========================
-   SOLO PAGINA prodotti.html
-   (carosello + intro + bottoni categorie)
-   ========================= */
-
-/* Migliora spazio tra carosello e intro */
-.prodotti-hero {
-  padding-bottom: 18px;
-}
-
-/* Intro più centrata e pulita */
-.intro-premium {
-  max-width: 980px;
-  margin: 12px auto 24px;
-  padding: 24px 20px;
-  text-align: center;
-}
-
-.intro-premium p {
-  max-width: 780px;
-  margin: 0 auto;
-  line-height: 1.55;
-  color: #2a2a2a;
-}
-
-/* Bottoni categorie: SOLO dentro la griglia prodotti */
-.prodotti-main .prodotto-card a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.prodotti-main .prodotto-card h2 {
-  margin-top: 14px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 18px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #b8860b, #d4af37);
-  color: #fff;
-  font-size: 1.05rem;
-  font-weight: 900;
-  letter-spacing: 0.3px;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
-  transition: transform .25s ease, filter .25s ease, box-shadow .25s ease;
-}
-
-.prodotti-main .prodotto-card:hover h2 {
-  transform: translateY(-2px) scale(1.02);
-  filter: brightness(0.96);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.20);
-}
-
-.prodotti-main .prodotto-card h2 a {
-  text-decoration: none !important;
-  color: inherit !important;
-}
-
-:root {
-  --bg-cream: #fbf6ee;
-  --text: #1f1f1f;
-  --muted: #5a5a5a;
-  --gold1: #b8860b;
-  --gold2: #e0c16a;
-}
-
-/* SFONDO pagina */
-body {
-  background: radial-gradient(1200px 600px at 50% 0%, #fff 0%, var(--bg-cream) 55%, #f3eadb 100%);
-  color: var(--text);
-}
-
-/* CAROSELLO: card più premium */
-.carousel-card {
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-}
-
-/* Caption meno pesante */
-.carousel-caption {
-  background: rgba(255, 255, 255, 0.22);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
-}
-
-/* INTRO: più “titolo boutique” */
-.intro-premium h2 {
-  color: var(--text);
-  letter-spacing: .2px;
-}
-
-.intro-premium p {
-  color: var(--muted);
-}
-
-/* BOTTONI categoria: più grandi e moderni */
-.prodotti-main .prodotto-card h2 {
-  padding: 12px 22px;
-  font-size: 1.08rem;
-  background: linear-gradient(135deg, var(--gold1), var(--gold2));
-  box-shadow: 0 12px 26px rgba(184, 134, 11, 0.28);
-}
-
-/* =========================
-   PRODOTTI — REFINE UI
-   (intro + card buttons + background)
-   ========================= */
-
-/* 1) SFONDO: meno monotono (luce + puntinatura leggerissima) */
-body {
-  background:
-    radial-gradient(900px 520px at 50% 0%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 70%),
-    radial-gradient(1200px 700px at 50% 110%, rgba(184, 134, 11, 0.08) 0%, rgba(184, 134, 11, 0) 65%),
-    linear-gradient(180deg, #f7f0f2 0%, #e9d8de 100%);
-  position: relative;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.10;
-  background-image: radial-gradient(rgba(0, 0, 0, 0.35) 0.7px, transparent 0.8px);
-  background-size: 18px 18px;
-  mix-blend-mode: overlay;
-}
-
-/* 2) INTRO: trasformala in “card” elegante */
-.intro-premium {
-  max-width: 980px;
-  margin: 18px auto 30px;
-  padding: 22px 22px;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  border-radius: 18px;
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.10);
-  backdrop-filter: blur(10px);
-}
-
-.intro-premium h2 {
-  margin-bottom: 8px;
-  font-weight: 800;
-  letter-spacing: 0.2px;
-}
-
-.intro-premium p {
-  max-width: 780px;
-  margin: 0 auto;
-  line-height: 1.55;
-  color: rgba(0, 0, 0, 0.70);
-}
-
-/* 3) CARD CATEGORIE: stessa altezza footer + bottoni allineati */
-.prodotti-main .prodotti-grid {
-  align-items: stretch;
-}
-
-/* Glassmorphism for Prodotti Page */
-.prodotti-main .prodotto-card {
-  display: flex;
-  background: rgba(255, 255, 255, 0.2);
-  /* Transparent glass */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-}
-
-.prodotti-main .prodotto-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-  border-color: rgba(184, 134, 11, 0.3);
-}
-
-.prodotti-main .prodotto-card a {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
-}
-
-.prodotti-main .prodotto-card .img-container {
-  flex: 1;
-}
-
-.prodotti-main .prodotto-card .img-container img {
-  width: 100%;
-  height: 230px;
-  /* altezza uniforme immagini */
-  object-fit: cover;
-  /* niente stretch */
-  display: block;
-}
-
-/* Restyled Title (Clear Text, Less Gold) */
-.prodotti-main .prodotto-card h2 {
-  margin: 0;
-  padding: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 60px;
-  background: transparent;
-  /* No white block */
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-  /* Subtle separator */
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  font-size: 0;
-  /* Reset for pseudo-element trick */
-}
-
-/* Text Element */
-.prodotti-main .prodotto-card h2::before {
-  content: attr(data-title);
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  color: #333;
-  /* Clear dark text */
-  background: transparent;
-  /* Removed gold gradient */
-  padding: 0;
-  border-radius: 0;
-  box-shadow: none;
-  transition: color 0.3s ease;
-}
-
-/* Hover Accent */
-.prodotti-main .prodotto-card:hover h2::before {
-  color: #b8860b;
-  /* Text turns gold on hover */
-  transform: none;
-  filter: none;
-  box-shadow: none;
-}
-
-/* IMPORTANT: serve che l'H2 abbia data-title="Candele" ecc. (vedi sotto) */
-
-/* Responsive */
-@media (max-width: 768px) {
-  .intro-premium {
-    margin: 12px auto 22px;
-    padding: 18px 16px;
-  }
-
-  .prodotti-main .prodotto-card .img-container img {
-    height: 210px;
-  }
-}
-
-
-/* Responsive */
 @media (max-width: 768px) {
   .product-container {
     flex-direction: column;
@@ -421,5 +150,253 @@ body::before {
 
   .product-hero .hero-text p {
     font-size: 1rem;
+  }
+}
+
+/* =========================
+   PRODOTTI LIST PAGE REFRESH
+   ========================= */
+
+/* Intro */
+.intro-premium {
+  text-align: center;
+  padding: 60px 20px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.intro-premium h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.intro-premium p {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Prodotti Layout Wrapper */
+.prodotti-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Feature Block (Candele) */
+.feature-block {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.feature-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%),
+    url('../../assets/img/candele.jpg') no-repeat center center;
+  background-size: cover;
+  transition: transform 0.6s ease;
+  z-index: 1;
+}
+
+.feature-block:hover .feature-bg {
+  transform: scale(1.03);
+}
+
+.feature-content {
+  position: relative;
+  z-index: 2;
+  padding: 60px;
+  max-width: 500px;
+  color: #fff;
+}
+
+.feature-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.feature-content h2 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  line-height: 1.1;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.feature-content p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.feature-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-feature {
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 1rem;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn-feature.primary {
+  background: #fff;
+  color: #333;
+}
+
+.btn-feature.primary:hover {
+  background: #f0f0f0;
+  transform: scale(1.05);
+}
+
+.btn-feature.secondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn-feature.secondary:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Secondary Grid (Tessuti & Oggetti) */
+.secondary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.secondary-card {
+  position: relative;
+  height: 350px;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.secondary-card:hover {
+  transform: translateY(-5px);
+}
+
+.secondary-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+  z-index: 1;
+}
+
+.secondary-card:hover .secondary-bg {
+  transform: scale(1.05);
+}
+
+.secondary-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent 60%);
+  z-index: 2;
+}
+
+.secondary-content {
+  position: relative;
+  z-index: 3;
+  padding: 30px;
+  width: 100%;
+  color: #fff;
+}
+
+.secondary-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+.secondary-content span {
+  font-size: 1rem;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Responsive for Layout */
+@media (max-width: 900px) {
+  .feature-content h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .prodotti-layout {
+    padding: 10px 15px 60px;
+    gap: 20px;
+  }
+
+  .feature-block {
+    height: auto;
+    min-height: 450px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .feature-content {
+    padding: 30px 20px;
+    width: 100%;
+  }
+
+  .feature-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-feature {
+    text-align: center;
+    width: 100%;
+  }
+
+  .secondary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .secondary-card {
+    height: 280px;
   }
 }

@@ -219,41 +219,49 @@
     </p>
   </section>
 
-  <!-- Griglia Prodotti -->
+  <!-- New Layout: Feature + Secondary Grid -->
   <section class="prodotti-main">
-    <div class="prodotti-grid">
+    <div class="prodotti-layout">
 
-      <!-- Candele -->
-      <div class="prodotto-card reveal-left">
-        <a href="candele.html">
-          <div class="img-container">
-            <img src="../../assets/img/candele.jpg" alt="Candele artigianali" data-speed="10">
+      <!-- 1. FEATURE BLOCK (Candele) -->
+      <div class="feature-block">
+        <div class="feature-bg"></div>
+        <div class="feature-content">
+          <span class="feature-tag">Bestseller</span>
+          <h2>Le Nostre Candele</h2>
+          <p>Create a mano con cera di soia 100% naturale. Luce, profumo e magia per la tua casa.</p>
+          <div class="feature-actions">
+            <a href="candele.html" class="btn-feature primary">Esplora Collezione</a>
+            <a href="bouquet-story.html" class="btn-feature secondary">La Storia del Bouquet &rarr;</a>
           </div>
-          <!-- ✅ data-title per bottone perfettamente allineato -->
-          <h2 data-title="Candele">Candele</h2>
-        </a>
+        </div>
       </div>
 
-      <!-- Tessuti -->
-      <div class="prodotto-card reveal-left">
-        <a href="tessuti.html">
-          <div class="img-container">
-            <img src="../../assets/img/personalizzazioni-tessuti.jpg" alt="Personalizzazione tessuti" data-speed="8">
-          </div>
-          <!-- ✅ data-title -->
-          <h2 data-title="Tessuti">Tessuti</h2>
-        </a>
-      </div>
+      <!-- 2. SECONDARY GRID -->
+      <div class="secondary-grid">
 
-      <!-- Oggetti -->
-      <div class="prodotto-card reveal-right">
-        <a href="oggetti.html">
-          <div class="img-container">
-            <img src="../../assets/img/personalizzazione_oggetti.jpg" alt="Personalizzazione oggetti" data-speed="6">
+        <!-- Tessuti -->
+        <a href="tessuti.html" class="secondary-card">
+          <div class="secondary-bg" style="background-image: url('../../assets/img/personalizzazioni-tessuti.jpg');">
           </div>
-          <!-- ✅ data-title -->
-          <h2 data-title="Oggetti">Oggetti</h2>
+          <div class="secondary-overlay"></div>
+          <div class="secondary-content">
+            <h3>Tessuti Personalizzati</h3>
+            <span>Ricami unici per te &rarr;</span>
+          </div>
         </a>
+
+        <!-- Oggetti -->
+        <a href="oggetti.html" class="secondary-card">
+          <div class="secondary-bg" style="background-image: url('../../assets/img/personalizzazione_oggetti.jpg');">
+          </div>
+          <div class="secondary-overlay"></div>
+          <div class="secondary-content">
+            <h3>Tazze e Borracce</h3>
+            <span>Idee regalo perfette &rarr;</span>
+          </div>
+        </a>
+
       </div>
 
     </div>
