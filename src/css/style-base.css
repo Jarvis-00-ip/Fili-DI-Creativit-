@@ -170,47 +170,66 @@ body {
 }
 
 /* Card */
+/* Card Glassmorphism */
 .prodotto-card {
-  background: #fff;
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  /* True transparent glass */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  /* Slightly rounder */
   overflow: hidden;
   width: 280px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  /* Softer shadow */
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
   text-align: center;
   position: relative;
-  /* Needed for absolute positioning of the button */
-
-  /* micro “cornice” elegante */
-  border: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-/* Hover Button Effect */
-.prodotto-card::after {
-  content: "✨ Vedi Dettagli";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 15px 0;
-  background: var(--accent);
-  color: #fff;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  transform: translateY(100%);
-  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  pointer-events: none;
-  /* Allows click to pass through to the anchor tag */
-}
-
-.prodotto-card:hover::after {
-  transform: translateY(0);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .prodotto-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  border-color: rgba(184, 134, 11, 0.3);
+  /* Gold accent on border */
 }
+
+/* Subtle Hover Accent (No heavy bar) */
+.prodotto-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  /* Thin gold line instead of full bar */
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.prodotto-card:hover::after {
+  transform: scaleX(1);
+}
+
+/* Clean text */
+.prodotto-card h3,
+.prodotto-card h2 {
+  color: #333;
+  transition: color 0.3s;
+}
+
+.prodotto-card:hover h3,
+.prodotto-card:hover h2 {
+  color: var(--accent);
+}
+
+
 
 .prodotto-card img {
   width: 100%;
@@ -285,6 +304,15 @@ footer {
     display: none;
     /* nascosti fino al click su hamburger */
     flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    /* Solid background for visibility */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+    z-index: 1000;
   }
 
   .nav-links.active {
@@ -301,9 +329,13 @@ footer {
   }
 
   /* Mobile: Pulsante sempre visibile */
+  .prodotto-card {
+    /* Reset padding, button is hidden for cleaner look */
+    padding-bottom: 0 !important;
+    height: auto;
+  }
+
   .prodotto-card::after {
-    transform: translateY(0);
-    /* Opzionale: Riduci padding o background per essere meno invasivo su mobile */
-    padding: 12px 0;
+    display: none;
   }
 }
