@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/candele-anteprima.css">
   <link rel="stylesheet" href="../css/style-base.css">
+  <link rel="stylesheet" href="../css/mobile-menu.css">
 </head>
+
 <body>
   <!-- Snipcart container (necessario, rimosso duplicato in alto) -->
 
@@ -18,7 +21,7 @@
 
 
   <!-- Pulsante superiore flottante -->
- <a href="candele.html" class="btn-top">Acquista ora</a>
+  <a href="candele.html" class="btn-top">Acquista ora</a>
 
 
   <!-- Hero -->
@@ -83,26 +86,26 @@
   <script src="../js/scroll-animation.js"></script>
   <script src="../js/scrollButton.js"></script>
 
-<!-- Snipcart Config -->
-<script>
-  window.SnipcartSettings = {
-    publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
-    loadStrategy: "on-user-interaction",
-    modalStyle: "full"
-    
-  };
-</script>
+  <!-- Snipcart Config -->
+  <script>
+    window.SnipcartSettings = {
+      publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
+      loadStrategy: "on-user-interaction",
+      modalStyle: "full"
 
-<!-- Snipcart Script + CSS -->
-<script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
-<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
+    };
+  </script>
 
-<!-- Snipcart Container (unico) -->
-<div hidden id="snipcart"
-     data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy">
-</div>
+  <!-- Snipcart Script + CSS -->
+  <script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
+
+  <!-- Snipcart Container (unico) -->
+  <div hidden id="snipcart" data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy">
+  </div>
 
 
 
 </body>
+
 </html>

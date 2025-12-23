@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prodotti - Fili Di Creatività</title>
-  <meta name="description" content="Scopri i prodotti artigianali di Fili di Creatività: candele, tessuti, tazze e borracce, oggettistica." />
+  <meta name="description"
+    content="Scopri i prodotti artigianali di Fili di Creatività: candele, tessuti, tazze e borracce, oggettistica." />
   <meta name="author" content="Fili di Creatività" />
 
   <!-- Favicon -->
@@ -14,17 +16,18 @@
   <link rel="stylesheet" href="../css/prodotti.css" />
   <link rel="stylesheet" href="../css/style-base.css">
   <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/mobile-menu.css">
 
   <!-- CSS Carosello (inline per non toccare prodotti.css) -->
   <style>
     /* =========================
        CAROSELLO 3 PRODOTTI VISIBILI (INFINITE LOOP)
        ========================= */
-    .prodotti-hero{
+    .prodotti-hero {
       padding: 24px 0 10px;
     }
 
-    .carousel3d{
+    .carousel3d {
       --visible: 3;
       --gap: 18px;
 
@@ -34,47 +37,47 @@
       padding: 10px 54px;
     }
 
-    .carousel-viewport{
+    .carousel-viewport {
       overflow: hidden;
       border-radius: 16px;
     }
 
-    .carousel-track{
+    .carousel-track {
       display: flex;
       gap: var(--gap);
       align-items: stretch;
       padding: 18px 0;
-      transition: transform 600ms cubic-bezier(.2,.8,.2,1);
+      transition: transform 600ms cubic-bezier(.2, .8, .2, 1);
       will-change: transform;
     }
 
-    .carousel-card{
+    .carousel-card {
       flex: 0 0 calc((100% - (var(--gap) * (var(--visible) - 1))) / var(--visible));
       position: relative;
       border-radius: 16px;
       overflow: hidden;
       text-decoration: none;
       background: #fff;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
       transform: perspective(900px) rotateY(0deg) translateZ(0);
-      transition: transform 600ms cubic-bezier(.2,.8,.2,1), opacity 600ms cubic-bezier(.2,.8,.2,1);
+      transition: transform 600ms cubic-bezier(.2, .8, .2, 1), opacity 600ms cubic-bezier(.2, .8, .2, 1);
     }
 
-    .carousel-card img{
+    .carousel-card img {
       width: 100%;
       height: 320px;
       object-fit: cover;
       display: block;
     }
 
-    .carousel-caption{
+    .carousel-caption {
       position: absolute;
       left: 14px;
       right: 14px;
       bottom: 14px;
       padding: 10px 12px;
       border-radius: 12px;
-      background: rgba(0,0,0,0.45);
+      background: rgba(0, 0, 0, 0.45);
       color: #fff;
       font-weight: 700;
       text-align: center;
@@ -82,15 +85,15 @@
     }
 
     /* Frecce piccole trasparenti */
-    .carousel-btn{
+    .carousel-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       width: 34px;
       height: 34px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.35);
-      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(0, 0, 0, 0.25);
       color: #fff;
       font-size: 22px;
       line-height: 1;
@@ -102,40 +105,51 @@
       opacity: 0.95;
     }
 
-    .carousel-btn:hover{
-      background: rgba(0,0,0,0.40);
+    .carousel-btn:hover {
+      background: rgba(0, 0, 0, 0.40);
       transform: translateY(-50%) scale(1.05);
     }
 
-    .carousel-btn.prev{ left: 10px; }
-    .carousel-btn.next{ right: 10px; }
+    .carousel-btn.prev {
+      left: 10px;
+    }
+
+    .carousel-btn.next {
+      right: 10px;
+    }
 
     /* Stato visivo "3D": sinistra e destra leggermente ruotate */
-    .carousel-card.is-left{
+    .carousel-card.is-left {
       transform: perspective(900px) rotateY(12deg) scale(0.98);
       opacity: 0.86;
     }
-    .carousel-card.is-center{
+
+    .carousel-card.is-center {
       transform: perspective(900px) rotateY(0deg) scale(1.03);
       opacity: 1;
     }
-    .carousel-card.is-right{
+
+    .carousel-card.is-right {
       transform: perspective(900px) rotateY(-12deg) scale(0.98);
       opacity: 0.86;
     }
 
     /* Responsive: su mobile 1 prodotto */
-    @media (max-width: 820px){
-      .carousel3d{ --visible: 1; }
-      .carousel-card img{ height: 260px; }
+    @media (max-width: 820px) {
+      .carousel3d {
+        --visible: 1;
+      }
+
+      .carousel-card img {
+        height: 260px;
+      }
     }
   </style>
 </head>
 
 <body>
   <!-- Snipcart (una sola volta) -->
-  <div hidden id="snipcart"
-       data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy">
+  <div hidden id="snipcart" data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy">
   </div>
 
   <!-- Navbar -->
@@ -331,11 +345,11 @@
 
       const apply3DClasses = () => {
         const all = Array.from(track.querySelectorAll('.carousel-card'));
-        all.forEach(c => c.classList.remove('is-left','is-center','is-right'));
+        all.forEach(c => c.classList.remove('is-left', 'is-center', 'is-right'));
 
         const left = all[index];
-        const center = all[index + Math.min(1, visible-1)];
-        const right = all[index + Math.min(2, visible-1)];
+        const center = all[index + Math.min(1, visible - 1)];
+        const right = all[index + Math.min(2, visible - 1)];
 
         if (left) left.classList.add('is-left');
         if (center) center.classList.add('is-center');
@@ -398,14 +412,14 @@
 
       // swipe mobile
       let startX = null;
-      viewport?.addEventListener('touchstart', (e) => startX = e.touches[0].clientX, {passive:true});
+      viewport?.addEventListener('touchstart', (e) => startX = e.touches[0].clientX, { passive: true });
       viewport?.addEventListener('touchend', (e) => {
         if (startX === null) return;
         const endX = e.changedTouches[0].clientX;
         const dx = endX - startX;
         if (Math.abs(dx) > 40) (dx < 0 ? next() : prev());
         startX = null;
-      }, {passive:true});
+      }, { passive: true });
 
       // when transition ends: unlock + normalize
       track.addEventListener('transitionend', () => {
@@ -446,4 +460,5 @@
   <script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
   <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
 </body>
+
 </html>

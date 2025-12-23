@@ -17,7 +17,7 @@
   background-color: #ffffff;
 
   background-image:
-    radial-gradient(circle at center, rgba(0,0,0,0.03), rgba(0,0,0,0) 70%),
+    radial-gradient(circle at center, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0) 70%),
     url("../../assets/img/background-botanico.jpg");
 
   background-repeat: repeat, no-repeat;
@@ -28,7 +28,7 @@
 @media (max-width: 768px) {
   .bg-botanico {
     background-image:
-      radial-gradient(circle at center, rgba(0,0,0,0.02), rgba(0,0,0,0) 70%),
+      radial-gradient(circle at center, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0) 70%),
       url("../../assets/img/background-botanico-mobile.jpg");
 
     background-position: center top;
@@ -71,12 +71,14 @@
 }
 
 .logo .logo-main {
-  font-weight: 400; /* più leggero per “Fili di” */
+  font-weight: 400;
+  /* più leggero per “Fili di” */
   margin-right: 6px;
 }
 
 .logo .logo-highlight {
-  font-weight: 700; /* più marcato per “Creatività” */
+  font-weight: 700;
+  /* più marcato per “Creatività” */
 }
 
 /* Links navbar */
@@ -217,7 +219,7 @@ footer {
    OVERRIDE SFONDO BOTANICO – VERSIONE STABILE
    ========================= */
 
-body.bg-botanico{
+body.bg-botanico {
   background-color: #ffffff !important;
 
   /* 2 livelli:
@@ -225,7 +227,7 @@ body.bg-botanico{
      2) cornice botanica
   */
   background-image:
-    radial-gradient(circle at center, rgba(0,0,0,0.025), rgba(0,0,0,0) 70%),
+    radial-gradient(circle at center, rgba(0, 0, 0, 0.025), rgba(0, 0, 0, 0) 70%),
     url("../../assets/img/background-botanico.jpg") !important;
 
   background-repeat: repeat, no-repeat !important;
@@ -240,10 +242,10 @@ body.bg-botanico{
 /* =========================
    MOBILE – NESSUN TAGLIO
    ========================= */
-@media (max-width: 768px){
-  body.bg-botanico{
+@media (max-width: 768px) {
+  body.bg-botanico {
     background-image:
-      radial-gradient(circle at center, rgba(0,0,0,0.02), rgba(0,0,0,0) 70%),
+      radial-gradient(circle at center, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0) 70%),
       url("../../assets/img/background-botanico-mobile.jpg") !important;
 
     background-repeat: repeat, no-repeat !important;
@@ -257,17 +259,17 @@ body.bg-botanico{
 /* =========================
    CONTENUTI TRASPARENTI
    ========================= */
-.contatti-main{
+.contatti-main {
   background: transparent !important;
 }
 
 /* Box leggibile */
-.contatti-main .container{
-  background: rgba(255,255,255,0.88);
+.contatti-main .container {
+  background: rgba(255, 255, 255, 0.88);
   border-radius: 18px;
-  box-shadow: 0 14px 34px rgba(0,0,0,0.14);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.14);
   backdrop-filter: blur(3px);
-  border: 1px solid rgba(0,0,0,0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   padding: 24px;
 }
 
@@ -276,10 +278,10 @@ body.bg-botanico{
    Usa: <body class="bg-botanico">
    ========================= */
 
-body.bg-botanico{
-  background-color:#fff !important;
+body.bg-botanico {
+  background-color: #fff !important;
   background-image:
-    radial-gradient(circle at center, rgba(0,0,0,0.02), rgba(0,0,0,0) 70%),
+    radial-gradient(circle at center, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0) 70%),
     url("../../assets/img/background-botanico.jpg") !important;
   background-repeat: repeat, no-repeat !important;
   background-position: center center, center top !important;
@@ -288,10 +290,10 @@ body.bg-botanico{
 }
 
 /* MOBILE: invece di contain (che può lasciare “vuoti”), lo stendiamo in larghezza */
-@media (max-width: 768px){
-  body.bg-botanico{
+@media (max-width: 768px) {
+  body.bg-botanico {
     background-image:
-      radial-gradient(circle at center, rgba(0,0,0,0.02), rgba(0,0,0,0) 70%),
+      radial-gradient(circle at center, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0) 70%),
       url("../../assets/img/background-botanico-mobile.jpg") !important;
 
     background-repeat: repeat, no-repeat !important;
@@ -306,11 +308,14 @@ body.bg-botanico{
    FIX: prodotti centrati su mobile
    (se qualche CSS li sposta a sinistra)
    ========================= */
-@media (max-width: 768px){
-  .prodotti-main{ padding-left: 16px !important; padding-right: 16px !important; }
+@media (max-width: 768px) {
+  .prodotti-main {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
 
-  .prodotti-grid{
-    display:flex !important;
+  .prodotti-grid {
+    display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
@@ -319,7 +324,7 @@ body.bg-botanico{
     width: 100% !important;
   }
 
-  .prodotto-card{
+  .prodotto-card {
     width: min(92vw, 360px) !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -331,28 +336,31 @@ body.bg-botanico{
    (più affidabile di background-attachment: fixed)
    ========================= */
 
-body.bg-botanico{
+body.bg-botanico {
   position: relative;
   background: #fff !important;
 }
 
 /* Layer fisso dietro a tutto */
-@media (max-width: 768px){
-  body.bg-botanico{
-    background-image: none !important; /* disattiva il bg normale su mobile */
+@media (max-width: 768px) {
+  body.bg-botanico {
+    background-image: none !important;
+    /* disattiva il bg normale su mobile */
   }
 
-  body.bg-botanico::before{
-    content:"";
+  body.bg-botanico::before {
+    content: "";
     position: fixed;
     inset: 0;
-    z-index: -1;          /* dietro */
-    pointer-events: none; /* non blocca click */
+    z-index: -1;
+    /* dietro */
+    pointer-events: none;
+    /* non blocca click */
     background-color: #fff;
 
     /* stesso sistema desktop: pattern + immagine */
     background-image:
-      radial-gradient(circle at center, rgba(0,0,0,0.02), rgba(0,0,0,0) 70%),
+      radial-gradient(circle at center, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0) 70%),
       url("../../assets/img/background-botanico-mobile.jpg");
 
     background-repeat: repeat, no-repeat;
@@ -367,16 +375,3 @@ body.bg-botanico{
 /* =========================
    RESPONSIVE
    ========================= */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-  }
-  .hamburger {
-    display: block;
-  }
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-  }
-}

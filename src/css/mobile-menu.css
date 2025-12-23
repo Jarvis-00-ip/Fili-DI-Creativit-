@@ -1,0 +1,83 @@
+/* =========================================
+   MOBILE MENU (Standalone Fix)
+   ========================================= */
+
+/* Default: Hamburger hidden on desktop */
+.hamburger {
+    display: none;
+}
+
+/* Mobile Rules */
+@media (max-width: 768px) {
+
+    /* 1. Show Hamburger (unless menu is open) */
+    .hamburger {
+        display: block !important;
+        font-size: 2rem;
+        cursor: pointer;
+        z-index: 11000;
+        /* Highest priority */
+        position: relative;
+        color: #333;
+    }
+
+    /* Hide Hamburger when menu is active (nav-links is previous sibling) */
+    .nav-links.active~.hamburger {
+        display: none !important;
+    }
+
+    /* 2. Base Menu (Hidden) */
+    .nav-links {
+        display: none !important;
+    }
+
+    /* 3. Active Menu (Full Screen Overlay) */
+    .nav-links.active {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+
+        background-color: #ffffff !important;
+        /* Solid White */
+        padding: 20px;
+        z-index: 10000;
+        /* Below hamburger, above everything else */
+        overflow-y: auto;
+        /* Scrollable if needed */
+    }
+
+    /* 4. Menu Links Styling */
+    .nav-links li {
+        list-style: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: #333;
+        display: block;
+        padding: 10px;
+        transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+        color: #b8860b;
+        /* Gold accent */
+    }
+
+    /* 5. Disable Desktop Hover Effects on Menu Items in Mobile */
+    .nav-links a::after {
+        display: none;
+    }
+}

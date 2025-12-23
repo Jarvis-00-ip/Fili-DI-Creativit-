@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,98 +15,102 @@
   <link rel="stylesheet" href="../css/contatti.css">
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/style-base.css">
+  <link rel="stylesheet" href="../css/mobile-menu.css">
 </head>
+
 <body>
-  
+
   <body class="bg-botanico">
 
 
-  <!-- Snipcart container -->
-  <div hidden id="snipcart" data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
-
-  <!-- Navbar -->
-  <nav class="navbar"></nav>
-
-  <!-- Hero SOLO immagine -->
-  <section class="contatti-hero" style="background: url('../../assets/img/contattaci.jpg') no-repeat center/cover;">
-    <!-- testo rimosso -->
-  </section>
-
-  <!-- Form di contatto -->
-  <section class="contatti-main">
-    <div class="container">
-      <div class="contact-info">
-        <h2>Scrivici</h2>
-        <p>Ti risponderemo entro 24/48 ore.</p>
-        <p><strong>Email:</strong> info@filidicreativita.com</p>
-        <p><strong>Telefono:</strong> +39 123 456 789</p>
-      </div>
-
-      <div class="contact-form">
-        <form id="contactForm" action="https://formspree.io/f/xvgbyypw" method="POST">
-          <label for="name">Nome e Cognome</label>
-          <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
-
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="La tua email" required>
-
-          <label for="subject">Oggetto</label>
-          <input type="text" id="subject" name="subject" placeholder="Motivo del contatto">
-
-          <label for="message">Messaggio</label>
-          <textarea id="message" name="message" rows="6" placeholder="Scrivici il tuo messaggio" required></textarea>
-
-          <button type="submit" class="btn">Invia Messaggio</button>
-          <p id="form-status" class="form-status"></p>
-        </form>
-      </div>
+    <!-- Snipcart container -->
+    <div hidden id="snipcart" data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy">
     </div>
-  </section>
 
-  <!-- Footer -->
-  <div id="footer-placeholder"></div>
-  <script src="../js/common.js"></script>
+    <!-- Navbar -->
+    <nav class="navbar"></nav>
 
-  <!-- Script invio Formspree -->
-  <script>
-    const form = document.getElementById("contactForm");
-    const status = document.getElementById("form-status");
+    <!-- Hero SOLO immagine -->
+    <section class="contatti-hero" style="background: url('../../assets/img/contattaci.jpg') no-repeat center/cover;">
+      <!-- testo rimosso -->
+    </section>
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: { 'Accept': 'application/json' }
+    <!-- Form di contatto -->
+    <section class="contatti-main">
+      <div class="container">
+        <div class="contact-info">
+          <h2>Scrivici</h2>
+          <p>Ti risponderemo entro 24/48 ore.</p>
+          <p><strong>Email:</strong> info@filidicreativita.com</p>
+          <p><strong>Telefono:</strong> +39 123 456 789</p>
+        </div>
+
+        <div class="contact-form">
+          <form id="contactForm" action="https://formspree.io/f/xvgbyypw" method="POST">
+            <label for="name">Nome e Cognome</label>
+            <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="La tua email" required>
+
+            <label for="subject">Oggetto</label>
+            <input type="text" id="subject" name="subject" placeholder="Motivo del contatto">
+
+            <label for="message">Messaggio</label>
+            <textarea id="message" name="message" rows="6" placeholder="Scrivici il tuo messaggio" required></textarea>
+
+            <button type="submit" class="btn">Invia Messaggio</button>
+            <p id="form-status" class="form-status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <script src="../js/common.js"></script>
+
+    <!-- Script invio Formspree -->
+    <script>
+      const form = document.getElementById("contactForm");
+      const status = document.getElementById("form-status");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          status.textContent = "Grazie! Il tuo messaggio è stato inviato ✅";
+          status.style.color = "green";
+          form.reset();
+        } else {
+          status.textContent = "Errore nell'invio, riprova ❌";
+          status.style.color = "red";
+        }
       });
+    </script>
 
-      if (response.ok) {
-        status.textContent = "Grazie! Il tuo messaggio è stato inviato ✅";
-        status.style.color = "green";
-        form.reset();
-      } else {
-        status.textContent = "Errore nell'invio, riprova ❌";
-        status.style.color = "red";
-      }
-    });
-  </script>
+    <!-- Snipcart Config -->
+    <script>
+      window.SnipcartSettings = {
+        publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
+        loadStrategy: "on-user-interaction",
+        currency: "eur",
+        modalStyle: "full",
+        version: "3.7.1"
+      };
+    </script>
+    <script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
 
-  <!-- Snipcart Config -->
-  <script>
-    window.SnipcartSettings = {
-      publicApiKey: "OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy",
-      loadStrategy: "on-user-interaction",
-      currency: "eur",
-      modalStyle: "full",
-      version: "3.7.1"
-    };
-  </script>
-  <script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
+    <!-- Snipcart Container -->
+    <div hidden id="snipcart" data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy">
+    </div>
+  </body>
 
-  <!-- Snipcart Container -->
-  <div hidden id="snipcart"
-       data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy"></div>
-</body>
 </html>
