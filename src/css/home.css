@@ -6,7 +6,7 @@
 
 /* FONTS & BASE */
 .home-page {
-    background-color: #fff;
+    background-color: var(--bg);
     overflow-x: hidden;
     /* Prevent horizontal scroll */
 }
@@ -64,7 +64,7 @@
     pointer-events: none;
 }
 
-/* Overlay for text readability */
+/* Overlay for text readability & Edge Blending */
 .media-overlay {
     position: absolute;
     inset: 0;
@@ -72,6 +72,7 @@
     /* Subtle dimming */
     z-index: 2;
     pointer-events: none;
+    transition: background 1.5s ease;
 }
 
 /* Reduce Motion / Mobile Fallback */
@@ -139,14 +140,14 @@
 }
 
 .btn-primary {
-    background-color: var(--gold, #b8860b);
+    background-color: var(--accent);
     color: #fff;
     border: 1px solid transparent;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 14px var(--shadow);
 }
 
 .btn-primary:hover {
-    background-color: #d4a373;
+    background-color: var(--accent-hover);
     /* lighter accent */
     transform: scale(1.03);
 }
@@ -193,7 +194,7 @@
 /* 2. STORY BLOCKS */
 .story-section {
     padding: 100px 0;
-    background-color: #fff;
+    background-color: var(--bg);
 }
 
 .story-block {
@@ -228,20 +229,20 @@
 
 .story-text h2 {
     font-size: 2.5rem;
-    color: var(--text-dark, #333);
+    color: var(--text);
     margin-bottom: 20px;
     line-height: 1.2;
 }
 
 .story-text p {
     font-size: 1.2rem;
-    color: #555;
+    color: var(--text-muted);
     line-height: 1.6;
     margin-bottom: 25px;
 }
 
 .story-link {
-    color: var(--gold, #b8860b);
+    color: var(--accent);
     font-weight: 600;
     text-decoration: none;
     font-size: 1.1rem;
@@ -276,14 +277,14 @@
 /* 3. CATEGORY STRIP */
 .categories-section {
     padding: 80px 20px 120px;
-    background-color: var(--bg-alt, #f5f1eb);
+    background-color: var(--surface-soft);
     text-align: center;
 }
 
 .section-title {
     font-size: 2.2rem;
     margin-bottom: 60px;
-    color: var(--text-dark, #333);
+    color: var(--text);
 }
 
 .category-grid {
@@ -300,8 +301,8 @@
     border-radius: 24px;
     overflow: hidden;
     text-decoration: none;
-    background: #fff;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    background: var(--surface);
+    box-shadow: 0 10px 30px var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: block;
 }
@@ -339,7 +340,7 @@
 
 .category-tile:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 40px var(--shadow);
 }
 
 .category-tile:hover img {
@@ -353,8 +354,8 @@
     align-items: center;
     gap: 60px;
     padding: 60px 20px;
-    background: #fff;
-    border-top: 1px solid #eee;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
     flex-wrap: wrap;
 }
 
@@ -362,7 +363,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    color: #666;
+    color: var(--text-muted);
     font-weight: 500;
     font-size: 1.1rem;
 }
@@ -370,20 +371,51 @@
 .trust-icon {
     width: 24px;
     height: 24px;
-    fill: var(--gold, #b8860b);
+    fill: var(--accent);
 }
 
 /* 5. FINAL CTA */
 .final-cta {
     padding: 100px 20px;
     text-align: center;
-    background: #222;
+    background: var(--text);
     color: #fff;
 }
 
 .final-cta h2 {
     font-size: 2.5rem;
     margin-bottom: 30px;
+}
+
+/* --- DESKTOP HERO REFINEMENT (Gentle Zoom-Out) --- */
+@media (min-width: 1025px) {
+    .home-hero-media {
+        background-color: var(--text);
+        /* Foundation for edge blending */
+    }
+
+    /* Foreground Video & Image: Reduce perceived zoom for elegance */
+    .hero-video,
+    .hero-image {
+        transform: scale(0.97);
+        /* Gentle zoom out from full-bleed */
+        transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.5s ease;
+    }
+
+    /* Edge Blending: Layer a soft vignette to dissolve borders into the background */
+    .media-overlay {
+        background: radial-gradient(circle, transparent 50%, rgba(0, 0, 0, 0.4) 100%),
+            rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(0px);
+        /* Just in case we want to add subtle blur later */
+    }
+
+    /* Hover effect for a more interactive, "breathing" feel */
+    .home-hero-media:hover .hero-video,
+    .home-hero-media:hover .hero-image {
+        transform: scale(0.99);
+        /* Subtle reaction on hover */
+    }
 }
 
 /* RESPONSIVE */

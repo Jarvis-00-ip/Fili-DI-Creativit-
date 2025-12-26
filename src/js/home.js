@@ -38,8 +38,13 @@ document.addEventListener("DOMContentLoaded", () => {
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
             if (scrollY < window.innerHeight) {
-                // Subtle move down
-                heroImg.style.transform = `scale(1.05) translateY(${scrollY * 0.3}px)`;
+                // Determine base scale based on screen width
+                const isDesktop = window.innerWidth > 1024;
+                const baseScale = isDesktop ? 0.97 : 1.1;
+                const parallaxIntensity = isDesktop ? 0.2 : 0.3;
+
+                // Keep the base scale and add subtle parallax movement
+                heroImg.style.transform = `scale(${baseScale}) translateY(${scrollY * parallaxIntensity}px)`;
             }
         });
     }

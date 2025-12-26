@@ -18,7 +18,7 @@
         z-index: 11000;
         /* Highest priority */
         position: relative;
-        color: #333;
+        color: var(--text);
     }
 
     /* Hide Hamburger when menu is active (nav-links is previous sibling) */
@@ -45,8 +45,11 @@
         width: 100vw;
         height: 100vh;
 
-        background-color: #ffffff !important;
-        /* Solid White */
+        width: 100vw;
+        height: 100vh;
+
+        background-color: var(--surface) !important;
+        /* Surface */
         padding: 20px;
         z-index: 10000;
         /* Below hamburger, above everything else */
@@ -65,15 +68,15 @@
         font-size: 1.5rem;
         font-weight: 600;
         text-decoration: none;
-        color: #333;
+        color: var(--text);
         display: block;
         padding: 10px;
         transition: color 0.2s;
     }
 
     .nav-links a:hover {
-        color: #b8860b;
-        /* Gold accent */
+        color: var(--accent);
+        /* Accent */
     }
 
     /* 5. Disable Desktop Hover Effects on Menu Items in Mobile */

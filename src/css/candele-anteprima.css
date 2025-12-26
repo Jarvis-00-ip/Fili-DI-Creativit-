@@ -1,11 +1,19 @@
-/* 🎨 Palette Colori */
+/* 🎨 Palette Colori (Mapped to Global) */
 :root {
-  --bg-main: #e6dfd5;     /* sfondo principale */
-  --bg-alt: #f5f1eb;      /* sfondo alternato */
-  --text-dark: #3c2f2f;   /* testo scuro */
-  --text-medium: #5a4634; /* testo medio */
-  --accent: #d4a373;      /* colore principale pulsanti */
-  --highlight: #b85c38;   /* hover pulsanti */
+  --bg-main: var(--bg);
+  /* sfondo principale */
+  --bg-alt: var(--surface-soft);
+  /* sfondo alternato */
+  --text-dark: var(--text);
+  /* testo scuro */
+  --text-medium: var(--text-muted);
+  /* testo medio */
+  --accent: var(--accent);
+  /* colore principale pulsanti */
+  --highlight: var(--accent-hover);
+  /* hover pulsanti */
+  --gold: var(--accent);
+  /* Compatibility */
 }
 
 /* Reset di base per margini, padding e font */
@@ -20,9 +28,12 @@
    HERO
    ========================= */
 .hero {
-  background: url("../../assets/img/candele-collage.jpg") no-repeat center/cover; /* immagine hero */
-  height: 80vh;                  /* altezza della sezione */
-  display: flex;                 /* centrare contenuto */
+  background: url("../../assets/img/candele-collage.jpg") no-repeat center/cover;
+  /* immagine hero */
+  height: 80vh;
+  /* altezza della sezione */
+  display: flex;
+  /* centrare contenuto */
   justify-content: center;
   align-items: center;
   color: white;
@@ -34,25 +45,33 @@
 .hero::after {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 /* Titolo principale */
 .hero-text h1 {
   font-size: 3.5rem;
   font-weight: bold;
-  color: #fff; /* bianco puro */
-  text-shadow: 0 2px 6px rgba(0,0,0,0.4); /* solo ombra leggera per stacco */
+  color: #fff;
+  /* bianco puro */
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  /* solo ombra leggera per stacco */
   margin-bottom: 10px;
 }
 
 /* Sottotitolo */
 .hero .hero-text p {
-  color: #ffffff !important; /* forza il colore */
+  color: #ffffff !important;
+  /* forza il colore */
   font-weight: bold;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.4); /* solo ombra leggera per stacco */
-  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  /* solo ombra leggera per stacco */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
+
 .hero-text {
   position: relative;
   display: inline-block;
@@ -71,6 +90,7 @@
   border-radius: 6px;
   transition: background 0.3s;
 }
+
 .btn:hover {
   background: var(--highlight);
 }
@@ -78,8 +98,10 @@
 /* Pulsante superiore flottante */
 .btn-top {
   position: fixed;
-  top: 70px;   /* sotto la navbar */
-  right: 20px; /* posizionato a destra */
+  top: 70px;
+  /* sotto la navbar */
+  right: 20px;
+  /* posizionato a destra */
   padding: 8px 14px;
   background: var(--accent);
   color: #fff;
@@ -87,11 +109,12 @@
   font-size: 0.85rem;
   font-weight: bold;
   text-decoration: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   transition: opacity 0.3s ease, transform 0.3s ease;
   opacity: 1;
   z-index: 2000;
 }
+
 .btn-top.hidden {
   opacity: 0;
   transform: translateY(-20px);
@@ -111,8 +134,9 @@
   text-decoration: none;
   text-align: center;
   max-width: 200px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
+
 .btn-bottom:hover {
   background: var(--highlight);
 }
@@ -128,24 +152,29 @@
   background: var(--bg-main);
   gap: 40px;
 }
+
 .scroll-section.alt {
   background: var(--bg-alt);
 }
+
 .scroll-section .text {
   flex: 1;
   color: var(--text-medium);
 }
+
 .scroll-section .text h2 {
   color: var(--text-dark);
   margin-bottom: 15px;
 }
+
 .scroll-section .image {
   flex: 1;
 }
+
 .scroll-section .image img {
   width: 100%;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   opacity: 0;
   transform: translateY(50px);
   transition: all 0.8s ease;
@@ -173,6 +202,7 @@
   text-align: center;
   display: inline-block;
 }
+
 .nav-links a#open-cart-link {
   display: inline-flex;
   align-items: center;

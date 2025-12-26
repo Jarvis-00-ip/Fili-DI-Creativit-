@@ -4,9 +4,9 @@
 
 /* Scoped to body.bouquet-story-page */
 .bouquet-story-page {
-    background-color: #FAFAFA;
+    background-color: var(--surface-soft);
     /* Soft off-white */
-    color: #333;
+    color: var(--text);
     font-family: 'Georgia', serif;
     /* Consistent with brand */
     overflow-x: hidden;
@@ -105,8 +105,8 @@
     text-transform: uppercase;
     font-size: 0.9rem;
     letter-spacing: 2px;
-    color: #b8860b;
-    /* Gold */
+    color: var(--accent);
+    /* Accent */
     margin-bottom: 15px;
     display: block;
     font-weight: 600;
@@ -121,7 +121,7 @@
 .chapter-text p {
     font-size: 1.15rem;
     line-height: 1.7;
-    color: #555;
+    color: var(--text-muted);
     margin-bottom: 20px;
 }
 
@@ -129,7 +129,7 @@
     flex: 1;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px var(--shadow);
 }
 
 .chapter-image img {
@@ -145,10 +145,10 @@
 
 /* 3. INGREDIENTS STRIP (Apple-style Grid) */
 .ingredients-section {
-    background: #fff;
+    background: var(--surface);
     padding: 100px 20px;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
 }
 
 .ingredients-grid {
@@ -173,7 +173,7 @@
 
 .ingredient-icon {
     font-size: 2.5rem;
-    color: #b8860b;
+    color: var(--accent);
     margin-bottom: 20px;
     display: block;
 }
@@ -182,7 +182,7 @@
 .story-cta {
     padding: 120px 20px;
     text-align: center;
-    background: #111;
+    background: var(--text);
     color: #fff;
 }
 
@@ -194,7 +194,7 @@
 .btn-buy {
     display: inline-block;
     padding: 18px 40px;
-    background: #b8860b;
+    background: var(--accent);
     color: #fff;
     text-decoration: none;
     font-size: 1.2rem;
@@ -204,7 +204,7 @@
 }
 
 .btn-buy:hover {
-    background: #d4a373;
+    background: var(--accent-hover);
     transform: scale(1.05);
 }
 

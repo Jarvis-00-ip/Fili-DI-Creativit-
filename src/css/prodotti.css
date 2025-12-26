@@ -8,7 +8,7 @@
   align-items: center;
   gap: 40px;
   padding: 50px 20px;
-  background: #fafafa;
+  background: var(--surface-soft);
   flex-wrap: wrap;
 }
 
@@ -18,7 +18,7 @@
   height: auto;
   object-fit: contain;
   border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 20px var(--shadow);
 }
 
 .product-info {
@@ -28,27 +28,27 @@
 .product-info h2 {
   font-size: 2rem;
   margin-bottom: 12px;
-  color: #2a2a2a;
+  color: var(--text);
 }
 
 .product-info .price {
   font-size: 1.6rem;
   font-weight: bold;
-  color: #b8860b;
+  color: var(--accent);
   margin-bottom: 20px;
 }
 
 .product-info p {
   font-size: 1rem;
   line-height: 1.6;
-  color: #444;
+  color: var(--text-muted);
   margin-bottom: 20px;
 }
 
 /* Pulsante azione (acquista) */
 .snipcart-add-item {
   padding: 14px 22px;
-  background: linear-gradient(135deg, #b8860b, #d4af37);
+  background: var(--accent);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -57,12 +57,12 @@
   cursor: pointer;
   transition: all 0.3s ease;
   display: inline-block;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px var(--shadow);
   text-decoration: none;
 }
 
 .snipcart-add-item:hover {
-  background: linear-gradient(135deg, #8b6508, #b8860b);
+  background: var(--accent-hover);
   transform: scale(1.05);
 }
 
@@ -100,7 +100,7 @@
   font-size: 3rem;
   margin-bottom: 15px;
   color: #fff;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6), 0 0 8px rgba(184, 134, 11, 0.6);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6), 0 0 8px rgba(90, 108, 55, 0.6);
 }
 
 .product-hero .hero-text p {
@@ -167,13 +167,13 @@
 
 .intro-premium h2 {
   font-size: 2rem;
-  color: #333;
+  color: var(--text);
   margin-bottom: 15px;
 }
 
 .intro-premium p {
   font-size: 1.1rem;
-  color: #666;
+  color: var(--text-muted);
   line-height: 1.6;
 }
 
@@ -198,13 +198,13 @@
   align-items: center;
   justify-content: flex-start;
   text-decoration: none;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 40px var(--shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-block:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 50px var(--shadow);
 }
 
 .feature-bg {
@@ -239,7 +239,7 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--border);
 }
 
 .feature-content h2 {
@@ -273,12 +273,12 @@
 }
 
 .btn-feature.primary {
-  background: #fff;
-  color: #333;
+  background: var(--surface);
+  color: var(--text);
 }
 
 .btn-feature.primary:hover {
-  background: #f0f0f0;
+  background: var(--bg);
   transform: scale(1.05);
 }
 
@@ -286,7 +286,7 @@
   background: rgba(255, 255, 255, 0.2);
   color: #fff;
   backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid var(--border);
 }
 
 .btn-feature.secondary:hover {
@@ -308,7 +308,7 @@
   display: flex;
   align-items: flex-end;
   text-decoration: none;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px var(--shadow);
   transition: transform 0.3s ease;
 }
 

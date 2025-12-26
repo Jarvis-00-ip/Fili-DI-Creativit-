@@ -20,7 +20,7 @@
 
   padding: 90px 18px 60px;
 
-  background-color: #000;
+  background-color: var(--text);
   /* nel caso si vedano “bordi” */
 
   overflow: hidden;
@@ -112,13 +112,13 @@
 .prodotti-home {
   padding: 60px 20px;
   text-align: center;
-  background: #f9f9f9;
+  background: var(--surface-soft);
 }
 
 .prodotti-home h2 {
   font-size: 2rem;
   margin-bottom: 30px;
-  color: #333;
+  color: var(--text);
 }
 
 .prodotti-grid {
@@ -132,14 +132,15 @@
 /* Glassmorphism Home Cards */
 .prodotto {
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  background: var(--surface);
   /* True transparent glass */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 32px var(--shadow);
   transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
   position: relative;
   height: 100%;
@@ -149,9 +150,9 @@
 
 .prodotto:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-  border-color: rgba(184, 134, 11, 0.3);
-  /* Gold accent on border */
+  box-shadow: 0 12px 40px var(--shadow);
+  border-color: var(--accent);
+  /* Accent on border */
 }
 
 /* Subtle Hover Accent (No heavy bar) */
@@ -162,8 +163,8 @@
   left: 0;
   width: 100%;
   height: 4px;
-  /* Thin gold line */
-  background: #b8860b;
+  /* Thin accent line */
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
@@ -193,12 +194,12 @@
 .prodotto h3 {
   margin: 15px 0;
   font-size: 1.2rem;
-  color: #333;
+  color: var(--text);
   transition: color 0.3s;
 }
 
 .prodotto:hover h3 {
-  color: #b8860b;
+  color: var(--accent);
 }
 
 /* ========================
@@ -255,13 +256,13 @@
     width: 200px;
     margin: 40px auto 10px;
     padding: 15px 20px;
-    background-color: #b8860b;
+    background-color: var(--accent);
     color: #fff;
     text-align: center;
     text-decoration: none;
     font-weight: bold;
     border-radius: 30px;
-    box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+    box-shadow: 0 4px 12px var(--shadow);
     transition: transform 0.2s, box-shadow 0.2s;
   }
 

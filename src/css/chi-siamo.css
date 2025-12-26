@@ -11,9 +11,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    align-items: center;
     padding: 15px 40px;
-    background-color: #fff;
-    border-bottom: 1px solid #ddd;
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--border);
     position: relative;
     z-index: 1000;
 }
@@ -33,7 +34,7 @@
 .nav-links a,
 .nav-links button {
     text-decoration: none;
-    color: #333;
+    color: var(--text);
     font-weight: 500;
     font-size: 1rem;
     background: none;
@@ -45,7 +46,7 @@
 .nav-links a:hover,
 .nav-links button:hover,
 .nav-links a.active {
-    color: #b8860b;
+    color: var(--accent);
 }
 
 .hamburger {
@@ -58,7 +59,7 @@
    🛒 Badge carrello uniforme
    ========================= */
 :root {
-    --gold: #b8860b;
+    --gold: var(--accent);
 }
 
 .cart-count {
@@ -95,8 +96,11 @@
 .chi-siamo-hero::after {
     content: "";
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.4);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .chi-siamo-hero-text {
@@ -116,7 +120,7 @@
 /* Sezione principale */
 .chi-siamo-main {
     padding: 60px 20px;
-    background: #fff;
+    background: var(--surface);
 }
 
 .container {
@@ -141,7 +145,7 @@
 .container .text p {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #444;
+    color: var(--text-muted);
     margin-bottom: 15px;
 }
 
@@ -153,14 +157,14 @@
 .container .image img {
     width: 100%;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px var(--shadow);
 }
 
 /* Mission */
 .mission {
     padding: 60px 20px;
     text-align: center;
-    background: #e5e3de;
+    background: var(--surface-soft);
 }
 
 .mission h2 {
@@ -173,12 +177,12 @@
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
-    color: #444;
+    color: var(--text-muted);
 }
 
 /* Footer */
 footer {
-    background: #333;
+    background: var(--text);
     color: #fff;
     padding: 40px 20px;
     text-align: center;
