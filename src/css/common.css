@@ -260,7 +260,7 @@ body.bg-botanico {
   */
   background-image:
     radial-gradient(circle at center, rgba(0, 0, 0, 0.025), rgba(0, 0, 0, 0) 70%),
-    url("../../assets/img/background-botanico.jpg") !important;
+    url("../../assets/img/background-botanico.webp") !important;
 
   background-repeat: repeat, no-repeat !important;
   background-position: center center, center top !important;
@@ -278,7 +278,7 @@ body.bg-botanico {
   body.bg-botanico {
     background-image:
       radial-gradient(circle at center, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0) 70%),
-      url("../../assets/img/background-botanico-mobile.jpg") !important;
+      url("../../assets/img/background-botanico-mobile.webp") !important;
 
     background-repeat: repeat, no-repeat !important;
     background-position: center center, center top !important;
@@ -325,7 +325,7 @@ body.bg-botanico {
   body.bg-botanico {
     background-image:
       radial-gradient(circle at center, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0) 70%),
-      url("../../assets/img/background-botanico-mobile.jpg") !important;
+      url("../../assets/img/background-botanico-mobile.webp") !important;
 
     background-repeat: repeat, no-repeat !important;
     background-position: center center, center top !important;
@@ -392,7 +392,7 @@ body.bg-botanico {
     /* stesso sistema desktop: pattern + immagine */
     background-image:
       radial-gradient(circle at center, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0) 70%),
-      url("../../assets/img/background-botanico-mobile.jpg");
+      url("../../assets/img/background-botanico-mobile.webp");
 
     background-repeat: repeat, no-repeat;
     background-position: center center, center top;

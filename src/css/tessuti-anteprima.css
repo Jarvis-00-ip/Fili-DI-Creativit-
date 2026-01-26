@@ -20,7 +20,7 @@
 
 /* Hero */
 .hero {
-  background: url("../../assets/img/personalizzazioni-tessuti.jpg") no-repeat center/cover;
+  background: url("../../assets/img/personalizzazioni-tessuti.webp") no-repeat center/cover;
   height: 80vh;
   display: flex;
   justify-content: center;

@@ -31,7 +31,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: url("../../assets/img/hero.jpg") no-repeat center center;
+  background: url("../../assets/img/hero.webp") no-repeat center center;
   background-size: cover;
   z-index: 0;
   animation: kenBurns 24s ease-in-out infinite alternate;
@@ -207,7 +207,7 @@
    ======================== */
 @media (max-width: 768px) {
   .hero::before {
-    background-image: url("../../assets/img/hero-mobile.jpg");
+    background-image: url("../../assets/img/hero-mobile.webp");
     /* background-size e position ereditati o resettati se serve */
     filter: saturate(0.98) contrast(0.96) brightness(0.98);
   }
