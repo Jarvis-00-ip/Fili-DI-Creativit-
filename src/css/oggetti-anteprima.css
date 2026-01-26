@@ -20,7 +20,7 @@
 
 /* Hero */
 .hero {
-  background: url("./../../assets/img/oggetti/personalizzazione_oggetti_hero.webp") no-repeat center/cover;
+  background: url("./../../assets/img/personalizzazione_oggetti_hero.webp") no-repeat center/cover;
   height: 80vh;
   display: flex;
   justify-content: center;

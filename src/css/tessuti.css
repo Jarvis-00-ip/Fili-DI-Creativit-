@@ -12,7 +12,7 @@
    HERO
    ======================== */
 .tessuti-hero {
-  background: url("../../assets/img/tessuti/personalizzazioni-tessuti.webp") no-repeat center center/cover;
+  background: url("../../assets/img/personalizzazioni-tessuti.webp") no-repeat center center/cover;
   height: 50vh;
   display: flex;
   align-items: center;

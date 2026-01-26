@@ -20,7 +20,7 @@
 
 /* Hero */
 .hero {
-  background: url("../../assets/img/candele/candele.webp") no-repeat center/cover;
+  background: url("../../assets/img/candele.webp") no-repeat center/cover;
   height: 80vh;
   display: flex;
   justify-content: center;
