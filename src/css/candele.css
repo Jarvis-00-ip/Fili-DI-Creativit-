@@ -8,7 +8,7 @@
 
 /* Hero */
 .candele-hero {
-  background: url("../../assets/img/candele-collage.webp") no-repeat center center/cover;
+  background: url("../../assets/img/candele/candele-collage.webp") no-repeat center center/cover;
   height: 50vh;
   display: flex;
   align-items: center;

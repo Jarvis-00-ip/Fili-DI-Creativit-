@@ -28,7 +28,7 @@
    HERO
    ========================= */
 .hero {
-  background: url("../../assets/img/candele-collage.webp") no-repeat center/cover;
+  background: url("../../assets/img/candele/candele-collage.webp") no-repeat center/cover;
   /* immagine hero */
   height: 80vh;
   /* altezza della sezione */

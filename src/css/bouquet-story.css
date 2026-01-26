@@ -28,7 +28,7 @@
 .story-hero-bg {
     position: absolute;
     inset: 0;
-    background-image: url('../../assets/img/Bouquet rosa.webp');
+    background-image: url('../../assets/img/bouquet/Bouquet rosa.webp');
     /* Use high-res bouquet */
     background-size: cover;
     background-position: center;
