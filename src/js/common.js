@@ -1,19 +1,42 @@
 ﻿// src/js/common.js 
 document.addEventListener("DOMContentLoaded", () => {
+  // Determine depth relative to root (index.html location)
+  // We assume the structure: root/index.html and root/src/html/...
+  // Count how many levels deep we are from the "root" folder.
+
   const path = window.location.pathname;
+  let prefix = "";
+  let homeLink = "index.html";
+  let rootPrefix = "";
 
-  let prefix;
-  let homeLink;
+  // Logic: "src/html" is the pivotal folder.
+  // if we are in src/html/..., we need to go up 2 levels + extra levels for subfolders.
 
-  if (path.includes("/src/html/shop/")) {
-    prefix = "../../";
-    homeLink = "../../../../index.html"; // relativo (4 livelli up: candele -> shop -> html -> src -> root)
-  } else if (path.includes("/src/html/")) {
-    prefix = "";
-    homeLink = "../../index.html"; // relativo (2 livelli up: html -> src -> root)
+  if (path.includes("/src/html/")) {
+    const parts = path.split("/src/html/")[1].split("/");
+    const depth = parts.length - 1; // -1 because the file itself is a part
+
+    // Base prefix for assets/css/js which are in src or root
+    // To get back to 'src/html/' level from current file:
+    let toSrcHtml = "";
+    for (let i = 0; i < depth; i++) {
+      toSrcHtml += "../";
+    }
+
+    // Default prefix for links pointing to other html files (siblings or children of src/html)
+    prefix = toSrcHtml;
+
+    // To get back to root (where index.html is)
+    // We are in src/html/... (depth) -> need to go up depth + 2 (html->src->root)
+    let toRoot = "../../" + toSrcHtml;
+
+    homeLink = toRoot + "index.html";
+    rootPrefix = toRoot;
   } else {
+    // We are at root (index.html) or some other folder at root level
     prefix = "src/html/";
-    homeLink = "index.html"; // relativo (root)
+    homeLink = "index.html";
+    rootPrefix = "";
   }
 
   const links = {
@@ -99,16 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const footerPlaceholder = document.getElementById("footer-placeholder");
   if (footerPlaceholder) {
-    // Calcola il percorso relativo per la root
-    let rootPrefix = "";
-    if (path.includes("/src/html/shop/")) {
-      rootPrefix = "../../../../";
-    } else if (path.includes("/src/html/")) {
-      rootPrefix = "../../";
-    } else {
-      rootPrefix = "";
-    }
-
+    // rootPrefix is already calculated at the top
     const footerHTML = `
     <footer>
       <div class="footer-container">
