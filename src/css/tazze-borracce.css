@@ -1,4 +1,4 @@
-/* Tazze e Borracce CSS */
+﻿/* Tazze e Borracce CSS */
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +7,7 @@
 }
 
 .product-hero {
-  background: url("../../assets/img/personalizzazioni-oggettistica.webp") no-repeat center center/cover;
+  background: url("../../assets/img/oggetti/personalizzazioni-oggettistica.webp") no-repeat center center/cover;
   height: 50vh;
   display: flex;
   align-items: center;

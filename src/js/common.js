@@ -1,4 +1,4 @@
-// src/js/common.js 
+﻿// src/js/common.js 
 document.addEventListener("DOMContentLoaded", () => {
   const path = window.location.pathname;
 
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h3>Contatti</h3>
           <p>
             <a href="mailto:lauracaprotti2000@gmail.com">
-              <img src="${rootPrefix}assets/img/email.webp" alt="Email" class="icon"> info@filidicreativita.com
+              <img src="${rootPrefix}assets/img/common/email.webp" alt="Email" class="icon"> info@filidicreativita.com
             </a>
           </p>
         </div>
@@ -127,17 +127,17 @@ document.addEventListener("DOMContentLoaded", () => {
           <h3>Seguici</h3>
           <p>
             <a href="https://instagram.com/filidicreativita" target="_blank">
-              <img src="${rootPrefix}assets/img/instagram.webp" alt="Instagram" class="icon"> Instagram
+              <img src="${rootPrefix}assets/img/common/instagram.webp" alt="Instagram" class="icon"> Instagram
             </a>
           </p>
           <p>
             <a href="https://facebook.com/filidicreativita" target="_blank">
-              <img src="${rootPrefix}assets/img/facebook.webp" alt="Facebook" class="icon"> Facebook
+              <img src="${rootPrefix}assets/img/common/facebook.webp" alt="Facebook" class="icon"> Facebook
             </a>
           </p>
           <p>
             <a href="https://tiktok.com/@filidicreativita" target="_blank">
-              <img src="${rootPrefix}assets/img/tiktok.webp" alt="TikTok" class="icon"> TikTok
+              <img src="${rootPrefix}assets/img/common/tiktok.webp" alt="TikTok" class="icon"> TikTok
             </a>
           </p>
         </div>

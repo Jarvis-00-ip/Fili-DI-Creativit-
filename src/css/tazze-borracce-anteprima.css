@@ -1,4 +1,4 @@
-/* 🎨 Palette Colori (Mapped to Global) */
+﻿/* 🎨 Palette Colori (Mapped to Global) */
 :root {
   --bg-main: var(--bg);
   --bg-alt: var(--surface-soft);
@@ -20,7 +20,7 @@
 
 /* Hero */
 .hero {
-  background: url("../../assets/img/candele.webp") no-repeat center/cover;
+  background: url("../../assets/img/candele/candele.webp") no-repeat center/cover;
   height: 80vh;
   display: flex;
   justify-content: center;
