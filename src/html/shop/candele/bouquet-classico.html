@@ -27,8 +27,15 @@
     </section>
 
     <section class="product-container">
-      <div class="product-image">
-        <img src="../../../../assets/img/bouquet/Bouquet rosa.jpg" alt="Bouquet Classico">
+      <div class="product-slider-container" id="productSlider">
+        <div class="product-slider-track" id="sliderTrack">
+          <!-- Images will be injected here by JS -->
+        </div>
+
+        <button class="slider-btn prev" id="slidePrev" aria-label="Precedente">‹</button>
+        <button class="slider-btn next" id="slideNext" aria-label="Successivo">›</button>
+
+        <div class="slider-dots" id="sliderDots"></div>
       </div>
       <div class="product-info">
         <h2>Bouquet Classico</h2>
@@ -47,6 +54,90 @@
 
   <div id="footer-placeholder"></div>
   <script src="../../../js/common.js"></script>
+
+  <!-- Product Slider Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Image Configuration
+      // Base path for images
+      const basePath = "../../../../assets/img/bouquet/";
+
+      // List of images (explicitly excluding "cemento")
+      const images = [
+        "Bouquet rosa.jpg",
+        "rose-vaso.jpg",
+        // Generating bouquet-gallery-1 to 26
+        ...Array.from({ length: 26 }, (_, i) => `bouquet-gallery-${i + 1}.jpeg`)
+      ];
+
+      const track = document.getElementById('sliderTrack');
+      const dotsContainer = document.getElementById('sliderDots');
+      const prevBtn = document.getElementById('slidePrev');
+      const nextBtn = document.getElementById('slideNext');
+
+      let currentIndex = 0;
+
+      // Initialize Slider
+      function initSlider() {
+        // Create Slides
+        images.forEach((img, index) => {
+          const slide = document.createElement('img');
+          slide.src = basePath + img;
+          slide.alt = `Bouquet Classico - Foto ${index + 1}`;
+          slide.classList.add('product-slide');
+          slide.loading = index === 0 ? "eager" : "lazy"; // Optimize loading
+          track.appendChild(slide);
+
+          // Create Dot
+          const dot = document.createElement('div');
+          dot.classList.add('slider-dot');
+          if (index === 0) dot.classList.add('active');
+          dot.addEventListener('click', () => goToSlide(index));
+          dotsContainer.appendChild(dot);
+        });
+      }
+
+      function goToSlide(index) {
+        if (index < 0) index = images.length - 1;
+        if (index >= images.length) index = 0;
+
+        currentIndex = index;
+
+        // Update Track
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        // Update Dots
+        const dots = document.querySelectorAll('.slider-dot');
+        dots.forEach(d => d.classList.remove('active'));
+        dots[currentIndex].classList.add('active');
+      }
+
+      // Event Listeners
+      prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+      nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+      // Swipe support for mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      track.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      track.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, { passive: true });
+
+      function handleSwipe() {
+        if (touchEndX < touchStartX - 50) nextBtn.click();
+        if (touchEndX > touchStartX + 50) prevBtn.click();
+      }
+
+      // Start
+      initSlider();
+    });
+  </script>
 </body>
 
 </html>
