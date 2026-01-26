@@ -240,6 +240,11 @@ body {
   object-fit: cover;
 }
 
+.prodotto-card a {
+  text-decoration: none;
+}
+
+
 /* Titolo card */
 .prodotto-card h2 {
   padding: 15px;
