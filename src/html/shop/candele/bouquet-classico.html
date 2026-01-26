@@ -35,7 +35,7 @@
         <button class="slider-btn prev" id="slidePrev" aria-label="Precedente">‹</button>
         <button class="slider-btn next" id="slideNext" aria-label="Successivo">›</button>
 
-        <div class="slider-dots" id="sliderDots"></div>
+        <div class="slider-counter" id="sliderCounter">1 / 1</div>
       </div>
       <div class="product-info">
         <h2>Bouquet Classico</h2>
@@ -71,7 +71,7 @@
       ];
 
       const track = document.getElementById('sliderTrack');
-      const dotsContainer = document.getElementById('sliderDots');
+      const counterContainer = document.getElementById('sliderCounter');
       const prevBtn = document.getElementById('slidePrev');
       const nextBtn = document.getElementById('slideNext');
 
@@ -88,13 +88,16 @@
           slide.loading = index === 0 ? "eager" : "lazy"; // Optimize loading
           track.appendChild(slide);
 
-          // Create Dot
-          const dot = document.createElement('div');
-          dot.classList.add('slider-dot');
-          if (index === 0) dot.classList.add('active');
-          dot.addEventListener('click', () => goToSlide(index));
-          dotsContainer.appendChild(dot);
+          // Create Dot - REMOVED for Counter
         });
+
+        updateCounter();
+      }
+
+      function updateCounter() {
+        if (counterContainer) {
+          counterContainer.textContent = `${currentIndex + 1} / ${images.length}`;
+        }
       }
 
       function goToSlide(index) {
@@ -106,10 +109,8 @@
         // Update Track
         track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-        // Update Dots
-        const dots = document.querySelectorAll('.slider-dot');
-        dots.forEach(d => d.classList.remove('active'));
-        dots[currentIndex].classList.add('active');
+        // Update Counter
+        updateCounter();
       }
 
       // Event Listeners
