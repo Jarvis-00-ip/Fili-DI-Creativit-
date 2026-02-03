@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candele in Vetro Satinato - Fili di Creatività</title>
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/style-base.css">
+    <link rel="stylesheet" href="../../../css/mobile-menu.css">
+    <link rel="stylesheet" href="../../../css/candele.css">
+    <link rel="stylesheet" href="../../../css/product.css">
+</head>
+
+<body>
+    <nav class="navbar"></nav>
+
+    <main>
+        <section class="product-hero"
+            style="background-image: url('../../../../assets/img/vetro satinato/WhatsApp Image 2026-02-02 at 22.56.06.jpeg'); background-position: center;">
+            <div class="hero-text">
+                <h1>Candele in Vetro Satinato</h1>
+                <p>Luce soffusa e delicatezza ☁️</p>
+            </div>
+            <a href="../../../html/candele.html" class="back-link">← Torna alle Candele</a>
+        </section>
+
+        <section class="product-container">
+            <div class="product-slider-container" id="productSlider">
+                <div class="product-slider-track" id="sliderTrack"></div>
+                <button class="slider-btn prev" id="slidePrev">‹</button>
+                <button class="slider-btn next" id="slideNext">›</button>
+                <div class="slider-counter" id="sliderCounter">1 / 1</div>
+            </div>
+
+            <div class="product-info">
+                <h2>Candele Vetro Satinato</h2>
+                <p class="price">Prezzo su richiesta</p>
+                <p>Il vetro satinato diffonde la luce della fiamma in modo uniforme e morbido, creando un'atmosfera
+                    intima e rilassante. Perfette per la camera da letto o per un bagno caldo.</p>
+
+                <a class="snipcart-add-item"
+                    href="mailto:lauracaprotti2000@gmail.com?subject=Informazioni%20Vetro%20Satinato">
+                    ✉️ Richiedi informazioni
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../../../js/common.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const basePath = "../../../../assets/img/vetro satinato/";
+            const images = [
+                "WhatsApp Image 2026-02-02 at 22.56.06.jpeg",
+                "WhatsApp Image 2026-02-02 at 22.56.06 (4).jpeg",
+                "WhatsApp Image 2026-02-02 at 22.56.07 (4).jpeg"
+            ];
+
+            const track = document.getElementById('sliderTrack');
+            const counterContainer = document.getElementById('sliderCounter');
+            const prevBtn = document.getElementById('slidePrev');
+            const nextBtn = document.getElementById('slideNext');
+            let currentIndex = 0;
+
+            function initSlider() {
+                images.forEach((img, index) => {
+                    const slide = document.createElement('img');
+                    slide.src = basePath + img;
+                    slide.alt = `Vetro Satinato - Foto ${index + 1}`;
+                    slide.classList.add('product-slide');
+                    track.appendChild(slide);
+                });
+                updateCounter();
+            }
+
+            function updateCounter() {
+                if (counterContainer) counterContainer.textContent = `${currentIndex + 1} / ${images.length}`;
+            }
+
+            function goToSlide(index) {
+                if (index < 0) index = images.length - 1;
+                if (index >= images.length) index = 0;
+                currentIndex = index;
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                updateCounter();
+            }
+
+            prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+            nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+            let touchStartX = 0;
+            track.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX, { passive: true });
+            track.addEventListener('touchend', e => {
+                if (e.changedTouches[0].screenX < touchStartX - 50) nextBtn.click();
+                if (e.changedTouches[0].screenX > touchStartX + 50) prevBtn.click();
+            }, { passive: true });
+
+            initSlider();
+        });
+    </script>
+</body>
+
+</html>

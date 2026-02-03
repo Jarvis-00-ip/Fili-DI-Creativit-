@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grandi Candele in Vetro - Fili di Creatività</title>
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/style-base.css">
+    <link rel="stylesheet" href="../../../css/mobile-menu.css">
+    <link rel="stylesheet" href="../../../css/candele.css">
+    <link rel="stylesheet" href="../../../css/product.css">
+</head>
+
+<body>
+    <nav class="navbar"></nav>
+
+    <main>
+        <section class="product-hero"
+            style="background-image: url('../../../../assets/img/grandi candele vetro/WhatsApp Image 2026-02-02 at 22.56.06 (2).jpeg'); background-position: center;">
+            <div class="hero-text">
+                <h1>Grandi Candele in Vetro</h1>
+                <p>Eleganza e durata per i tuoi ambienti ✨</p>
+            </div>
+            <a href="../../../html/candele.html" class="back-link">← Torna alle Candele</a>
+        </section>
+
+        <section class="product-container">
+            <div class="product-slider-container" id="productSlider">
+                <div class="product-slider-track" id="sliderTrack">
+                    <!-- Images injected via JS -->
+                </div>
+
+                <button class="slider-btn prev" id="slidePrev" aria-label="Precedente">‹</button>
+                <button class="slider-btn next" id="slideNext" aria-label="Successivo">›</button>
+                <div class="slider-counter" id="sliderCounter">1 / 1</div>
+            </div>
+
+            <div class="product-info">
+                <h2>Grandi Candele in Vetro</h2>
+                <p class="price">Prezzo su richiesta</p>
+                <p>Candele di grandi dimensioni colate in pregiati contenitori di vetro. Ideali come centrotavola o per
+                    arredare con stile ampi spazi, garantendo una lunga durata e un'atmosfera magica.</p>
+
+                <a class="snipcart-add-item"
+                    href="mailto:lauracaprotti2000@gmail.com?subject=Informazioni%20Grandi%20Candele%20Vetro">
+                    ✉️ Richiedi informazioni
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../../../js/common.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const basePath = "../../../../assets/img/grandi candele vetro/";
+            const images = [
+                "WhatsApp Image 2026-02-02 at 22.56.06 (2).jpeg"
+            ];
+
+            const track = document.getElementById('sliderTrack');
+            const counterContainer = document.getElementById('sliderCounter');
+            const prevBtn = document.getElementById('slidePrev');
+            const nextBtn = document.getElementById('slideNext');
+            let currentIndex = 0;
+
+            function initSlider() {
+                images.forEach((img, index) => {
+                    const slide = document.createElement('img');
+                    slide.src = basePath + img;
+                    slide.alt = `Grandi Candele Vetro - Foto ${index + 1}`;
+                    slide.classList.add('product-slide');
+                    track.appendChild(slide);
+                });
+                updateCounter();
+            }
+
+            function updateCounter() {
+                if (counterContainer) counterContainer.textContent = `${currentIndex + 1} / ${images.length}`;
+            }
+
+            function goToSlide(index) {
+                if (index < 0) index = images.length - 1;
+                if (index >= images.length) index = 0;
+                currentIndex = index;
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                updateCounter();
+            }
+
+            prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+            nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+            // Touch/Swipe Logic
+            let touchStartX = 0;
+            track.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX, { passive: true });
+            track.addEventListener('touchend', e => {
+                if (e.changedTouches[0].screenX < touchStartX - 50) nextBtn.click();
+                if (e.changedTouches[0].screenX > touchStartX + 50) prevBtn.click();
+            }, { passive: true });
+
+            initSlider();
+        });
+    </script>
+</body>
+
+</html>
