@@ -8,188 +8,137 @@
   <meta name="description" content="Candele e personalizzazioni fatte a mano con amore e creatività." />
   <meta name="author" content="Fili di Creatività" />
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet">
+
   <!-- Favicon -->
   <link rel="icon" type="image/x-x-icon" href="favicon.ico" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="src/css/common.css">
   <link rel="stylesheet" href="src/css/home.css">
-
-  <!-- IMPORTANT: Mobile Menu Fix Last -->
-  <link rel="stylesheet" href="src/css/mobile-menu.css">
 </head>
 
 <body class="home-page">
-  <!-- Navbar (Injected by common.js) -->
-  <nav class="navbar"></nav>
 
-  <main>
-    <!-- 1. HERO SECTION -->
-    <header class="home-hero">
-      <!-- Hero Media Background (Clickable) -->
-      <a href="src/html/shop/candele/bouquet-classico.html" class="home-hero-media"
-        aria-label="Vai al prodotto Bouquet Classico">
-        <!-- Video rimosso in favore di immagine HQ con effetto Ken Burns
-        <video id="heroVideo" class="hero-video" autoplay muted playsinline>
-          <source src="assets/img/bouquet/Bouquet_Hero_Video_Creation.mp4" type="video/mp4">
-        </video>
-        -->
-        <div class="hero-image" style="background-image: url('assets/img/bouquet/Bouquet rosa.webp');"></div>
-        <div class="media-overlay"></div>
-      </a>
-      <div class="home-hero-content">
-        <h1>Fili di Creatività</h1>
-        <p>Artigianato unico, fatto a mano con passione.</p>
+  <!-- NOTE: Default Navbar removed for Antigravity Dock design -->
 
-        <div class="hero-cta-group">
-          <a href="src/html/prodotti.html" class="btn-apple btn-primary">Scopri la Collezione</a>
-          <a href="src/html/chisiamo.html" class="btn-apple btn-secondary">Chi Siamo</a>
+  <main class="scroll-container">
+
+    <!-- HERO SECTION -->
+    <section class="section bg-gradient" id="hero">
+      <img src="assets/img/sfondi/texture-paper.jpg" alt="" class="parallax-bg" data-speed="0.05">
+      <!-- Fallback if texture missing, CSS handles it nicely -->
+
+      <div class="content-wrapper">
+        <div class="text-content">
+          <h1 class="title-large">L'Arte della<br>Cera Vegetale.</h1>
+          <p class="subtitle">Creazioni uniche colate a mano. Un perfetto equilibrio tra natura, design e artigianato
+            italiano.</p>
         </div>
-      </div>
-
-      <div class="scroll-indicator">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
-        </svg>
-      </div>
-    </header>
-
-    <!-- 2. STORY BLOCKS -->
-    <section class="story-section">
-
-      <!-- Block 1: Candele -->
-      <div class="story-block">
-        <div class="story-image">
-          <img src="assets/img/candele/candele-collage.webp" alt="Candele artigianali atmosfera">
+        <div class="image-wrapper">
+          <img src="assets/img/bouquet/Bouquet rosa.webp" alt="Bouquet di candele rosa" class="floating-image"
+            data-physics="true">
         </div>
-        <div class="story-text">
-          <h2>Un tocco di<br>magia e profumo.</h2>
-          <p>Le nostre candele sono colate a mano una per una, utilizzando cere naturali e fragranze avvolgenti. Ogni
-            pezzo è un piccolo capolavoro di luce e atmosfera.</p>
-          <a href="src/html/candele.html" class="story-link">Scopri le Candele &rarr;</a>
-        </div>
-      </div>
-
-      <!-- Block 2: Tessuti (Reverse) -->
-      <div class="story-block reverse">
-        <div class="story-image">
-          <img src="assets/img/tessuti/personalizzazioni-tessuti.webp" alt="Tessuti ricamati a mano">
-        </div>
-        <div class="story-text">
-          <h2>Morbidezza<br>personalizzata.</h2>
-          <p>Dal primo corredino al regalo speciale. Ricamiamo nomi, disegni e dediche su tessuti di alta qualità,
-            rendendo ogni oggetto veramente tuo.</p>
-          <a href="src/html/tessuti.html" class="story-link">Scopri i Tessuti &rarr;</a>
-        </div>
-      </div>
-
-      <!-- Block 3: Oggetti -->
-      <div class="story-block">
-        <div class="story-image">
-          <img src="assets/img/oggetti/personalizzazione_oggetti.webp" alt="Oggetti unici handmade">
-        </div>
-        <div class="story-text">
-          <h2>Dettagli che<br>fanno la differenza.</h2>
-          <p>Tazze, borracce e piccola oggettistica trasformata dalla nostra creatività. Il regalo perfetto per
-            sorprendere chi ami con un pensiero originale.</p>
-          <a href="src/html/oggetti.html" class="story-link">Esplora Oggettistica &rarr;</a>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- 3. SHOP BY CATEGORY -->
-    <section class="categories-section">
-      <h2 class="section-title">Esplora per Categoria</h2>
-
-      <div class="category-grid">
-        <!-- Card Candele -->
-        <a href="src/html/candele.html" class="category-tile">
-          <img src="assets/img/candele/candele.webp" alt="Candele">
-          <div class="tile-overlay">
-            <h3>Candele</h3>
-            <span>Atmosfera unica</span>
-          </div>
-        </a>
-
-        <!-- Card Tessuti -->
-        <a href="src/html/tessuti.html" class="category-tile">
-          <img src="assets/img/tessuti/bavaglino-hero.webp" alt="Tessuti">
-          <div class="tile-overlay">
-            <h3>Tessuti</h3>
-            <span>Ricami su misura</span>
-          </div>
-        </a>
-
-        <!-- Card Tazze/Borracce -->
-        <a href="src/html/tazze-borracce.html" class="category-tile">
-          <img src="assets/img/oggetti/personalizzazioni-oggettistica.webp" alt="Tazze e Borracce">
-          <div class="tile-overlay">
-            <h3>Tazze & Borracce</h3>
-            <span>Idee regalo</span>
-          </div>
-        </a>
-
-        <!-- Card Oggetti -->
-        <a href="src/html/oggetti.html" class="category-tile">
-          <img src="assets/img/oggetti/oggetti-hero.webp" alt="Oggettistica">
-          <div class="tile-overlay">
-            <h3>Oggetti</h3>
-            <span>Piccoli dettagli</span>
-          </div>
-        </a>
       </div>
     </section>
 
-    <!-- 4. TRUST STRIP -->
-    <section class="trust-strip">
-      <div class="trust-item">
-        <!-- Icona Mano/Handmade -->
-        <svg class="trust-icon" viewBox="0 0 24 24">
-          <path d="M12 2L1 21h22L12 2zm0 3.5L18.5 19H5.5L12 5.5z" />
-        </svg>
-        Fatto Interamente a Mano
-      </div>
-      <div class="trust-item">
-        <!-- Icona Foglia/Natural -->
-        <svg class="trust-icon" viewBox="0 0 24 24">
-          <path
-            d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66l.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z" />
-        </svg>
-        Materiali Selezionati
-      </div>
-      <div class="trust-item">
-        <!-- Icona Cuore/Unique -->
-        <svg class="trust-icon" viewBox="0 0 24 24">
-          <path
-            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-        </svg>
-        Realizzato con Amore
+    <!-- SECTION 1: CIOCCOLATO -->
+    <section class="section bg-cream" id="collection-choco">
+      <div class="content-wrapper">
+        <div class="image-wrapper">
+          <img src="assets/img/candele/rosa.webp" alt="Candele al cioccolato" class="floating-image"
+            data-physics="true">
+        </div>
+        <div class="text-content">
+          <h2 class="title-medium">Collezione Cioccolato</h2>
+          <h3 class="title-small" style="font-family: var(--font-sans); font-weight:300; margin-bottom: 20px;">
+            Un'indulgenza per i sensi.</h3>
+          <p class="subtitle">Dettagli realistici che ingannano l'occhio e profumano l'aria. La dolcezza che non finisce
+            mai.</p>
+          <a href="src/html/candele.html" class="dock-btn"
+            style="border: 1px solid var(--chocolate); border-radius: 30px; display:inline-block; margin-top:20px; width:auto;">Scopri
+            di più</a>
+        </div>
       </div>
     </section>
 
-    <!-- 5. FINAL CTA -->
-    <section class="final-cta">
-      <h2>Hai in mente un progetto speciale?</h2>
-      <p style="margin-bottom: 30px; opacity: 0.8;">Realizziamo bomboniere e set personalizzati per i tuoi eventi.</p>
-      <a href="src/html/contatti.html" class="btn-apple btn-primary" style="background: #fff; color: #333;">Contattaci
-        Ora</a>
+    <!-- SECTION 2: COTONE -->
+    <section class="section bg-sage" id="collection-cotton">
+      <div class="content-wrapper">
+        <div class="text-content">
+          <h2 class="title-medium">Fiori e Cotone</h2>
+          <h3 class="title-small" style="font-family: var(--font-sans); font-weight:300; margin-bottom: 20px;">Purezza e
+            Design.</h3>
+          <p class="subtitle">Tessuti morbidi e ricami personalizzati per i momenti più preziosi. Un abbraccio di stile
+            e dolcezza.</p>
+        </div>
+        <div class="image-wrapper">
+          <img src="assets/img/tessuti/kit-nascita.webp" alt="Set Nascita Cotone" class="floating-image"
+            data-physics="true">
+          <!-- Decorative element behind? -->
+        </div>
+      </div>
     </section>
 
+    <!-- SECTION 3: ABETE (Bonus) -->
+    <section class="section bg-cream" id="collection-fir">
+      <div class="content-wrapper">
+        <div class="image-wrapper">
+          <img src="assets/img/candele/alberello a spiga.webp" alt="Alberello di cera" class="floating-image"
+            data-physics="true">
+        </div>
+        <div class="text-content">
+          <h2 class="title-medium">Natura in Cera</h2>
+          <p class="subtitle">La forma iconica dell'abete, scolpita nella cera di soia. Un tocco minimale per
+            un'eleganza senza tempo.</p>
+        </div>
+      </div>
+    </section>
 
   </main>
 
-  <!-- FOOTER PLACEHOLDER -->
-  <div id="footer-placeholder"></div>
+  <!-- ANTIGRAVITY DOCK -->
+  <div class="antigravity-dock-container">
+    <nav class="antigravity-dock" id="dock">
+      <a href="#hero" class="dock-btn active" aria-label="Home">
+        <svg viewBox="0 0 24 24">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+        </svg>
+        Home
+      </a>
+      <a href="#collection-choco" class="dock-btn" aria-label="Collezione">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2l-5.5 9h11z" />
+          <path d="M12 22c4.97 0 9-4.03 9-9h-9V2z" transform="scale(0.6) translate(8, 12)" />
+        </svg>
+        Collezione
+      </a>
+      <a href="src/html/prodotti.html" class="dock-btn" aria-label="Shop">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
+        </svg>
+        Shop
+      </a>
+      <a href="src/html/contatti.html" class="dock-btn" aria-label="Contatti">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+        </svg>
+        Contatti
+      </a>
+    </nav>
+  </div>
 
   <!-- SCRIPTS -->
   <script src="src/js/common.js"></script>
   <script src="src/js/home.js"></script>
 
-  <!-- Snipcart Logic (Preserved) -->
-  <div hidden id="snipcart" data-api-key="OTZjYzZmNjUtNjdkZC00ZTFhLWIxM2EtOTc0MDFhM2Q2OGJiNjM4OTMzODEyNTkyMzc3NzYy">
-  </div>
 </body>
 
 </html>
