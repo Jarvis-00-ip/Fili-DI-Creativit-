@@ -268,3 +268,82 @@ a {
         height: 280px;
     }
 }
+
+/* =========================================
+   HERO TRITTICO COMPOSITION
+   ========================================= */
+.hero-composition {
+    position: relative;
+    /* Ensure it acts as a container for absolute items */
+    display: block !important;
+}
+
+.hero-img {
+    position: absolute;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(62, 39, 35, 0.15);
+    object-fit: cover;
+    animation: floatIdle 6s ease-in-out infinite;
+}
+
+/* Main Image (Center - Bouquet) */
+.hero-img.main {
+    width: 55%;
+    max-width: 400px;
+    z-index: 20;
+    /* Centering logic that works with animation */
+    top: 15%;
+    left: 22%;
+    transform: none;
+}
+
+/* Secondary (Bottom Right - Dessert) */
+.hero-img.secondary {
+    width: 40%;
+    max-width: 280px;
+    z-index: 30;
+    /* On top */
+    bottom: 5%;
+    right: 5%;
+    animation-delay: 1s;
+    /* Async float */
+}
+
+/* Tertiary (Top Left - Glass) */
+.hero-img.tertiary {
+    width: 35%;
+    max-width: 250px;
+    z-index: 10;
+    /* Behind */
+    top: 0%;
+    left: 5%;
+    animation-delay: 2s;
+    opacity: 0.9;
+}
+
+/* Mobile Adjustments for Trittico */
+@media (max-width: 768px) {
+    .image-wrapper.hero-composition {
+        height: 50vh;
+        /* Adjust height for mobile */
+        margin-top: 40px;
+    }
+
+    .hero-img.main {
+        width: 60%;
+        left: 20%;
+        top: 20%;
+    }
+
+    .hero-img.secondary {
+        width: 45%;
+        bottom: 10%;
+        right: 0%;
+    }
+
+    .hero-img.tertiary {
+        width: 40%;
+        top: 0%;
+        left: 0%;
+    }
+}
