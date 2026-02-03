@@ -25,7 +25,8 @@
 
 <body class="home-page">
 
-  <!-- NOTE: Default Navbar removed for Antigravity Dock design -->
+  <!-- Navbar (Injected by common.js) -->
+  <nav class="navbar"></nav>
 
   <main class="scroll-container">
 
@@ -39,6 +40,11 @@
           <h1 class="title-large">L'Arte della<br>Cera Vegetale.</h1>
           <p class="subtitle">Creazioni uniche colate a mano. Un perfetto equilibrio tra natura, design e artigianato
             italiano.</p>
+          <div style="margin-top: 30px;">
+            <a href="src/html/prodotti.html" class="btn-apple btn-primary"
+              style="background-color: var(--accent); color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: 500;">Scopri
+              la Collezione</a>
+          </div>
         </div>
         <div class="image-wrapper">
           <img src="assets/img/bouquet/Bouquet rosa.webp" alt="Bouquet di candele rosa" class="floating-image"
@@ -60,9 +66,9 @@
             Un'indulgenza per i sensi.</h3>
           <p class="subtitle">Dettagli realistici che ingannano l'occhio e profumano l'aria. La dolcezza che non finisce
             mai.</p>
-          <a href="src/html/candele.html" class="dock-btn"
-            style="border: 1px solid var(--chocolate); border-radius: 30px; display:inline-block; margin-top:20px; width:auto;">Scopri
-            di più</a>
+          <a href="src/html/candele.html"
+            style="color: var(--text); border-bottom: 1px solid var(--accent); padding-bottom: 3px; font-weight: 500;">Vedi
+            Prodotti &rarr;</a>
         </div>
       </div>
     </section>
@@ -76,6 +82,9 @@
             Design.</h3>
           <p class="subtitle">Tessuti morbidi e ricami personalizzati per i momenti più preziosi. Un abbraccio di stile
             e dolcezza.</p>
+          <a href="src/html/tessuti.html"
+            style="color: var(--text); border-bottom: 1px solid var(--accent); padding-bottom: 3px; font-weight: 500;">Scopri
+            Tessuti &rarr;</a>
         </div>
         <div class="image-wrapper">
           <img src="assets/img/tessuti/kit-nascita.webp" alt="Set Nascita Cotone" class="floating-image"
@@ -96,49 +105,21 @@
           <h2 class="title-medium">Natura in Cera</h2>
           <p class="subtitle">La forma iconica dell'abete, scolpita nella cera di soia. Un tocco minimale per
             un'eleganza senza tempo.</p>
+          <a href="src/html/oggetti.html"
+            style="color: var(--text); border-bottom: 1px solid var(--accent); padding-bottom: 3px; font-weight: 500;">Vedi
+            Oggetti &rarr;</a>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ANTIGRAVITY DOCK -->
-  <div class="antigravity-dock-container">
-    <nav class="antigravity-dock" id="dock">
-      <a href="#hero" class="dock-btn active" aria-label="Home">
-        <svg viewBox="0 0 24 24">
-          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-        </svg>
-        Home
-      </a>
-      <a href="#collection-choco" class="dock-btn" aria-label="Collezione">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 2l-5.5 9h11z" />
-          <path d="M12 22c4.97 0 9-4.03 9-9h-9V2z" transform="scale(0.6) translate(8, 12)" />
-        </svg>
-        Collezione
-      </a>
-      <a href="src/html/prodotti.html" class="dock-btn" aria-label="Shop">
-        <svg viewBox="0 0 24 24">
-          <path
-            d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
-        </svg>
-        Shop
-      </a>
-      <a href="src/html/contatti.html" class="dock-btn" aria-label="Contatti">
-        <svg viewBox="0 0 24 24">
-          <path
-            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-        </svg>
-        Contatti
-      </a>
-    </nav>
-  </div>
+  <!-- FOOTER PLACEHOLDER -->
+  <div id="footer-placeholder"></div>
 
   <!-- SCRIPTS -->
   <script src="src/js/common.js"></script>
   <script src="src/js/home.js"></script>
-
 </body>
 
 </html>

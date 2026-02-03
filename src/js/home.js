@@ -14,9 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Reveal text
                 const text = entry.target.querySelector('.text-content');
                 if (text) text.classList.add('visible');
-
-                // Update Dock Active State
-                updateActiveDockLink(entry.target.id);
             }
         });
     }, observerOptions);
@@ -24,17 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll('.section').forEach(section => {
         scrollObserver.observe(section);
     });
-
-    function updateActiveDockLink(sectionId) {
-        const links = document.querySelectorAll('.dock-btn');
-        links.forEach(link => {
-            link.classList.remove('active');
-            const href = link.getAttribute('href');
-            if (href === `#${sectionId}`) {
-                link.classList.add('active');
-            }
-        });
-    }
 
     // ==========================================
     // 2. ANTIGRAVITY MOUSE PHYSICS (Parallax)
@@ -80,45 +66,4 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         animatePhysics();
     }
-
-
-    // ==========================================
-    // 3. MAGNETIC DOCK (Glassmorphism Tilt)
-    // ==========================================
-    const dock = document.getElementById('dock');
-    if (dock) {
-        const dockRect = dock.getBoundingClientRect();
-        const dockCenter = {
-            x: dockRect.left + dockRect.width / 2,
-            y: dockRect.top + dockRect.height / 2
-        };
-
-        document.addEventListener('mousemove', (e) => {
-            // Check distance to dock
-            const distX = e.clientX - dockCenter.x;
-            const distY = e.clientY - dockCenter.y;
-            const distance = Math.sqrt(distX * distX + distY * distY);
-
-            // Active zone radius
-            if (distance < 200) {
-                // Calculate tilt
-                const maxTilt = 10; // degrees
-                const tiltX = (distY / 200) * maxTilt * -1; // Invert for "look at mouse"
-                const tiltY = (distX / 200) * maxTilt;
-
-                dock.style.transform = `perspective(500px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`;
-            } else {
-                // Reset
-                dock.style.transform = `perspective(500px) rotateX(0deg) rotateY(0deg) scale(1)`;
-            }
-        });
-
-        // Update dock center on resize
-        window.addEventListener('resize', () => {
-            const rect = dock.getBoundingClientRect();
-            dockCenter.x = rect.left + rect.width / 2;
-            dockCenter.y = rect.top + rect.height / 2;
-        });
-    }
-
 });
