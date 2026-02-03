@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candela Dessert - Fili di Creatività</title>
+    <link rel="icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/style-base.css">
+    <link rel="stylesheet" href="../../../css/mobile-menu.css">
+    <link rel="stylesheet" href="../../../css/candele.css">
+    <link rel="stylesheet" href="../../../css/product.css">
+</head>
+
+<body>
+    <nav class="navbar"></nav>
+
+    <main>
+
+        <!-- Usiamo un'immagine di sfondo pertinente, se disponibile, altrimenti quella generica collage -->
+        <section class="product-hero"
+            style="background-image: url('../../../../assets/img/simil cibo/WhatsApp Image 2026-02-02 at 22.56.06 (10).jpeg'); background-position: center;">
+            <div class="hero-text">
+                <h1>Candela Dessert</h1>
+                <p>Dolcezze di cera che ingannano l'occhio ✨</p>
+            </div>
+            <a href="../../../html/candele.html" class="back-link">← Torna alle Candele</a>
+        </section>
+
+        <section class="product-container">
+            <div class="product-slider-container" id="productSlider">
+                <div class="product-slider-track" id="sliderTrack">
+                    <!-- Images will be injected here by JS -->
+                </div>
+
+                <button class="slider-btn prev" id="slidePrev" aria-label="Precedente">‹</button>
+                <button class="slider-btn next" id="slideNext" aria-label="Successivo">›</button>
+
+                <div class="slider-counter" id="sliderCounter">1 / 1</div>
+            </div>
+            <div class="product-info">
+                <h2>Simil Cibo - Dessert</h2>
+                <p class="price">Prezzo su richiesta</p>
+                <p>Candele artigianali iper-realistiche a forma di dessert. Ogni dettaglio è curato a mano per ricreare
+                    la magia della pasticceria, ma con il calore della cera di soia naturale.</p>
+                <p style="margin-top: 10px; font-size: 0.9em; color: var(--chocolate-soft);">Perfette come bomboniera
+                    originale o idea regalo che stupisce.</p>
+
+                <!-- STESSO STILE DEL PULSANTE ACQUISTA -->
+                <a class="snipcart-add-item"
+                    href="mailto:lauracaprotti2000@gmail.com?subject=Informazioni%20Candele%20Dessert">
+                    ✉️ Richiedi informazioni
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../../../js/common.js"></script>
+
+    <!-- Product Slider Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Image Configuration
+            // Base path for images
+            const basePath = "../../../../assets/img/simil cibo/";
+
+            // List of images provided in directory listing
+            const images = [
+                "WhatsApp Image 2026-02-02 at 22.56.06 (10).jpeg",
+                "WhatsApp Image 2026-02-02 at 22.56.06 (11).jpeg",
+                "WhatsApp Image 2026-02-02 at 22.56.06 (14).jpeg",
+                "WhatsApp Image 2026-02-02 at 22.56.06 (7).jpeg",
+                "WhatsApp Image 2026-02-02 at 22.56.06 (8).jpeg",
+                "WhatsApp Image 2026-02-02 at 22.56.07 (2).jpeg",
+                "WhatsApp Image 2026-02-02 at 22.56.07 (3).jpeg",
+                "WhatsApp Image 2026-02-02 at 22.56.07 (5).jpeg",
+                "WhatsApp Image 2026-02-02 at 22.56.07 (6).jpeg"
+            ];
+
+            const track = document.getElementById('sliderTrack');
+            const counterContainer = document.getElementById('sliderCounter');
+            const prevBtn = document.getElementById('slidePrev');
+            const nextBtn = document.getElementById('slideNext');
+
+            let currentIndex = 0;
+
+            // Initialize Slider
+            function initSlider() {
+                // Create Slides
+                images.forEach((img, index) => {
+                    const slide = document.createElement('img');
+                    slide.src = basePath + img;
+                    slide.alt = `Candela Dessert - Foto ${index + 1}`;
+                    slide.classList.add('product-slide');
+                    slide.loading = index === 0 ? "eager" : "lazy"; // Optimize loading
+                    track.appendChild(slide);
+                });
+
+                updateCounter();
+            }
+
+            function updateCounter() {
+                if (counterContainer) {
+                    counterContainer.textContent = `${currentIndex + 1} / ${images.length}`;
+                }
+            }
+
+            function goToSlide(index) {
+                if (index < 0) index = images.length - 1;
+                if (index >= images.length) index = 0;
+
+                currentIndex = index;
+
+                // Update Track
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                // Update Counter
+                updateCounter();
+            }
+
+            // Event Listeners
+            prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+            nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+            // Swipe support for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            track.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            track.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+
+            function handleSwipe() {
+                if (touchEndX < touchStartX - 50) nextBtn.click();
+                if (touchEndX > touchStartX + 50) prevBtn.click();
+            }
+
+            // Start
+            initSlider();
+        });
+    </script>
+</body>
+
+</html>
