@@ -3,32 +3,32 @@
   /* Primary Identity */
   --bg: #e1eade;
   --surface: #ffffff;
-  --surface-soft: #f7f8f4;
+  --surface-soft: #f0f4ef;
 
   /* Text */
-  --text: #2f332b;
-  --text-muted: #788872;
+  --text: #000000;
+  --text-muted: #474947;
 
   /* Accents */
-  --accent: #5a6c37;
-  --accent-hover: #4c5c2f;
-  --accent-soft: rgba(90, 108, 55, 0.12);
+  --accent: #788872;
+  --accent-hover: #5d6b58;
+  /* Una tonalità più scura di #788872 */
+  --accent-soft: rgba(120, 136, 114, 0.12);
 
   /* Structural */
   --border: #d6dbd2;
   --divider: rgba(120, 136, 114, 0.35);
-  --shadow: rgba(47, 51, 43, 0.10);
+  --shadow: rgba(0, 0, 0, 0.08);
 
   /* States */
-  --focus: rgba(90, 108, 55, 0.35);
+  --focus: rgba(120, 136, 114, 0.35);
 
   /* Backward Compatibility */
   --bg-main: var(--bg);
   --bg-alt: var(--surface-soft);
   --text-dark: var(--text);
   --text-medium: var(--text-muted);
-  --accent: #5a6c37;
-  /* ensure this overrides any older definition if not var */
+  --accent: #788872;
   --gold: var(--accent);
   --highlight: var(--accent-hover);
 }

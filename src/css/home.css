@@ -3,12 +3,20 @@
    ========================================= */
 
 :root {
-    --cream: #FDFAF7;
-    --sage: #E0F2F1;
-    --chocolate: #3E2723;
-    --chocolate-soft: #5D4037;
-    --glass-border: rgba(255, 255, 255, 0.4);
-    --glass-bg: rgba(253, 250, 247, 0.65);
+    /* Mapped to Global Palette (Common.css) */
+    --cream: var(--bg);
+    /* #e1eade */
+    --sage: #ffffff;
+    /* Contrast section background */
+    --chocolate: var(--text);
+    /* #000000 */
+    --chocolate-soft: var(--text-muted);
+    /* #474947 */
+
+    /* Specific Home Vars */
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --glass-bg: rgba(225, 234, 222, 0.65);
+    /* Matches --bg but transparent */
     --font-serif: 'Playfair Display', 'Georgia', serif;
     --font-sans: 'Inter', 'Helvetica Neue', sans-serif;
 }
@@ -70,7 +78,7 @@ a {
 }
 
 .bg-gradient {
-    background: linear-gradient(180deg, var(--cream) 0%, #F5F0EB 100%);
+    background: linear-gradient(180deg, var(--cream) 0%, #ffffff 100%);
 }
 
 /* ------------------------------------------------
