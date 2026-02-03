@@ -44,7 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 const parallaxIntensity = isDesktop ? 0.2 : 0.3;
 
                 // Keep the base scale and add subtle parallax movement
-                heroImg.style.transform = `scale(${baseScale}) translateY(${scrollY * parallaxIntensity}px)`;
+                // Parallax logic disabled in favor of CSS Ken Burns effect
+                // heroImg.style.transform = `scale(${baseScale}) translateY(${scrollY * parallaxIntensity}px)`;
             }
         });
     }
