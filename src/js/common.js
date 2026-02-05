@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const links = {
     home: homeLink,
-    prodotti: prefix + "prodotti.html",
+    prodotti: prefix + "candele.html",
     contatti: prefix + "contatti.html",
     chisiamo: prefix + "chisiamo.html",
     footer: prefix + "footer.html",
