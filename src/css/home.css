@@ -40,12 +40,12 @@ img {
     height: auto;
 }
 
-/* HERO FIX */
-.hero-link .hero-img {
+/* HERO FIX (UPDATED) */
+.hero-link-container img {
     width: 100% !important;
     height: 100% !important;
     max-width: none !important;
-    /* Allow it to fill the fixed-size container */
+    display: block;
 }
 
 h1,
@@ -299,14 +299,19 @@ a {
 }
 
 /* Links that wrap images */
-.hero-link {
+.hero-link-container {
     position: absolute;
     display: block;
     transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), z-index 0s;
-    text-decoration: none;
     cursor: pointer;
     /* Re-enable idle float */
     animation: floatLink 6s ease-in-out infinite;
+}
+
+.hero-link-container a {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 /* Define Float Keyframes for Links */
@@ -323,25 +328,25 @@ a {
 }
 
 /* Stagger Animations */
-.hero-link.main {
+.hero-link-container.main {
     animation-delay: 0s;
 }
 
-.hero-link.secondary {
+.hero-link-container.secondary {
     animation-delay: 1.5s;
 }
 
-.hero-link.tertiary {
+.hero-link-container.tertiary {
     animation-delay: 2.5s;
 }
 
 /* Pause float on hover of container so they can separate smoothly */
-.hero-composition:hover .hero-link {
+.hero-composition:hover .hero-link-container {
     animation-play-state: paused;
 }
 
 /* Base styles for images inside links */
-.hero-link .hero-img {
+.hero-link-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -351,7 +356,7 @@ a {
 }
 
 /* Hover on single item */
-.hero-link:hover {
+.hero-link-container:hover {
     z-index: 50 !important;
     transform: scale(1.08) !important;
 }
@@ -361,21 +366,21 @@ a {
    When hovering the container, push items apart.
 */
 @media (min-width: 992px) {
-    .hero-composition:hover .hero-link.main {
+    .hero-composition:hover .hero-link-container.main {
         transform: translate(-50%, -50%) scale(1);
     }
 
-    .hero-composition:hover .hero-link.secondary {
+    .hero-composition:hover .hero-link-container.secondary {
         transform: translate(20%, 20%) rotate(12deg);
     }
 
-    .hero-composition:hover .hero-link.tertiary {
+    .hero-composition:hover .hero-link-container.tertiary {
         transform: translate(-10%, -10%) rotate(-12deg);
     }
 }
 
 /* Main Image (Center) */
-.hero-link.main {
+.hero-link-container.main {
     width: 320px;
     height: 440px;
     z-index: 2;
@@ -385,7 +390,7 @@ a {
 }
 
 /* Secondary (Bottom Right) */
-.hero-link.secondary {
+.hero-link-container.secondary {
     width: 200px;
     height: 260px;
     top: 65%;
@@ -395,7 +400,7 @@ a {
 }
 
 /* Tertiary (Top Left) */
-.hero-link.tertiary {
+.hero-link-container.tertiary {
     width: 190px;
     height: 250px;
     top: 15%;
@@ -410,12 +415,12 @@ a {
         min-height: 350px;
     }
 
-    .hero-link.main {
+    .hero-link-container.main {
         width: 220px;
         height: 300px;
     }
 
-    .hero-link.secondary {
+    .hero-link-container.secondary {
         width: 140px;
         height: 180px;
         top: 75%;
@@ -423,7 +428,7 @@ a {
         transform: translate(-50%, -50%) rotate(8deg);
     }
 
-    .hero-link.tertiary {
+    .hero-link-container.tertiary {
         width: 130px;
         height: 170px;
         top: 10%;
