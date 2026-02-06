@@ -31,6 +31,21 @@ body.home-page {
     padding: 0;
     /* Smooth Scroll Behavior managed by JS/CSS */
     scroll-behavior: smooth;
+    width: 100vw;
+}
+
+/* Safety net for images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* HERO FIX */
+.hero-link .hero-img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    /* Allow it to fill the fixed-size container */
 }
 
 h1,
