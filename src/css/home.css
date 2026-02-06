@@ -290,6 +290,39 @@ a {
     transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), z-index 0s;
     text-decoration: none;
     cursor: pointer;
+    /* Re-enable idle float */
+    animation: floatLink 6s ease-in-out infinite;
+}
+
+/* Define Float Keyframes for Links */
+@keyframes floatLink {
+
+    0%,
+    100% {
+        margin-top: 0px;
+    }
+
+    50% {
+        margin-top: -15px;
+    }
+}
+
+/* Stagger Animations */
+.hero-link.main {
+    animation-delay: 0s;
+}
+
+.hero-link.secondary {
+    animation-delay: 1.5s;
+}
+
+.hero-link.tertiary {
+    animation-delay: 2.5s;
+}
+
+/* Pause float on hover of container so they can separate smoothly */
+.hero-composition:hover .hero-link {
+    animation-play-state: paused;
 }
 
 /* Base styles for images inside links */
