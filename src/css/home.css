@@ -279,154 +279,200 @@ a {
 }
 
 /* =========================================
-   HERO TRITTICO COMPOSITION
+   HERO TRITTICO COMPOSITION (REBUILT)
    ========================================= */
-/* HERO COMPOSITION WRAPPER */
+
 .hero-composition {
     position: relative;
     width: 100%;
-    height: 100%;
-    min-height: 500px;
+    height: 600px;
+    /* Fixed height for stability */
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Perspective for 3D feel */
+    perspective: 1000px;
 }
 
-/* Links that wrap images */
-.hero-link-container {
+/* Common Card Styles */
+.hero-card {
     position: absolute;
     display: block;
-    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), z-index 0s;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(62, 39, 35, 0.2);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
     cursor: pointer;
-    /* Re-enable idle float */
-    animation: floatLink 6s ease-in-out infinite;
+    overflow: hidden;
 }
 
-.hero-link-container a {
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-
-/* Define Float Keyframes for Links */
-@keyframes floatLink {
-
-    0%,
-    100% {
-        margin-top: 0px;
-    }
-
-    50% {
-        margin-top: -15px;
-    }
-}
-
-/* Stagger Animations */
-.hero-link-container.main {
-    animation-delay: 0s;
-}
-
-.hero-link-container.secondary {
-    animation-delay: 1.5s;
-}
-
-.hero-link-container.tertiary {
-    animation-delay: 2.5s;
-}
-
-/* Pause float on hover of container so they can separate smoothly */
-.hero-composition:hover .hero-link-container {
-    animation-play-state: paused;
-}
-
-/* Base styles for images inside links */
-.hero-link-container img {
+.hero-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 0.6s ease;
+    display: block;
 }
 
-/* Hover on single item */
-.hero-link-container:hover {
-    z-index: 50 !important;
-    transform: scale(1.08) !important;
+/* Hover Effects: Scale image inside */
+.hero-card:hover img {
+    transform: scale(1.1);
 }
 
-/* 
-   INTERACTIVE SPREAD EFFECT (Desktop Only)
-   When hovering the container, push items apart.
-*/
-@media (min-width: 992px) {
-    .hero-composition:hover .hero-link-container.main {
-        transform: translate(-50%, -50%) scale(1);
+/* Floating Animation Keyframes */
+@keyframes floatMain {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) translateY(0);
     }
 
-    .hero-composition:hover .hero-link-container.secondary {
-        transform: translate(20%, 20%) rotate(12deg);
-    }
-
-    .hero-composition:hover .hero-link-container.tertiary {
-        transform: translate(-10%, -10%) rotate(-12deg);
+    50% {
+        transform: translate(-50%, -50%) translateY(-15px);
     }
 }
 
-/* Main Image (Center) */
-.hero-link-container.main {
-    width: 320px;
-    height: 440px;
-    z-index: 2;
+@keyframes floatSecondary {
+
+    0%,
+    100% {
+        transform: translate(0, 0) translateY(0);
+    }
+
+    50% {
+        transform: translate(0, 0) translateY(-12px);
+    }
+}
+
+@keyframes floatTertiary {
+
+    0%,
+    100% {
+        transform: translate(0, 0) translateY(0);
+    }
+
+    50% {
+        transform: translate(0, 0) translateY(-10px);
+    }
+}
+
+/* 1. MAIN CARD (Center) */
+.hero-card.main {
+    width: 340px;
+    height: 480px;
     top: 50%;
     left: 50%;
+    z-index: 10;
     transform: translate(-50%, -50%);
+    animation: floatMain 6s ease-in-out infinite;
 }
 
-/* Secondary (Bottom Right) */
-.hero-link-container.secondary {
+/* 2. SECONDARY CARD (Bottom Right) */
+.hero-card.secondary {
+    width: 220px;
+    height: 280px;
+    top: 60%;
+    left: 65%;
+    z-index: 5;
+    transform: translate(0, 0) rotate(5deg);
+    animation: floatSecondary 7s ease-in-out infinite 0.5s;
+}
+
+/* 3. TERTIARY CARD (Top Left) */
+.hero-card.tertiary {
     width: 200px;
     height: 260px;
-    top: 65%;
-    left: 65%;
-    z-index: 3;
-    transform: translate(-20%, -20%) rotate(6deg);
-}
-
-/* Tertiary (Top Left) */
-.hero-link-container.tertiary {
-    width: 190px;
-    height: 250px;
     top: 15%;
     left: 10%;
-    z-index: 1;
-    transform: translate(0, 0) rotate(-6deg);
+    z-index: 5;
+    transform: translate(0, 0) rotate(-5deg);
+    animation: floatTertiary 8s ease-in-out infinite 1s;
 }
 
-/* Mobile adjustments */
+/* -------------------------------------------
+   INTERACTIVITY (Desktop Only)
+   ------------------------------------------- */
+@media (min-width: 992px) {
+
+    /* When hovering the container, spread cards apart */
+    .hero-composition:hover .hero-card.main {
+        transform: translate(-50%, -50%) scale(0.95);
+        /* Slight shrink to give space */
+    }
+
+    .hero-composition:hover .hero-card.secondary {
+        transform: translate(40px, 40px) rotate(10deg);
+    }
+
+    .hero-composition:hover .hero-card.tertiary {
+        transform: translate(-40px, -40px) rotate(-10deg);
+    }
+
+    /* When hovering a SPECIFIC card, bring it to front and scale up */
+    .hero-card:hover {
+        z-index: 100 !important;
+        transform: scale(1.05) !important;
+        /* Overrides spread transforms */
+        border: 2px solid white;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        animation-play-state: paused;
+    }
+
+    /* Maintain center position for main on hover */
+    .hero-card.main:hover {
+        transform: translate(-50%, -50%) scale(1.05) !important;
+    }
+}
+
+/* -------------------------------------------
+   MOBILE RESPONSIVENESS
+   ------------------------------------------- */
+@media (max-width: 991px) {
+    .hero-composition {
+        height: 500px;
+        transform: scale(0.9);
+        /* Scale down whole composition */
+    }
+}
+
 @media (max-width: 768px) {
     .hero-composition {
-        min-height: 350px;
+        height: 450px;
+        margin-top: 20px;
+        perspective: none;
+        /* Flatten for mobile */
     }
 
-    .hero-link-container.main {
-        width: 220px;
-        height: 300px;
+    .hero-card {
+        animation: none;
+        /* Disable floating on mobile to save battery/performance */
+        border: 2px solid rgba(255, 255, 255, 0.5);
     }
 
-    .hero-link-container.secondary {
+    /* Stack them nicely */
+    .hero-card.main {
+        width: 240px;
+        height: 340px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .hero-card.secondary {
         width: 140px;
         height: 180px;
-        top: 75%;
-        left: 70%;
-        transform: translate(-50%, -50%) rotate(8deg);
+        top: 70%;
+        left: 75%;
+        transform: translate(-50%, -50%) rotate(10deg);
+        z-index: 11;
+        /* Bring forward */
     }
 
-    .hero-link-container.tertiary {
+    .hero-card.tertiary {
         width: 130px;
         height: 170px;
-        top: 10%;
-        left: 5%;
-        transform: rotate(-5deg);
+        top: 15%;
+        left: 15%;
+        transform: translate(-50%, -50%) rotate(-8deg);
     }
 }
