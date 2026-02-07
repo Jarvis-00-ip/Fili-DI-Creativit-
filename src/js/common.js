@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const links = {
     home: homeLink,
     prodotti: prefix + "candele.html",
+    bomboniere: prefix + "bomboniere.html",
     contatti: prefix + "contatti.html",
     chisiamo: prefix + "chisiamo.html",
     footer: prefix + "footer.html",
@@ -59,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <ul class="nav-links" id="navLinks">
         <li><a href="${links.home}">Home</a></li>
         <li><a href="${links.prodotti}">Prodotti</a></li>
+        <li><a href="${links.bomboniere}">Bomboniere</a></li>
         <li><a href="${links.contatti}">Contatti</a></li>
 
         <!-- CARRELLO (DISABILITATO) -->
@@ -118,6 +120,62 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     });
+  }
+
+
+  // ==========================================
+  // BREADCRUMBS GENERATION (Redesigned)
+  // ==========================================
+  const main = document.querySelector('main');
+
+  // Only add breadcrumbs if 'main' exists and they aren't already there
+  if (main && !document.querySelector('.breadcrumbs')) {
+    const path = window.location.pathname;
+    const filename = path.split("/").pop();
+
+    // Generate Breadcrumbs ONLY if NOT Home and NOT Empty
+    if (filename !== "index.html" && filename !== "") {
+
+      let breadcrumbHTML = `<div class="breadcrumbs"><a href="${links.home}">Home</a>`;
+
+      // 1. If we are in "Candele" (the main shop listing)
+      if (filename === "candele.html") {
+        breadcrumbHTML += ` <span class="separator">/</span> <span class="current">Prodotti</span>`;
+      }
+      // 2. If we are in a Product Detail Page (inside src/html/shop/candele/...)
+      else if (path.includes("/shop/candele/")) {
+        // Link back to "Prodotti" (candele.html)
+        breadcrumbHTML += ` <span class="separator">/</span> <a href="${links.prodotti}">Prodotti</a>`;
+
+        // Clean up the product name from filename
+        let productName = filename
+          .replace(".html", "")
+          .replace(/-/g, " ")
+          .replace(/\b\w/g, c => c.toUpperCase()); // Capitalize Words
+
+        breadcrumbHTML += ` <span class="separator">/</span> <span class="current">${productName}</span>`;
+      }
+      // 3. Other pages (Chi Siamo, Contatti, Bomboniere, etc.)
+      else {
+        let pageName = filename
+          .replace(".html", "")
+          .replace(/-/g, " ")
+          .replace(/\b\w/g, c => c.toUpperCase());
+
+        breadcrumbHTML += ` <span class="separator">/</span> <span class="current">${pageName}</span>`;
+      }
+
+      breadcrumbHTML += `</div>`;
+
+      // Insert at the top of main
+      main.insertAdjacentHTML('afterbegin', breadcrumbHTML);
+
+      // Inject CSS dynamically
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = rootPrefix + 'src/css/breadcrumbs.css';
+      document.head.appendChild(link);
+    }
   }
 
   const footerPlaceholder = document.getElementById("footer-placeholder");

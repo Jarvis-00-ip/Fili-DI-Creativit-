@@ -1,0 +1,46 @@
+/* =========================
+   BREADCRUMBS
+   ========================= */
+.breadcrumbs {
+    padding: 10px 40px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 80px;
+    /* Offset for navbar */
+    margin-bottom: -40px;
+    /* Pull closer to hero if needed, or adjust padding */
+    z-index: 10;
+    position: relative;
+}
+
+.breadcrumbs a {
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: color 0.3s;
+}
+
+.breadcrumbs a:hover {
+    color: var(--accent);
+}
+
+.breadcrumbs span.separator {
+    color: var(--divider);
+}
+
+.breadcrumbs span.current {
+    color: var(--text);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .breadcrumbs {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+        margin-top: 70px;
+        margin-bottom: -20px;
+    }
+}

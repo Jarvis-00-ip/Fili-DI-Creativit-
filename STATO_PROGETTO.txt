@@ -11,31 +11,13 @@ Data: 6 Febbraio 2026
    - Tutti i link nel codice sono stati aggiornati automaticamente per puntare alle nuove immagini.
    - Ora il sito è molto più veloce.
 
-3. **Nuove Pagine Prodotto**:
-   - Abbiamo creato 9 nuove pagine individuali per le varianti di candele (es. `candela-satinata-viola.html`), tutte collegate correttamente dalla griglia prodotti.
+6. **Consistenza Pagine Prodotto**:
+   - Abbiamo uniformato il layout di tutte le pagine prodotto: Immagine a Sinistra, Testo a Destra.
+   - Corretto tutti i problemi di codifica caratteri (es. "Creatività", simbolo Euro, Emoji).
+   - Rimosso stili inline obsoleti per una gestione centralizzata via CSS.
 
-4. **Restyling Hero Page (Candele)**:
-   - Abbiamo creato un'intestazione elegante senza foto sgranate a tutto schermo, usando invece una grafica pulita con due foto "fluttuanti" ai lati.
+7. **Nuova Sezione Bomboniere**:
+   - Creata la pagina `src/html/bomboniere.html` con grafica "Lavori in Corso".
+   - Aggiunto il collegamento "Bomboniere" nel Menu Principale (visibile sia su Desktop che nel Menu Mobile).
 
-5. **Landing Page (Home)**:
-   - Abbiamo provato a rendere interattiva la composizione delle tre foto fluttuanti in Home Page.
-   - A causa di instabilità nel layout (immagini troppo grandi o sovrapposte male), abbiamo **ripristinato la versione stabile originale**: le foto fluttuano dolcemente ma NON sono cliccabili per evitare che "esplodano" o rompano il design su mobile.
-
-## ⚠️ DA VERIFICARE DOMANI
-1. **Home Page**:
-   - Controllare che l'animazione di "galleggiamento" (floating) funzioni correttamente su Desktop.
-   - Verificare che su Mobile le tre immagini si ridimensionino correttamente senza uscire dallo schermo o sovrapporsi al testo.
-
-2. **Mobile Check**:
-   - Navigare tutto il sito dal telefono per assicurarsi che i menu e i bottoni "Aggiungi al carrello" siano facili da cliccare.
-
-3. **Step Successivo (Opzionale)**:
-   - Se si vuole rendere le foto della Home cliccabili, bisognerà studiare un layout CSS Grid dedicato che non vada in conflitto con l'animazione fluttuante (consigliato farlo in una sessione dedicata a "fermo immagine").
-
-## 📂 FILE CHIAVE
-- `index.html`: Home page.
-- `src/html/candele.html`: Pagina principale dello shop.
-- `src/css/home.css`: Stili specifici della Home.
-- `src/css/candele.css`: Stili specifici dello shop candele.
-
-Il sito è ora pulito, leggero e focalizzato sul core business: le Candele.
+Il sito è ora pulito, leggero e con una struttura di navigazione completa.

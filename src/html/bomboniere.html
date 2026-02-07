@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bomboniere - Fili di Creatività</title>
+    <meta name="description" content="Bomboniere artigianali per battesimi, matrimoni ed eventi speciali.">
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/style-base.css">
+    <link rel="stylesheet" href="../css/mobile-menu.css">
+
+    <style>
+        /* Specific styles for WIP page */
+        .wip-container {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--bg);
+        }
+
+        .wip-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .wip-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+
+        .wip-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn-back {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-3px);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar"></nav>
+
+    <main>
+        <section class="wip-container">
+            <div class="wip-icon">🎁</div>
+            <h1 class="wip-title">Lavori in Corso</h1>
+            <p class="wip-text">
+                Stiamo creando una sezione speciale dedicata alle <strong>Bomboniere</strong> per i tuoi eventi più
+                importanti.<br>
+                Battesimi, Matrimoni, Lauree e molto altro.<br><br>
+                Torna a trovarci presto per scoprire le nostre creazioni personalizzate!
+            </p>
+
+            <a href="../../index.html" class="btn-back">Torna alla Home</a>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/common.js"></script>
+</body>
+
+</html>
